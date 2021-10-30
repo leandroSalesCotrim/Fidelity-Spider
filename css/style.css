@@ -1,0 +1,125 @@
+/* ESTILIZAÇÕES GLOBAIS */
+/* 
+    CORES UTILIZADAS
+    PRETO: #151515;
+    VERMELHO: #EB1C23;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* font-family: 'Inter', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #151515;
+}
+button{
+    background-color: #F5F5F5;
+    border-style: solid;
+    border-color: #EB1C23;
+    color: #EB1C23;
+    font-size: 25px;
+    border-width: 3px;
+    font-weight: 700;
+    outline: none;
+}
+
+body{
+    background-color: #F5F5F5;
+    height: 100vh;
+}
+
+/* MENU */
+header{
+    background-color: black;
+    width: 100%;
+    height: 4%;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.253);
+}
+header .container{
+    height: 100%;
+    display: flex;
+    justify-content: right;
+}
+.div_logo_sony{
+    height: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 2%;
+}
+.div_logo_sony img{
+    width: 100%;
+    height: 100%;
+}
+
+/* CONTEUDO INICIO */
+.div_inicio{
+    width: 100%;
+    height: 96%;
+}
+.div_inicio .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.div_slogan{
+    text-align: left;
+    width: 55%;
+    height: 50%;
+    margin: auto;
+    margin-top: 12%;
+}
+.div_slogan h1 {
+    font-weight: bold;
+    font-size: 45px;
+}
+.div_slogan h4 {
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 2%;
+}
+.destaque{
+    color: #EB1C23;
+}
+h4 .destaque {
+    font-weight:600;
+}
+.div_btn_inicio{
+    display: flex;
+    justify-content: center;
+    height: 20%;
+}
+.div_btn_inicio button{
+    border-radius: 20px;
+    width: 20%;
+    height: 60%;
+    margin: auto;
+    margin-top: 5%;
+    transition: ease-in 0.35s ;
+}
+.div_btn_inicio button:hover{
+    background-color: #EB1C23;
+    color: #F5F5F5;
+    transition: ease-in 0.35s ;
+    cursor: pointer;
+}
+.btn_dark_mode{
+    height: 7%;
+    width: auto;
+    margin-right: 4%;
+    margin-top: 1%;
+}
+.btn_dark_mode img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.video_inicio{
+    margin-right: 4%;
+    margin-top: 5%;
+}
+#div_video{
+    width: 100%;
+    height: 100%;
+}
