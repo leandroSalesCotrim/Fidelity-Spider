@@ -45,7 +45,7 @@
                 btn.style.backgroundColor = "#151515";
                 btn.style.transition = "none";
             }
-            url_icon.src = "img/dark-mode-light.png";
+            url_icon.src = "img/icones/dark-mode-light.png";
 
             //ALTERA A DIV DO VIDEO DA PAGINA ATRIBUINDO O VIDEO COM FUNDO PRETO
             video_inicio.innerHTML = `
@@ -56,7 +56,6 @@
             //DEFINE O STATUS DO DARK_MODE ATIVADO E ARMAZENA
             localStorage.setItem('status_dark', '1');
             mode = 1;
-            alert("teste");
 
         }else {
             document.body.style.backgroundColor = "#f5f5f5";
@@ -71,7 +70,7 @@
             
             btn.style.backgroundColor = "#f5f5f5";
             btn.style.transition = "none";
-            url_icon.src = "img/dark-mode-dark.png";
+            url_icon.src = "img/icones/dark-mode-dark.png";
 
             //ALTERA A DIV DO VIDEO DA PAGINA ATRIBUINDO O VIDEO COM FUNDO PRETO
             video_inicio.innerHTML = `

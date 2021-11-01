@@ -26,7 +26,7 @@
 
                 btn.style.backgroundColor = "#151515";
                 btn.style.transition = "none";
-            url_icon.src = "img/dark-mode-light.png";
+            url_icon.src = "img/icones/dark-mode-light.png";
 
             //ALTERA A DIV DO VIDEO DA PAGINA ATRIBUINDO O VIDEO COM FUNDO PRETO
             video_inicio.innerHTML = `
@@ -46,7 +46,7 @@
             }
                 btn.style.backgroundColor = "#f5f5f5";
                 btn.style.transition = "none";
-                url_icon.src = "img/dark-mode-dark.png";
+                url_icon.src = "img/icones/dark-mode-dark.png";
                 
                 //ALTERA A DIV DO VIDEO DA PAGINA ATRIBUINDO O VIDEO COM FUNDO PRETO
             video_inicio.innerHTML = `

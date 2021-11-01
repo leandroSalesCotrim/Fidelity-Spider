@@ -7,7 +7,7 @@
     <title>Um momento...</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/aranha-vermelha.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -23,12 +23,12 @@
     <!-- CONTEUDO -->
     <div class="div_login">
         <div class="div_porco_aranha">
-            <img src="img/Peter_Porker.png" alt="">
+            <img src="img/Peter_Porker.png" draggable="false" alt="">
         </div>
         <div class="container">
             
             <div class="btn_dark_mode" >
-                <img id="src_icon" onclick="dark_mode()" src="img/dark-mode-dark.png" alt="Modo escuro">
+                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
             </div>
 
             <div class="div_aviso_login">
@@ -45,20 +45,20 @@
                     
                     <div class="div_input">
                         <div class="div_img_input">
-                            <img src="img/user_icon.png" alt="">
+                            <img src="img/icones/user_icon.png" draggable="false" alt="">
                         </div>
-                        <input type="text" placeholder="Nome de usúario">
+                        <input class="input_login" type="text" placeholder="Nome de usúario">
                     </div>
 
                     <div class="div_input">
                         <div class="div_img_input">
-                            <img src="img/padlock.png" alt="">
+                            <img src="img/icones/padlock.png" draggable="false" alt="">
                         </div>
-                        <input type="text" placeholder="Senha de usúario">
+                        <input class="input_login" type="text" placeholder="Senha de usúario">
                     </div>
 
                     <button><p class="destaque_btn">Entrar</p></button>
-                    <button id="link_cadastro" style="border-style: none;width: 40%;" onclick="abrirCadastro()"><h5>Ainda não pussui uma conta? <br> cadastre aqui!</h5></button>
+                    <span id="link_cadastro" style="margin: auto;cursor: pointer; border-style: none;width: 40%;" onclick="abrirCadastro()"><h5 style="font-weight: normal;">Ainda não pussui uma conta? <br> cadastre aqui!</h5></span>
                 </div>
 
                 <div id="container2" class="container2">
@@ -67,16 +67,16 @@
                     
                     <div class="div_input">
                         <div class="div_img_input">
-                            <img src="img/user_icon.png" alt="">
+                            <img src="img/icones/user_icon.png" draggable="false" alt="">
                         </div>
-                        <input type="text" placeholder="Nome de usúario">
+                        <input class="input_login" type="text" placeholder="Nome de usúario">
                     </div>
 
                     <div class="div_input">
                         <div class="div_img_input">
-                            <img src="img/padlock.png" alt="">
+                            <img src="img/icones/padlock.png" draggable="false" alt="">
                         </div>
-                        <input type="text" placeholder="Senha de usúario">
+                        <input class="input_login" type="text" placeholder="Senha de usúario">
                     </div>
 
                     <button><p class="destaque_btn">Cadastrar</p></button>
@@ -101,6 +101,7 @@
     //RESGATANDO ELEMENTOS DO HTML
     //GET ELEMENTS BY CLASS NAME TRÁS TODOS OS ELEMENTOS COM O MESMO CLASSNAME EM FORMATO DE VETOR
     var txtLogin = document.getElementsByClassName("txt_dark");
+    var inputs = document.getElementsByClassName("input_login");
     //var btn = document.getElementById("btn_login");
     var url_icon = document.getElementById("src_icon");
     
@@ -110,18 +111,24 @@
     //CONDIÇÃO PARA RECONHCER SE O MODO ESCURO ESTA LIGADO OU NÃO
         if(mode == '1'){
             document.body.style.backgroundColor = "#151515";
+            card_login_cadastro.style.backgroundColor = "#0B689E";
             
             //LAÇO DE REPETIÇÃO QUE ALTERA A COR DA FONTE DE TODOS OS ELEMENTOS DENTRO DO VETOR "TXT"
             //O LAÇO TERMINA NO NUMERO DE ELEMENTOS RESGATADO PELO GETELEMENTSBYCLASSNAME (.LENGTH)
             var i = 0;
+            var j = 0;
             while ( i < txtLogin.length) {
                 txtLogin[i].style.color = "#f5f5f5";
                 i++;
             }
+            while ( j < inputs.length) {
+                inputs[j].style.backgroundColor = "#0B689E";
+                j++;
+            }
 
                 //btn.style.backgroundColor = "#151515";
                 //btn.style.transition = "none";
-            url_icon.src = "img/dark-mode-light.png";
+            url_icon.src = "img/icones/dark-mode-light.png";
 
         }
         if (mode == '0') {
@@ -134,7 +141,7 @@
                 txtLogin[i].style.color = "#151515";
                 i++;
             }
-                url_icon.src = "img/dark-mode-dark.png";
+                url_icon.src = "img/icones/dark-mode-dark.png";
         }
 
         function abrirCadastro(){
@@ -157,16 +164,22 @@
     //CONDIÇÃO PARA RECONHCER SE O MODO ESCURO ESTA LIGADO OU NÃO
         if(mode == '0'){
             document.body.style.backgroundColor = "#151515";
+            card_login_cadastro.style.backgroundColor = "#0B689E";
             
             //LAÇO DE REPETIÇÃO QUE ALTERA A COR DA FONTE DE TODOS OS ELEMENTOS DENTRO DO VETOR "TXT"
             //O LAÇO TERMINA NO NUMERO DE ELEMENTOS RESGATADO PELO GETELEMENTSBYCLASSNAME (.LENGTH)
             var i = 0;
+            var j = 0;
             while ( i < txtLogin.length) {
                 txtLogin[i].style.color = "#f5f5f5";
                 i++;
             }
+            while ( j < inputs.length) {
+                inputs[j].style.backgroundColor = "#0B689E";
+                j++;
+            }
             
-            url_icon.src = "img/dark-mode-light.png";
+            url_icon.src = "img/icones/dark-mode-light.png";
 
             //DEFINE O STATUS DO DARK_MODE ATIVADO E ARMAZENA
             localStorage.setItem('status_dark', '1');
@@ -174,16 +187,21 @@
 
         }else {
             document.body.style.backgroundColor = "#f5f5f5";
-            
+            card_login_cadastro.style.backgroundColor = "#151515";
             //LAÇO DE REPETIÇÃO QUE ALTERA A COR DA FONTE DE TODOS OS ELEMENTOS DENTRO DO VETOR "TXT"
             //O LAÇO TERMINA NO NUMERO DE ELEMENTOS RESGATADO PELO GETELEMENTSBYCLASSNAME (.LENGTH)
             var i = 0;
+            var j = 0;
             while ( i < txtLogin.length) {
                 txtLogin[i].style.color = "#151515";
                 i++;
             }
+            while ( j < inputs.length) {
+                inputs[j].style.backgroundColor = "#151515";
+                j++;
+            }
             
-            url_icon.src = "img/dark-mode-dark.png";
+            url_icon.src = "img/icones/dark-mode-dark.png";
 
             //DEFINE O STATUS DO DARK_MODE ATIVADO E ARMAZENA
             localStorage.setItem('status_dark', '0');

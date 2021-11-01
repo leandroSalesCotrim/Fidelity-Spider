@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- MENU -->
+    <header>
+        <div class="container">
+            <div class="div_logo_sony">
+                <img id="logo_sony" src="img/sony-logo-branca.png" alt="Logo Sony">
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEUDO -->
+    <div class="div_dashboardU">
+        
+        <div class="containerA">
+            <div class="div_txt">
+                <h2>Bem vindo, espetacular <span id="span2">usúario!</span></h2>
+                <hr>
+                <h5><span>SpiderPoints:</span> 300</h5>
+            </div>
+
+            <div class="div_img">
+                <img src="img/Miles_Morales.png" draggable="false" alt="">
+            </div>
+
+            <div class="div_logout">
+                <a href="">
+                    <img draggable="false" src="img/icones/logout.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="containerB">
+
+            <div class="div_box_card">
+                <div class="desc_box_card" id="desc_box_card1">
+                    <h1>Vote em um vilão</h1>
+                    <p>Ajude-nos a escolher o próximo vilão de Marvel's spider-man 2 e ganhe spiderPoints por isso!</p>
+                </div>
+                <div class="box_card" id="box_card1">
+                    <div class="img_card">
+                        <img src="img/venom.png" alt="">
+                    </div>
+
+                    <button onmouseenter="mostrarDesc1()" onmouseleave="ocultarDesc1()" onclick="window.location.href='votacao.html';">Votar</button>
+                </div>
+                
+            </div>
+
+            <div class="div_box_card"id="box_card2">
+                <div class="desc_box_card" id="desc_box_card2">
+                    <h1>Jogue Spider hit</h1>
+                    <p>Jogue agora spider hit com um amigo, escolha seu lado e ganhe muitos spiderPoints!</p>
+                </div>
+                <div class="box_card" >
+                    <div class="img_card">
+                        <img src="img/aranha-branca.png" alt="">
+                    </div>
+
+                    <button onmouseenter="mostrarDesc2()" onmouseleave="ocultarDesc2()">Jogar</button>
+                </div>
+            </div>
+
+            <div class="div_box_card"id="box_card3">
+                <div class="desc_box_card" id="desc_box_card3">
+                    <h1>Resgatar recompensas</h1>
+                    <p>Conheça a nossa loja, onde você pode resgatar recompensas gastando seus spiderPoints</p>
+                </div>
+                <div class="box_card" >
+                    <div class="img_card">
+                        <img src="img/loja_icon_white.png" alt="">
+                    </div>
+
+                    <button onmouseenter="mostrarDesc3()" onmouseleave="ocultarDesc3()">Resgatar</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn_dark_mode" >
+            <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
+        </div>
+
+
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    function mostrarDesc1(){
+        desc_box_card1.style.opacity = "1";
+        desc_box_card1.style.transition = "0.3s";
+    }
+    function mostrarDesc2(){
+        desc_box_card2.style.opacity = "1";
+        desc_box_card2.style.transition = "0.3s";
+    }
+    function mostrarDesc3(){
+        desc_box_card3.style.opacity = "1";
+        desc_box_card3.style.transition = "0.3s";
+    }
+
+    function ocultarDesc1(){
+        desc_box_card1.style.opacity = "0";
+        desc_box_card1.style.transition = "0.3s";
+    }
+    function ocultarDesc2(){
+        desc_box_card2.style.opacity = "0";
+        desc_box_card2.style.transition = "0.3s";
+    }
+    function ocultarDesc3(){
+        desc_box_card3.style.opacity = "0";
+        desc_box_card3.style.transition = "0.3s";
+    }
+</script>
+

@@ -225,25 +225,24 @@ h4 .destaque {
     color: #DEDEDE;
 }
 .card_login_cadastro .container button{
-    background-color: #151515;
+    background-color: #EB1C23;
     width: 20%;
     height:9%;
     border-radius: 10px;
-    color: #EB1C23;
-    border-width: 2px;
+    border-style: none;
+    color: #ffffff;
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;    
-    transition: ease-in 0.35s ;
+    transition: ease-in 0.2s ;
 }
 .card_login_cadastro button:hover{
-    background-color: #EB1C23;
-    color: #F5F5F5;
-    transition: ease-in 0.35s ;
+    background-color: #851317;
+    transition: ease-in 0.2s ;
     cursor: pointer;
 }
-.card_login_cadastro button .destaque_btn:hover{
+.card_login_cadastro button .destaque_btn{
     color: #F5F5F5;
 }
 .destaque_btn{
@@ -261,9 +260,6 @@ h4 .destaque {
     margin-top: 5%;
     font-size: 13px;
 }
-#link_cadastro:hover{
-    background-color: #151515;
-}
 .container2{
     float: left;
     width: 50%;
@@ -280,9 +276,9 @@ h4 .destaque {
     font-size: 30px;
 }
 .container2 button{
-    background-color: #151515;
+    background-color: #EB1C23;
     border-radius: 10px;
-    border-width: 2px;
+    border-style: none;
     margin-top: 7%;
     width: 25%;
     height:9%;
@@ -305,9 +301,144 @@ h4 .destaque {
     width: 100%;
     height: 80%;
 }
-/* .div_login .btn_dark_mode img {
+
+/* CONTEUDO LOGIN */
+.div_dashboardU{
     width: 100%;
+    height: 96%;
+    display: flex;
+}
+.div_dashboardU .containerA{
     height: 100%;
+    width: 45%;
+    margin-top: 2%;
+}
+.div_dashboardU .containerA .div_txt{
+    height: 10%;
+    width: 85%;
+    margin-left: 10%;
+}
+.div_dashboardU .containerA h2{
+    color: #151515;
+    font-size: 30px;
+    font-weight:500;
+}
+.div_dashboardU .containerA h5{
+    color: #151515;
+    font-size: 18px;
+}
+.div_dashboardU .containerA .div_txt hr{
+    height: 7%;
+    width: 90%;
+    background-color: #EB1C23;
+    border-style: none;
+}
+.div_dashboardU .container1 span{
+    color:#EB1C23;
+    font-weight: bold;
+}
+.container1 #span2{
+    color:#151515;
+}
+.div_dashboardU .div_img{
+    height: 67%;
+    margin-left: 10%;
+}
+.div_dashboardU .div_img img{
+    height: 100%;
+    width: auto;    
+}
+.div_dashboardU .div_logout{
+    height: 7%;
+    margin-left: 10%;
+    margin-top: 5%;
+    transform: scaleX(-1);
+    float: left;
+}
+.div_dashboardU .div_logout img{
+    height: 100%;
+    width: auto;  
+}
+.div_dashboardU .containerB{
+    height: 80%;
+    width: 55%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.div_box_card{
+    width: 50%;
+    height: 30%;
+    flex-direction: column;
+    margin-left: 5%;
+}
+.containerB .box_card{
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #151515;
+    box-shadow: #EB1C23 10px -10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.containerB .box_card .img_card{
+    width: auto;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.containerB .box_card .img_card img{
+    width: auto;
+    height: 100%;
+}
+.containerB .box_card button{
+    border-radius: 10px;
+    background-color: #0B689E;
+    color: #F5F5F5;
+    border-style: none;
+    width: 40%;
+    height: 13%;
+    margin: auto;
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    background-color: red;
-} */
+}
+.desc_box_card{
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #151515b6;
+    float: left;
+    opacity: 0;
+    text-align: center;
+}
+.desc_box_card h1{
+    color: #0596EB;
+    margin-top: 10%;
+    font-size: 13px;
+    font-weight: bold;
+}
+.desc_box_card p{
+    color:#F5F5F5;
+    margin-top: 5%;
+    font-size: 13px;
+    font-weight: 200;
+    padding-left: 10%;
+    text-align: start;
+}
+#box_card1{
+}
+#box_card2{
+    margin-left: 60%;
+    margin-top: 2%;
+}
+#box_card3{
+    margin-top: 2%;
+}
+#box_card3 button{
+    width: 50%;
+}
