@@ -54,6 +54,7 @@ header .container{
     width: 100%;
     height: 100%;
 }
+/*----------------------------------------------------------------------------------------------------------------*/
 
 /* CONTEUDO INICIO */
 .div_inicio{
@@ -126,6 +127,7 @@ h4 .destaque {
     width: 100%;
     height: 100%;
 }
+/*----------------------------------------------------------------------------------------------------------------*/
 
 /* CONTEUDO LOGIN */
 .div_login{
@@ -301,6 +303,7 @@ h4 .destaque {
     width: 100%;
     height: 80%;
 }
+/*----------------------------------------------------------------------------------------------------------------*/
 
 /* CONTEUDO LOGIN */
 .div_dashboardU{
@@ -312,11 +315,12 @@ h4 .destaque {
     height: 100%;
     width: 45%;
     margin-top: 2%;
+    display: flex;
+    flex-direction: column;
 }
 .div_dashboardU .containerA .div_txt{
-    height: 10%;
-    width: 85%;
-    margin-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .div_dashboardU .containerA h2{
     color: #151515;
@@ -329,16 +333,17 @@ h4 .destaque {
 }
 .div_dashboardU .containerA .div_txt hr{
     height: 7%;
-    width: 90%;
+    width: 100%;
     background-color: #EB1C23;
     border-style: none;
 }
-.div_dashboardU .container1 span{
+.div_dashboardU .containerA span{
     color:#EB1C23;
     font-weight: bold;
 }
-.container1 #span2{
+.containerA #span2{
     color:#151515;
+    font-weight:bold;
 }
 .div_dashboardU .div_img{
     height: 67%;
@@ -350,10 +355,12 @@ h4 .destaque {
 }
 .div_dashboardU .div_logout{
     height: 7%;
-    margin-left: 10%;
-    margin-top: 5%;
+    width: auto;
+    margin: auto;
+    margin-left: 20%;
+
     transform: scaleX(-1);
-    float: left;
+    justify-content: start;
 }
 .div_dashboardU .div_logout img{
     height: 100%;
@@ -430,8 +437,6 @@ h4 .destaque {
     padding-left: 10%;
     text-align: start;
 }
-#box_card1{
-}
 #box_card2{
     margin-left: 60%;
     margin-top: 2%;
@@ -441,4 +446,138 @@ h4 .destaque {
 }
 #box_card3 button{
     width: 50%;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* CONTEUDO VOTAÇÃO */
+
+.div_votacao{
+    width: 100%;
+    height: 100%;
+}
+.div_votacao .container .btn_dark_mode{
+    height: 20%;
+}
+.div_votacao .container{
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+.div_votacao .container .div_img_voltar{
+    width: 3.5%;
+    height: 20%;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+.div_votacao .container .div_img_voltar img{
+    height: 100%;
+    width: auto;
+    transform: scaleX(-1);
+    
+
+}
+.div_votacao .container .txt_centro{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.txt_centro span{
+    color: #EB1C23;
+    font-weight: bold;
+}
+.txt_centro .titulo{
+    margin: auto;
+}
+
+.txt_centro .titulo hr{
+    width: 100%;
+    height: 10%;
+    border-style: none;
+    background-color: #EB1C23;
+}
+.txt_centro .titulo h1{
+    font-size: 45px;
+}
+.div_votacao .container .txt_centro p{
+    font-size: 18px;
+    color:#151515;
+    font-weight:500;
+}
+.div_votacao .container .txt_centro h5{
+    font-size: 18px;
+    color:#151515;
+    font-weight:600;
+}
+.div_votacao .containerV{
+    width: 100%;
+    height: 65%;
+}
+.div_viloes{
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+    flex-wrap: flex;
+    flex-direction: column;
+}
+.card_viloes{
+    height: 100%;
+    width: 14.15%;
+    float: left;
+}
+.card_viloes .img{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position-x: 50%;
+    border-style: solid;
+    border-color: #151515;
+    border-top-width: 8px;
+    border-left-width: 7px;
+}
+.card_viloes .img:hover{
+    border-top-color: #EB1C23;
+    cursor: pointer;
+}.card_viloes .img .nome:hover{
+    background-color: #15151500;
+}
+.card_viloes .img .nome{
+    background-color: #15151588;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+}
+.card_viloes .img .nome h1{
+    color: #F5F5F5;
+    text-shadow: 2px 2px 0 #eb1c23a6;
+    margin: auto;
+    font-size: 25px;
+    font-weight: bold;
+}
+.card_viloes #img1{
+    background-image: url(../img/viloes/DuendeMacabro.jpg);
+}
+.card_viloes #img2{
+    background-image: url(../img/viloes/carnificina.jpg);
+}
+.card_viloes #img3{
+    background-image: url(../img/viloes/chacaljpg.jpg);
+}
+.card_viloes #img4{
+    background-image: url(../img/viloes/morbius.jpeg);
+}
+.card_viloes #img5{
+    background-image: url(../img/viloes/mysterio.png);
+}
+.card_viloes #img6{
+    background-image: url(../img/viloes/kaine.jpg);
+}
+.card_viloes #img7{
+    background-image: url(../img/viloes/kraven.jpg);
+    border-right-width: 7px;
 }
