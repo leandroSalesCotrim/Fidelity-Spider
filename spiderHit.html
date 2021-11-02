@@ -80,10 +80,10 @@
                         <div class="info_j1">
                             <h1>Homem-aranha</h1>
                             <div class="barra_vida_j1">
-                                <div class="vida_j1">
+                                <div id="vida_j1" class="vida_j1">
                                 </div>
                             </div>
-                            <h5>80 HP</h5>
+                            <h5 id="hp_j1_atual">100 HP</h5>
                         </div>
 
                         <div class="tecla_j1">
@@ -103,10 +103,10 @@
                         <div class="info_j2">
                             <h1>Venom</h1>
                             <div class="barra_vida_j2">
-                                <div class="vida_j2">
+                                <div id="vida_j2"class="vida_j2">
                                 </div>
                             </div>
-                            <h5>100 HP</h5>
+                            <h5 id="hp_j2_atual">100 HP</h5>
                         </div>
 
                         <div class="icon_j2">
@@ -118,14 +118,28 @@
                 </div>
 
             </div>
-        </div>
 
+        </div>
+        <div class="div_img_fundo">
+            <div class="img_venom">
+                <img src="img/venom_2.png" alt="">
+            </div>
+
+            <div class="img_superiorsm">
+                <img src="img/superiorsm.png" alt="">
+            </div>
+
+        </div>
     </div>
-    
+    </div> 
 </body>
 </html>
 
 <script>
+
+    var hp_j1 = 100;
+    var hp_j2 = 100;
+
     //script para reconhcer teclas pressionadas na pagina e fazer os personagens fazerem
     // as animações e lógica do jogo
 
@@ -135,6 +149,10 @@
             //Se o evento do key code == 65 (letra A) retornar true,então faça a animação 
             if (event.keyCode == 65) { 
                 img_j1.src = "img/spiderhit/aranha_soco.png";//troca para imagem de soco
+                hp_j2 = hp_j2 - 3;
+                
+                vida_j2.style.width = hp_j2+"%";  
+                hp_j2_atual.innerHTML = hp_j2+" HP";
                 
                 //Após 200ms de entrar no if, retorna a imagem a forma original 
                 setTimeout(function(){
@@ -169,7 +187,10 @@
             //Se o evento do key code == 74 (letra J) retornar true,então faça a animação 
             if (event.keyCode == 74){
                 img_j2.src = "img/spiderhit/venom_soco.png";//troca para imagem de soco
-
+                hp_j1 = hp_j1 - 3;
+                
+                vida_j1.style.width = hp_j1+"%";  
+                hp_j1_atual.innerHTML = hp_j1+" HP";
                 //Após 200ms de entrar no if, retorna a imagem a forma original
                 setTimeout(function(){
                     img_j2.src = "img/spiderhit/venom_pose.png";//volta para imagem original

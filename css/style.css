@@ -29,6 +29,7 @@ button{
 body{
     background-color: #F5F5F5;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* MENU */
@@ -879,5 +880,31 @@ h4 .destaque {
 }
 .img_tecla2_j2 img{
     width: 100%;
+    height: 100%;
+}
+.div_img_fundo{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    margin-top: 2%;
+}
+.div_img_fundo .img_venom{
+    width: auto;
+    height: 80%;
+    transform: scaleX(-1);
+    margin-left: 2%;
+}
+.div_img_fundo .img_venom img{
+    width: auto;
+    height: 100%;
+}
+.div_img_fundo .img_superiorsm{
+    width: auto;
+    height: 80%;    
+    margin-top: 1%;
+    margin-left: 10%;
+}
+.div_img_fundo .img_superiorsm img{
+    width: auto;
     height: 100%;
 }
