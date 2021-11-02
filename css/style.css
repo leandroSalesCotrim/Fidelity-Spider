@@ -127,6 +127,13 @@ h4 .destaque {
     width: 100%;
     height: 100%;
 }
+video{
+    transition: 1s;
+}
+video:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
 /*----------------------------------------------------------------------------------------------------------------*/
 
 /* CONTEUDO LOGIN */
@@ -305,7 +312,7 @@ h4 .destaque {
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 
-/* CONTEUDO LOGIN */
+/* CONTEUDO DASHBOARD */
 .div_dashboardU{
     width: 100%;
     height: 96%;
@@ -400,6 +407,11 @@ h4 .destaque {
 .containerB .box_card .img_card img{
     width: auto;
     height: 100%;
+    transition: 1s;
+}
+.containerB .box_card .img_card img:hover{
+    transform: scale(1.2);
+    transition: 1s;
 }
 .containerB .box_card button{
     border-radius: 10px;
@@ -538,11 +550,15 @@ h4 .destaque {
     border-color: #151515;
     border-top-width: 8px;
     border-left-width: 7px;
+    transition: 0.5s;
 }
 .card_viloes .img:hover{
     border-top-color: #EB1C23;
     cursor: pointer;
-}.card_viloes .img .nome:hover{
+    transform: scale(1.05);
+    transition: 0.2s ;
+}
+.card_viloes .img .nome:hover{
     background-color: #15151500;
 }
 .card_viloes .img .nome{
@@ -560,7 +576,7 @@ h4 .destaque {
     font-weight: bold;
 }
 .card_viloes #img1{
-    background-image: url(../img/viloes/DuendeMacabro.jpg);
+    background-image: url(../img/viloes/DuendeMacabro.jpg);   
 }
 .card_viloes #img2{
     background-image: url(../img/viloes/carnificina.jpg);
@@ -673,6 +689,7 @@ h4 .destaque {
     height: 100%;
     background-color: #EB1C23;
     justify-content: center;
+    opacity: 0.9;
 }
 .iniciar_card button{
     margin-left: 45%;
