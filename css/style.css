@@ -101,11 +101,6 @@ h4 .destaque {
     margin: auto;
     margin-top: 5%;
     transition: ease-in 0.35s ;
-}
-.div_btn_inicio button:hover{
-    background-color: #EB1C23;
-    color: #F5F5F5;
-    transition: ease-in 0.35s ;
     cursor: pointer;
 }
 .btn_dark_mode{
@@ -939,4 +934,143 @@ video:hover{
 .div_img_fundo .img_superiorsm img{
     width: auto;
     height: 100%;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* CONTEUDO LOJA */
+.div_loja{
+    width: 100%;
+    height: 100%;
+}
+.div_loja .container .btn_dark_mode{
+    height: 100%;
+    margin-top: 0;
+}
+.div_loja .container{
+    width: 100%;
+    height: 6%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+.div_loja .container .div_img_voltar{
+    width: 3%;
+    height: 100%;
+    margin-left: 5%;
+    justify-content: flex-start;
+}
+.div_loja .container .div_img_voltar img{
+    height: 100%;
+    transform: scaleX(-1);
+    margin: auto;
+}
+.div_loja .container .SpiderPoints{
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.SpiderPoints span{
+    color:#EB1C23;
+    
+}
+.SpiderPoints h5{
+    font-size: 18px;
+    font-weight: bold;
+}
+.div_loja .containerTxt{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.div_loja .containerTxt h4{
+    font-size: 18px;
+    font-weight: 500;
+}
+.div_loja .containerTxt .titulo{
+    margin: auto;
+}
+.div_loja .containerTxt .titulo h1{
+    font-size: 45px;
+    font-weight: bold;
+}
+.div_loja .containerTxt .titulo hr{
+    width: 100%;
+    height: 10%;
+    background-color: #EB1C23;
+    border-style: none;
+}
+.div_loja .containerCards{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+.containerCards .cardItem{
+    width: 19%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.containerCards .cardItem .div_img{
+    width: 100%;
+    height: 65%;
+    background-size: cover;
+    border-radius: 10px;
+    background-position: center;
+}
+.div_img .sp{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.div_img .sp h4{
+    width: 100%;
+    background-color: #0b689e9d;
+    margin-top: 55%;
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: #F5F5F5;
+    font-size: 15px;
+    font-weight:500;
+}
+.containerCards .cardItem .txt_card h5{
+    font-size: 15px;
+    font-weight: 500;
+}
+.containerCards .cardItem .txt_card h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+.containerCards .cardItem button{
+    background-color: #151515;
+    width: 40%;
+    height: 22%;
+    border-style: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #F5F5F5;
+    margin: auto;
+}
+.containerCards .cardItem button span{
+    color: #EB1C23;
+}
+.cardItem #img1{
+    background-image: url(../img/loja/capa-spiderMan-miles.png);
+}
+.cardItem #img2{
+    background-image: url(../img/loja/Spider-Man-capa.jpg);
+}
+.cardItem #img3{
+    background-image: url(../img/loja/Spider-Man2-capa.jpg);
+}
+.cardItem #img4{
+    background-image: url(../img/loja/wolverine-capa.jpg);
 }
