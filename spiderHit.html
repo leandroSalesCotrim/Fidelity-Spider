@@ -41,6 +41,10 @@
         
         </div>
 
+        <div id="iniciar_card" class="iniciar_card">
+            <button onclick="iniciar_jogo()">Iniciar</button>
+        </div>
+
         <div class="containerA">
             
             <div class="desc_minigame">
@@ -83,12 +87,12 @@
                                 <div id="vida_j1" class="vida_j1">
                                 </div>
                             </div>
-                            <h5 id="hp_j1_atual">100 HP</h5>
+                            <h5 id="hp_j1_atual">100</h5><h5>HP</h5>
                         </div>
 
                         <div class="tecla_j1">
-                            <div class="img_tecla1_j1"> <img src="img/spiderhit/tecladoA.png" alt=""></div>
-                            <div class="img_tecla2_j1"> <img src="img/spiderhit/tecladoD.png" alt=""></div>
+                            <div class="img_tecla1_j1"> <img id="teclaA" src="img/spiderhit/tecladoA.png" alt=""></div>
+                            <div class="img_tecla2_j1"> <img id="teclaD"src="img/spiderhit/tecladoD.png" alt=""></div>
                         </div>
 
                     </div>
@@ -96,8 +100,8 @@
                     <div class="card_minigame_statusJ2">
                         
                         <div class="tecla_j2">
-                            <div class="img_tecla1_j2"> <img src="img/spiderhit/tecladoJ.png" alt=""></div>
-                            <div class="img_tecla2_j2"> <img src="img/spiderhit/tecladoK.png" alt=""></div>
+                            <div class="img_tecla1_j2"> <img id="teclaJ" src="img/spiderhit/tecladoJ.png" alt=""></div>
+                            <div class="img_tecla2_j2"> <img id="teclaK" src="img/spiderhit/tecladoK.png" alt=""></div>
                         </div>
 
                         <div class="info_j2">
@@ -106,7 +110,7 @@
                                 <div id="vida_j2"class="vida_j2">
                                 </div>
                             </div>
-                            <h5 id="hp_j2_atual">100 HP</h5>
+                            <h5 id="hp_j2_atual">100</h5><h5>HP</h5>
                         </div>
 
                         <div class="icon_j2">
@@ -139,86 +143,136 @@
 
     var hp_j1 = 100;
     var hp_j2 = 100;
+    var anim_soco_j1 = 0;
+    var anim_soco_j2 = 0;
+    var anim_desvio_j1 = 0;
+    var anim_desvio_j2 = 0;
+    var partida = 0;
 
-    //script para reconhcer teclas pressionadas na pagina e fazer os personagens fazerem
-    // as animações e lógica do jogo
+    function iniciar_jogo(){
+        iniciar_card.style.display = "none";
+        partida = 1; //inicia partida
+    //se a partida for iniciada, o jogo funciona
+    if(partida == 1){
 
-    //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"
-    document.addEventListener('keydown', function (event) {
-        
+        //Função que reconhece as teclas pressionadas na pagina e faz a lógica do jogo e animações
+        function gameplay (event) {
+                
             //Se o evento do key code == 65 (letra A) retornar true,então faça a animação 
             if (event.keyCode == 65) { 
                 img_j1.src = "img/spiderhit/aranha_soco.png";//troca para imagem de soco
-                hp_j2 = hp_j2 - 3;
+                teclaA.src = "img/spiderhit/tecladoA-vermelho.png"
                 
-                vida_j2.style.width = hp_j2+"%";  
-                hp_j2_atual.innerHTML = hp_j2+" HP";
-                
+                anim_soco_j1 = 1;
+                    
                 //Após 200ms de entrar no if, retorna a imagem a forma original 
                 setTimeout(function(){
                     img_j1.src = "img/spiderhit/aranha_pose.png";//volta para imagem original
+                    teclaA.src = "img/spiderhit/tecladoA.png"
+
+                    anim_soco_j1 = 0;
                 }, 200);
-            }
-        }
-    );
-
-    //adicionando evento que chama função ao afundar a tecla especificada em "keycode"
-    document.addEventListener('keydown', function (event) {
-
-            //Se o evento do key code == 68 (letra D) retornar true,então faça a animação 
-            if (event.keyCode == 68){
+                
+                
+            }else if (event.keyCode == 68){
                 img_j1.src = "img/spiderhit/aranha_desvio.png";//troca para imagem de desvio
+                teclaD.src = "img/spiderhit/tecladoD-vermelho.png"
                 img_j1.style.height = "70%";//troca a altura
                 img_j1.style.marginTop = "60%";//troca a posição
+                
+                anim_desvio_j1 = 1;
 
                 //Após 200ms de entrar no if, retorna a imagem a forma original
                 setTimeout(function(){
                     img_j1.src = "img/spiderhit/aranha_pose.png";//volta para imagem original
+                    teclaD.src = "img/spiderhit/tecladoD.png"
                     img_j1.style.height = "100%";//volta para altura original
                     img_j1.style.marginTop = "0%";//volta para posição original
-                }, 400);
-            }
-        }
-    );
+                    
+                    anim_desvio_j1 = 0;
+                }, 200);
 
-    //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"
-    document.addEventListener('keydown', function (event) {
-
-            //Se o evento do key code == 74 (letra J) retornar true,então faça a animação 
-            if (event.keyCode == 74){
+            }else if (event.keyCode == 74){
                 img_j2.src = "img/spiderhit/venom_soco.png";//troca para imagem de soco
-                hp_j1 = hp_j1 - 3;
+                teclaJ.src = "img/spiderhit/tecladoJ-vermelho.png"
                 
-                vida_j1.style.width = hp_j1+"%";  
-                hp_j1_atual.innerHTML = hp_j1+" HP";
+                anim_soco_j2 = 1;
+                
                 //Após 200ms de entrar no if, retorna a imagem a forma original
                 setTimeout(function(){
                     img_j2.src = "img/spiderhit/venom_pose.png";//volta para imagem original
+                    teclaJ.src = "img/spiderhit/tecladoJ.png"
                     
+                    anim_soco_j2 = 0;
                 }, 200);
-            }
-        }
-    );
 
-    //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"
-    document.addEventListener('keydown', function (event) {
-
-        //Se o evento do key code == 75 (letra K) retornar true,então faça a animação 
-            if (event.keyCode == 75){
+            }else if (event.keyCode == 75){
                 img_j2.src = "img/spiderhit/venom_desvio.png";//troca para imagem de desvio
+                teclaK.src = "img/spiderhit/tecladoK-vermelho.png"
+
                 img_j2.style.height = "70%";//troca a altura
                 img_j2.style.marginTop = "25%";//troca a posição
-        
+
+                anim_desvio_j2 = 1;
+            
                 //Após 200ms de entrar no if, retorna a imagem a forma original
                 setTimeout(function(){
                     img_j2.src = "img/spiderhit/venom_pose.png";//volta para imagem original
+                    teclaK.src = "img/spiderhit/tecladoK.png"
                     img_j2.style.height = "100%";//volta para altura original
                     img_j2.style.marginTop = "0%";//volta para posição original
                     
-                }, 400);
+                    anim_desvio_j2 = 0;
+                    
+                }, 200);
+            }
+
+            //se o J1 dar um soco e o J2 não desviar, o J2 recebe dano
+            if(anim_soco_j1 == 1 && anim_desvio_j2 == 0){
+
+                vida_j2.style.width = Number(hp_j2_atual.innerHTML)+"%";  
+                hp_j2_atual.innerHTML = Number(hp_j2_atual.innerHTML) - 3;
+
+            }else 
+            //Se a animação de desvio do J2 e a animação de ataque do j1 forem ativadas ao mesmo tempo
+            //Não faça nada
+            if(anim_desvio_j2 == 1 && anim_soco_j1 == 1){
+            }
+            
+            //se o J2 dar um soco e o J1 não desviar, o J1 recebe dano
+            if(anim_soco_j2 == 1 && anim_desvio_j1 == 0){
+
+                vida_j1.style.width = Number(hp_j1_atual.innerHTML)+"%";
+                hp_j1_atual.innerHTML = Number(hp_j1_atual.innerHTML) - 3;
+
+            }else 
+            //Se a animação de desvio do J2 e a animação de ataque do j1 forem ativadas ao mesmo tempo
+            //Não faça nada
+            if(anim_desvio_j1 == 1 && anim_soco_j2 == 1){
+            }
+
+            //Se um dos jogadores tiver a vida menor ou igual a 0, a partida se
+            //encerra e o eventListener para reconhecer as teclas é removido
+            if(Number(hp_j2_atual.innerHTML) <= 0 || Number(hp_j1_atual.innerHTML) <= 0 ){
+                document.removeEventListener('keydown', gameplay);
+                partida = 0;
+
+                if(Number(hp_j2_atual.innerHTML) <= 0){
+                    alert("Fim de jogo \nHomem-aranha venceu");
+                }else if(Number(hp_j1_atual.innerHTML) <= 0){
+                    alert("Fim de jogo \nVenom venceu");
+                }
+                location.reload();
             }
         }
-    );
+        //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"
+        document.addEventListener('keydown', gameplay );
+    }else{
+
+    }
+  
+}
+    
     
     
 </script>

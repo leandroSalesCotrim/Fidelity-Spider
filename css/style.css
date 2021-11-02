@@ -668,6 +668,22 @@ h4 .destaque {
 .desc_minigame span{
     color: #EB1C23;
 }
+.iniciar_card{
+    width: 100%;
+    height: 100%;
+    background-color: #EB1C23;
+    justify-content: center;
+}
+.iniciar_card button{
+    margin-left: 45%;
+    margin-top: 20%;
+    width: 10%;
+    background-color: #EB1C23;
+    border-color: #151515;
+    color: #151515;
+    border-radius: 10px;
+    cursor: pointer;
+}
 .card_minigame{
     width: 55%;
     height: 100%;
@@ -761,11 +777,10 @@ h4 .destaque {
     border-radius: 10px;
 }
 .vida_j1{
-    width: 80%;
+    width: 100%;
     height: 100%;
     background-color: #22E91E;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 20px;
 }
 
 .info_j1 h5{
