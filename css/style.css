@@ -29,7 +29,6 @@ button{
 body{
     background-color: #F5F5F5;
     height: 100vh;
-    overflow: hidden;
 }
 
 /* MENU */
@@ -580,4 +579,305 @@ h4 .destaque {
 .card_viloes #img7{
     background-image: url(../img/viloes/kraven.jpg);
     border-right-width: 7px;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* CONTEUDO Spider-hit */
+
+.div_spider_Hit{
+    width: 100%;
+    height: 100%;
+}
+.div_spider_Hit .container .btn_dark_mode{
+    height: 100%;
+    margin-top: 0;
+}
+.div_spider_Hit .container{
+    width: 100%;
+    height: 6%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+.div_spider_Hit .container .div_img_voltar{
+    width: 3%;
+    height: 100%;
+    margin-left: 5%;
+    justify-content: flex-start;
+}
+.div_spider_Hit .container .div_img_voltar img{
+    height: 100%;
+    transform: scaleX(-1);
+    margin: auto;
+}
+.div_spider_Hit .container .SpiderPoints{
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.SpiderPoints span{
+    color:#EB1C23;
+    
+}
+.SpiderPoints h5{
+    font-size: 18px;
+    font-weight: bold;
+}
+.div_spider_Hit .containerA{
+    width: 100%;
+    height: 50%;
+    border-style: none;
+    display: flex;
+    margin-top: 5%;
+}
+.desc_minigame{
+    width: 34%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+.div_spider_Hit .containerA .titulo{
+    margin-right: auto;
+}
+.div_spider_Hit .containerA .titulo hr{
+    border-style: none;
+    background-color: #EB1C23;
+    width: 100%;
+    height: 10%;
+
+}
+.desc_minigame h1{
+    font-size: 45px;
+    font-weight: bold;
+}
+.desc_minigame h4{
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 3%;
+}
+.desc_minigame h5{
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5%;
+}
+.desc_minigame span{
+    color: #EB1C23;
+}
+.card_minigame{
+    width: 55%;
+    height: 100%;
+    background-color: #151515;
+    box-shadow: 15px 10px 0px #EB1C23;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.card_minigame_tela{
+    width: 100%;
+    height: 70%;
+    background-image: url(../img/spiderhit/fundo.gif);
+    background-position-y: bottom;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content:space-evenly;
+}
+.card_minigame_menu{
+    background-color: #0B689E;
+    width: 100%;
+    height: 30%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+}
+.card_minigame_tela #j1{
+    width: auto;
+    height: 50%;
+    margin-top: 12%;
+    margin-left: 20%;
+}
+#j1 img{
+    width: auto;
+    height: 100%;
+    image-rendering: pixelated;
+}
+.card_minigame_tela #j2{
+    width: auto;
+    height: 50%;
+    margin-top: 12%;
+    margin-right: 20%;
+}
+#j2 img{
+    width: auto;
+    height: 100%;
+    image-rendering: pixelated;
+    transform: scalex(-1);
+}
+/* JOGADAOR 1 */
+
+.card_minigame_statusJ1{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    border-right: solid #EB1C23 8px;
+}
+.icon_j1{
+    width: 20%;
+    height: 60%;
+    background-color: #EB1C23;
+    border-radius: 100%;
+    display: flex;
+    margin: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.card_minigame_statusJ1 img{
+    width:auto;
+    height:70%;
+    margin: auto;
+}
+.info_j1{
+    width: 72%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.info_j1 h1{
+    font-size: 15px;
+    font-weight: bold;
+    color: #F5F5F5;
+
+}
+.barra_vida_j1{
+    background-color: #EB1C23;
+    height: 10%;
+    width: 80%;  
+    border-radius: 10px;
+}
+.vida_j1{
+    width: 80%;
+    height: 100%;
+    background-color: #22E91E;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.info_j1 h5{
+    font-size: 15px;
+    font-weight: normal;
+    color: #F5F5F5;
+}
+.tecla_j1{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.img_tecla1_j1{
+    width: 50%;
+    height: auto;
+    image-rendering: pixelated;
+    margin: auto;
+}
+.img_tecla1_j1 img{
+    width: 100%;
+    height: 100%;
+}
+.img_tecla2_j1{
+    width: 50%;
+    height: auto;
+    image-rendering: pixelated;
+    margin: auto;
+}
+.img_tecla2_j1 img{
+    width: 100%;
+    height: 100%;
+}
+
+/* JOGADAOR 2 */
+
+.card_minigame_statusJ2{
+    height: 100%;
+    width: 50%;
+    display: flex;
+}
+.icon_j2{
+    width: 20%;
+    height: 60%;
+    background-color: #151515;
+    border-radius: 100%;
+    display: flex;
+    margin: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.card_minigame_statusJ2 img{
+    width:auto;
+    height:70%;
+    margin: auto;
+}
+.info_j2{
+    width: 72%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    text-align: end;
+}
+.info_j2 h1{
+    font-size: 15px;
+    font-weight: bold;
+    color: #F5F5F5;
+}
+.barra_vida_j2{
+    background-color: #EB1C23;
+    height: 10%;
+    width: 80%;  
+    border-radius: 10px;
+    align-self: end;
+}
+.vida_j2{
+    width: 100%;
+    height: 100%;
+    background-color: #22E91E;
+    border-radius: 10px;
+}
+
+.info_j2 h5{
+    font-size: 15px;
+    font-weight: normal;
+    color: #F5F5F5;
+}
+.tecla_j2{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.img_tecla1_j2{
+    width: 50%;
+    height: auto;
+    image-rendering: pixelated;
+    margin: auto;
+}
+.img_tecla1_j2 img{
+    width: 100%;
+    height: 100%;
+}
+.img_tecla2_j2{
+    width: 50%;
+    height: auto;
+    image-rendering: pixelated;
+    margin: auto;
+}
+.img_tecla2_j2 img{
+    width: 100%;
+    height: 100%;
 }
