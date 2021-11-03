@@ -42,10 +42,11 @@ header{
 header .container{
     height: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 }
 .div_logo_sony{
-    height: 60%;
+    height: auto;
+    width: 5%;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 2%;
@@ -104,13 +105,13 @@ h4 .destaque {
     cursor: pointer;
 }
 .btn_dark_mode{
-    height: 7%;
-    width: auto;
+    height: 6%;
+    width: 6%;
     margin-right: 4%;
     margin-top: 1%;
 }
 .btn_dark_mode img {
-    width: 100%;
+    width: auto;
     height: 100%;
     cursor: pointer;
 }
@@ -189,16 +190,22 @@ video:hover{
 .card_login_cadastro .container h5{
     color: #F5F5F5;
 }
+.card_login_cadastro .container form{
+    width: auto;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .div_input{
-    width: 60%;
+    width: 70%;
     height: 10%;
     border-radius: 11px;
     border-style: solid;
     border-width: 2px;
     border-color: #EB1C23;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10%;
+    margin: auto;
 }
 .div_img_input{
     border-top-left-radius: 5px;
@@ -274,6 +281,14 @@ video:hover{
     border-left: solid #EB1C23 2px;
     text-align: center;
 }
+.container2 form{
+    width: auto;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .container2 h1{
     color: #F5F5F5;
     margin-top: 3%;
@@ -286,6 +301,7 @@ video:hover{
     margin-top: 7%;
     width: 25%;
     height:9%;
+    margin: auto;
 }
 @keyframes opacidade {
     0%   { opacity: 0; }
