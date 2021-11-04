@@ -199,7 +199,7 @@ video:hover{
     flex-direction: column;
 }
 .div_input{
-    width: 70%;
+    width: 100%;
     height: 10%;
     border-radius: 11px;
     border-style: solid;
@@ -210,15 +210,16 @@ video:hover{
 .div_img_input{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: #EB1C23;
     float: left;
+    display: flex;
 }
 .div_img_input img{
     width: auto;
     height: 90%;
-    margin-top: 5%;
+    margin: auto;
 }
 .div_input input{
     width: 70%;
@@ -233,7 +234,7 @@ video:hover{
     font-weight: medium;
 }
 .div_input input::placeholder{
-    color: #DEDEDE;
+    color: #6e6e6e;
 }
 .card_login_cadastro .container button{
     background-color: #EB1C23;
@@ -282,7 +283,7 @@ video:hover{
     text-align: center;
 }
 .container2 form{
-    width: auto;
+    width: 75%;
     height: 100%;
     margin: auto;
     display: flex;
@@ -299,7 +300,7 @@ video:hover{
     border-radius: 10px;
     border-style: none;
     margin-top: 7%;
-    width: 25%;
+    width: 30%;
     height:9%;
     margin: auto;
 }
@@ -319,7 +320,7 @@ video:hover{
 .div_porco_aranha img{
     margin-left: 35%;
     width: 100%;
-    height: 80%;
+    height: auto;
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 
@@ -365,11 +366,14 @@ video:hover{
 }
 .div_dashboardU .div_img{
     height: 67%;
+    width: 80%;
     margin-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .div_dashboardU .div_img img{
-    height: 100%;
-    width: auto;    
+    height: auto;
+    width: 100%;    
 }
 .div_dashboardU .div_logout{
     height: 7%;
@@ -1090,3 +1094,121 @@ video:hover{
 .cardItem #img4{
     background-image: url(../img/loja/wolverine-capa.jpg);
 }
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* CONTEUDO DASHBOARD */
+.div_dashboardA{
+    width: 100%;
+    height: 96%;
+    display: flex;
+}
+.div_dashboardA .containerA{
+    height: 100%;
+    width: 45%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+.div_dashboardA .containerA .div_txt{
+    margin-left: auto;
+    margin-right: auto;
+}
+.div_dashboardA .containerA h2{
+    color: #151515;
+    font-size: 30px;
+    font-weight:500;
+}
+.div_dashboardA .containerA h5{
+    color: #151515;
+    font-size: 18px;
+    font-weight:400;
+}
+.div_dashboardA .containerA .div_txt hr{
+    height: 7%;
+    width: 100%;
+    background-color: #EB1C23;
+    border-style: none;
+}
+.div_dashboardA .containerA span{
+    color:#EB1C23;
+    font-weight: bold;
+}
+.containerA #span2{
+    color:#151515;
+    font-weight:bold;
+}
+.div_dashboardA .div_img{
+    height: 67%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.div_dashboardA .div_img img{
+    height: auto;
+    width: 100%;    
+}
+.div_dashboardA .div_logout{
+    height: 7%;
+    width: auto;
+    margin: auto;
+    margin-left: 20%;
+
+    transform: scaleX(-1);
+    justify-content: start;
+}
+.div_dashboardA .div_logout img{
+    height: 100%;
+    width: auto;  
+}
+.div_dashboardA .containerB{
+    height: 80%;
+    width: 60%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.containerB .div_grafico{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+.containerB .card_grafico{
+    width: 45%;
+    height: 100%;
+    background-color: #151515;
+    border-radius: 10px;
+    box-shadow: 10px 5px 0px #EB1C23;
+}
+.containerB .card_grafico canvas{
+    width: auto;
+    height: 100%;
+}
+.containerB .div_registros{
+    width: 95%;
+    height: 55%;
+    background-color: #151515;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 10px 5px 0px #EB1C23;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.containerB .div_registros h1{
+    color: #f5f5f5;
+    text-align: center;
+    font-size: 25px;
+    margin: auto;
+    margin-bottom: 0;
+}
+.div_registros .container{
+    background-color: #0B689E;
+    width: 90%;
+    height: 70%;
+    margin: auto;
+    border-radius: 10px;
+}
+

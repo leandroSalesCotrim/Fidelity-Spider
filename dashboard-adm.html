@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <!-- MENU -->
+    <header>
+        <div class="container">
+            <div class="div_logo_sony">
+                <img id="logo_sony" src="img/sony-logo-branca.png" alt="Logo Sony">
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEUDO -->
+    <div class="div_dashboardA">
+        
+        <div class="containerA">
+            <div class="div_txt">
+                <h2>Bem vindo, Incrivel <span id="span2">usúario!</span></h2>
+                <hr>
+                <h5>Esses são os dados que o Fidelity Spider está gerando.</h5>
+            </div>
+
+            <div class="div_img">
+                <img src="img/Peter_parker.png" draggable="false" alt="">
+            </div>
+
+            <div class="div_logout">
+                <a href="index.html">
+                    <img draggable="false" src="img/icones/logout.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="containerB">
+
+            <div class="div_grafico">
+                <div class="card_grafico">
+                    <canvas id="myChart1" ></canvas>
+                </div>
+                <div class="card_grafico">
+                    <canvas id="myChart2" ></canvas>
+                </div>
+            </div>
+
+            <div class="div_registros">
+
+                <h1>Resgates</h1>
+                <div class="container">
+                    <table border="1" cellspacing="20" cellpadding="15">
+                        <tr>
+                            <th>Nome do usuario</th>
+                            <th>Email do usuario</th>
+                            <th>Data e hora</th>
+                            <th>Jogo</th>
+                            <th>Desconto</th>
+                        </tr>
+                        <tr>
+                            <td>bb</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        
+        
+        <div class="btn_dark_mode" >
+            <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
+        </div>
+
+
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    // Inicia uma variável do tipo constante (não pode ser reatribuida)
+    const config1 = { 
+      type: "pie", // tipo do gráfico
+      data: { // objeto que vai conter os dados do gráfico
+        labels: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"], // labels (rótulos) que serão identificados os nossos dados 
+        datasets: [ // datasets (conjunto de dados)
+          {
+            label: "Salário minimo", // irá conter o rótulo principal do nosso gráfico
+            data: [788.00, 880.00, 937.00, 954.00, 988.00, 1045.00, 1100.00 ], // os dados referentes aqueles rótulos
+            backgroundColor: "#2196F3", // cor das "bolinhas" do gráfico
+            borderColor: "#3F51B5" // cor da "linha" do gráfico
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+            position: 'bottom',
+            },
+            title: {
+            display: true,
+            text: 'Vilões mais votados'
+            }
+        }
+        /* maintainAspectRatio (manter relação de aspecto) 
+          caso true: ele "obdece" a altura e largura que colocamos
+          caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+        */
+      }
+    }
+    
+    const config2 = { 
+      type: "pie", // tipo do gráfico
+      data: { // objeto que vai conter os dados do gráfico
+        labels: ["Venom", "Homem-Aranha"], // labels (rótulos) que serão identificados os nossos dados 
+        datasets: [ // datasets (conjunto de dados)
+          {
+            data: [2499.00, 2498.00], // os dados referentes aqueles rótulos
+            backgroundColor: ["#4caf50aa", "#3F51B5aa"], // cor das "bolinhas" do gráfico
+            borderColor: ["#4caf50", "#3F51B5"] // cor da "linha" do gráfico
+          }
+        ]
+      },
+      options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+        },
+        title: {
+          display: true,
+          text: 'Vitorias spider-hit'
+        }
+      }
+    },
+  };
+    
+   
+  
+    var myChartLine1 = new Chart(document.getElementById("myChart1"), config1); 
+    var myChartLine2 = new Chart(document.getElementById("myChart2"), config2); 
+    /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
+    e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
+    separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
+    */
+  </script>
