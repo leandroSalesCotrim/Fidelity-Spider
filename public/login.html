@@ -41,54 +41,61 @@
             <div id="card_login_cadastro" class="card_login_cadastro">
                 <div id="container1" class="container">
                     
-                    <form action="dashboard.html" method="post">
+                    <form id="form_login" onsubmit="return entrar()" method="post">
                         <h1>Login</h1>
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/user_icon.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="email" placeholder="Nome de usúario">
+                            <input class="input_login" name="nome" placeholder="Nome de usúario">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/padlock.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="password" placeholder="Senha de usúario">
+                            <input class="input_login" name="senha" type="password" placeholder="Senha de usúario">
                         </div>
 
-                        <button onclick=""><p class="destaque_btn">Entrar</p></button>
+                        <button type="submit"><p class="destaque_btn">Entrar</p></button>
                         <span id="link_cadastro" style="margin: auto;cursor: pointer; border-style: none;width: 40%;" onclick="abrirCadastro()"><h5 style="font-weight: normal;">Ainda não pussui uma conta?</h5></span>
                     </form>
                     </div>
 
                 <div id="container2" class="container2">
                     
-                    <form action="" method="post">
+                    <form id="form_cadastro" onsubmit="return cadastrar()" method="post">
                         <h1>Cadastrar</h1>
                     
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/user_icon.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="email" placeholder="Nome de usúario">
+                            <input class="input_login"type="email" name="nome_cad" placeholder="Nome de usúario">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/o-email.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="email" placeholder="E-mail">
+                            <input class="input_login" type="email" name="email_cad" placeholder="E-mail">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/padlock.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="text" placeholder="Senha">
+                            <input class="input_login" type="text" name="senha_cad" placeholder="Senha">
                         </div>
 
-                        <button><p class="destaque_btn">Cadastrar</p></button>
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/padlock.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" type="text" name="confirmar_senha_cad" placeholder="Confirmar senha">
+                        </div>
+
+                        <button type="submit"><p class="destaque_btn">Cadastrar</p></button>
 
                         
 
@@ -225,6 +232,132 @@
     }
 
 
+    function entrar() {
+        // aguardar();
 
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var nome = formulario.get("nome");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", nome);
+        console.log("FORM SENHA: ", senha);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        // if (email == "" || senha == "") {
+        //     window.alert("Preencha todos os campos para prosseguir!");
+        //     finalizarAguardar();
+        //     return false;
+        // }
+
+        // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+        //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        //     finalizarAguardar();
+        //     return false;
+        // }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    
+    function cadastrar() {
+        // aguardar();
+
+        var formulario_cad = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome_cad = formulario_cad.get("nome_cad");
+        var email_cad = formulario_cad.get("email_cad");
+        var senha_cad = formulario_cad.get("senha_cad");
+        var confirmacaoSenha = formulario_cad.get("confirmar_senha_cad");
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome_cad == "" || email_cad == "" || senha_cad == "" || confirmacaoSenha == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome_cad == "") {
+                console.log('nome está em branco')
+            }
+            if (email_cad == "") {
+                console.log('email está em branco')
+            }
+            if (senha_cad == "") {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            // finalizarAguardar();
+             return false;
+        }
+
+        // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+        //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        //     finalizarAguardar();
+        //     return false;
+        // }
+
+        // if (senha != confirmacaoSenha) {
+        //     window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+        //     finalizarAguardar();
+        //     return false;
+        // }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario_cad
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "aa.html";
+                //limparFormulario();
+                //finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            //finalizarAguardar();
+        });
+
+        return false;
+    }
 </script>
 
