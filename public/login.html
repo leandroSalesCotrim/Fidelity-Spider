@@ -71,14 +71,14 @@
                             <div class="div_img_input">
                                 <img src="img/icones/user_icon.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login"type="email" name="nome_cad" placeholder="Nome de usúario">
+                            <input class="input_login" name="nome_cad" placeholder="Nome de usúario">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/o-email.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="email" name="email_cad" placeholder="E-mail">
+                            <input class="input_login" name="email_cad" placeholder="E-mail">
                         </div>
 
                         <div class="div_input">
@@ -233,7 +233,6 @@
 
 
     function entrar() {
-        // aguardar();
 
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
 
@@ -243,18 +242,11 @@
         console.log("FORM LOGIN: ", nome);
         console.log("FORM SENHA: ", senha);
 
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        // if (email == "" || senha == "") {
-        //     window.alert("Preencha todos os campos para prosseguir!");
-        //     finalizarAguardar();
-        //     return false;
-        // }
+         if (nome == "" || senha == "") {
+             window.alert("Preencha todos os campos para prosseguir!");
+             return false;
+         }
 
-        // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-        //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        //     finalizarAguardar();
-        //     return false;
-        // }
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -272,9 +264,7 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    setTimeout(function () {
-                        window.location = "./dashboard.html";
-                    }, 1000); // apenas para exibir o loading
+                    window.location = "./dashboard.html";
 
                 });
 
@@ -296,7 +286,6 @@
     }
     
     function cadastrar() {
-        // aguardar();
 
         var formulario_cad = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
@@ -305,37 +294,36 @@
         var senha_cad = formulario_cad.get("senha_cad");
         var confirmacaoSenha = formulario_cad.get("confirmar_senha_cad");
 
+        
+
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome_cad == "" || email_cad == "" || senha_cad == "" || confirmacaoSenha == "") {
+         if (nome_cad == "" || email_cad == "" || senha_cad == "" || confirmacaoSenha == "") {
 
-            window.alert("Preencha todos os campos para prosseguir!");
-            if (nome_cad == "") {
-                console.log('nome está em branco')
-            }
-            if (email_cad == "") {
-                console.log('email está em branco')
-            }
-            if (senha_cad == "") {
-                console.log('senha está em branco')
-            }
-            if (confirmacaoSenha == "") {
-                console.log('confirmacaoSenha está em branco')
-            }
-            // finalizarAguardar();
-             return false;
-        }
+             window.alert("Preencha todos os campos para prosseguir!");
+             if (nome_cad == "") {
+                 console.log('nome está em branco')
+             }
+             if (email_cad == "") {
+                 console.log('email está em branco')
+             }
+             if (senha_cad == "") {
+                 console.log('senha está em branco')
+             }
+             if (confirmacaoSenha == "") {
+                 console.log('confirmacaoSenha está em branco')
+             }
+              return false;
+         }   
 
-        // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-        //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        //     finalizarAguardar();
-        //     return false;
-        // }
+          if (email_cad.indexOf("@") == -1 || email_cad.indexOf(".com") == -1) {
+              window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+              return false;
+          }
 
-        // if (senha != confirmacaoSenha) {
-        //     window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-        //     finalizarAguardar();
-        //     return false;
-        // }
+          if (senha_cad != confirmacaoSenha) {
+              window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+              return false;
+          }
 
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -346,15 +334,12 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "aa.html";
-                //limparFormulario();
-                //finalizarAguardar();
+                window.location = "./login.html";
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            //finalizarAguardar();
         });
 
         return false;
