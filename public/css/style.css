@@ -340,6 +340,7 @@ video:hover{
 .div_dashboardU .containerA .div_txt{
     margin-left: auto;
     margin-right: auto;
+    width: 90%;
 }
 .div_dashboardU .containerA h2{
     color: #151515;

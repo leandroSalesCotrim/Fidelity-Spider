@@ -27,7 +27,7 @@
             <div class="div_txt">
                 <h2>Bem vindo, espetacular <span id="span2">usúario</span>!</h2>
                 <hr>
-                <h5><span>SpiderPoints:</span> 300</h5>
+                <h5><span>SpiderPoints:</span> <span id="span_sp">300</span></h5>
             </div>
 
             <div class="div_img">
@@ -99,7 +99,9 @@
 </html>
 <script>
     nome = sessionStorage.NOME_USUARIO;
+    sp = sessionStorage.SPIDERPOINTS_USUARIO;
     span2.innerHTML=nome;
+    span_sp.innerHTML=sp;
 
     function mostrarDesc1(){
         desc_box_card1.style.opacity = "1";

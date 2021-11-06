@@ -32,7 +32,7 @@
             </div>
             
             <div class="SpiderPoints">
-                <h5><b><span>SpiderPoints:</span>300</b></h5>
+                <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
             </div>
 
             <div class="btn_dark_mode" >
@@ -104,4 +104,8 @@
     </div>
 </body>
 </html>
+<script>
+    sp = sessionStorage.SPIDERPOINTS_USUARIO;
+    span_sp.innerHTML=sp;
+</script>
 

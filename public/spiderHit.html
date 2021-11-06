@@ -32,7 +32,7 @@
             </div>
             
             <div class="SpiderPoints">
-                <h5><b><span>SpiderPoints:</span>300</b></h5>
+                <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
             </div>
 
             <div class="btn_dark_mode" >
@@ -58,7 +58,7 @@
                 </h4>
 
                 <h5>
-                    <span>Curiosidade</span>: a cada rodado jogada você ganha x pontos
+                    <span>Curiosidade</span>: a cada rodado jogada você ganha 300 pontos
                 </h5>
             </div>
             
@@ -139,6 +139,9 @@
 </html>
 
 <script>
+    sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
+    id_usuario = sessionStorage.ID_USUARIO;
+    span_sp.innerHTML=sp;
 
     var hp_j1 = 100;
     var hp_j2 = 100;
@@ -148,6 +151,45 @@
     var anim_desvio_j2 = 0;
     var partida = 0;
 
+    function acumular_sp() {
+
+        // var formulario_cad = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        // var nome_cad = formulario_cad.get("nome_cad");
+        // var email_cad = formulario_cad.get("email_cad");
+        sp = sp+300;
+
+        var corpo = {
+            id_usuario: id_usuario,
+            spider_points: sp
+        }
+
+
+        fetch(`/usuarios/acumular`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+            
+        }).then(function (resposta) {
+        
+            console.log("resposta: ", resposta);
+        
+            if (resposta.ok) {
+                window.alert("O usuario ganhou 300 SpiderPoints");
+                sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                location.reload();
+            } else {
+                throw ("Houve um erro ao tentar adicionar os pontos!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+    
     function iniciar_jogo(){
         iniciar_card.style.display = "none";
         partida = 1; //inicia partida
@@ -261,7 +303,9 @@
                 }else if(Number(hp_j1_atual.innerHTML) <= 0){
                     alert("Fim de jogo \nVenom venceu");
                 }
-                location.reload();
+
+                acumular_sp();
+                
             }
         }
         //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"

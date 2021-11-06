@@ -9,10 +9,12 @@ CREATE TABLE usuario (
     email VARCHAR(45),
     senha VARCHAR(45),
     tipoUsuario VARCHAR(45),
-    spiderPoints INT
+    spiderPoints INT DEFAULT 0
 );
 
 
 SELECT * FROM usuario;
 
 INSERT INTO usuario (nome,email,senha,tipoUsuario,spiderPoints) VALUES('leandro','leandro@h.com','senha','usuario',500);
+UPDATE usuario SET spiderPoints = 0 WHERE idUsuario = 1;
+drop table usuario;

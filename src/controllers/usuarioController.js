@@ -89,9 +89,36 @@ function cadastrar(req, res) {
     }
 }
 
+function acumular_sp(req, res) {
+    var spiderPoints = req.body.spider_points;
+    var idUsuario = req.body.id_usuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (spiderPoints == undefined) {
+        res.status(400).send("Seus spiderPoints estão undefined!");
+    } else {
+        usuarioModel.acumular_sp(spiderPoints, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao adicionar os pontos a conta2! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    acumular_sp,
     testar
 }

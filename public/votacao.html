@@ -32,7 +32,7 @@
             </div>
             
             <div class="txt_centro">
-                <h5><b><span>SpiderPoints:</span>300</b></h5>
+                <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
                 <div class="titulo">
                     <h1>Escolha com sabedoria</h1>
                     <hr>
@@ -52,8 +52,8 @@
 
         <div class="containerV">
             
-            <div class="div_viloes">
-                <div class="card_viloes">
+            <div class="div_viloes" >
+                <div class="card_viloes" onclick="return votarDuende()">
                     <div class="img" id="img1">
                         <div class="nome">
                             <h1>Duende macabro</h1>
@@ -119,3 +119,14 @@
 </html>
 <script src="js/verificacao.js"></script>
 <script src="js/main.js"></script>
+<script>
+    sp = sessionStorage.SPIDERPOINTS_USUARIO;
+    span_sp.innerHTML=sp;
+
+    function votarDuende(){
+        
+    }
+
+
+
+</script>
