@@ -89,7 +89,7 @@ function cadastrar(req, res) {
     }
 }
 
-function acumular_sp(req, res) {
+function atualizar_sp(req, res) {
     var spiderPoints = req.body.spider_points;
     var idUsuario = req.body.id_usuario;
 
@@ -98,7 +98,7 @@ function acumular_sp(req, res) {
     } else if (spiderPoints == undefined) {
         res.status(400).send("Seus spiderPoints estão undefined!");
     } else {
-        usuarioModel.acumular_sp(spiderPoints, idUsuario)
+        usuarioModel.atualizar_sp(spiderPoints, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -115,10 +115,41 @@ function acumular_sp(req, res) {
             );
     }
 }
+
+function votar(req, res) {
+    var vilao = req.body.vilao;
+    var idUsuario = req.body.id_usuario;
+    var spiderPoints = req.body.spider_points;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (vilao == undefined) {
+        res.status(400).send("O vilão escolhido está undefined!");
+    } else if (spiderPoints == undefined) {
+        res.status(400).send("Seus spiderPoints estão undefined!");
+    }else {
+        usuarioModel.votar(vilao, idUsuario,spiderPoints)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao cadastrar o voto! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    acumular_sp,
+    atualizar_sp,
+    votar,
     testar
 }

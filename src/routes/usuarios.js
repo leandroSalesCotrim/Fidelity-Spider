@@ -20,7 +20,11 @@ router.post("/autenticar", function (req, res) {
 });
 
 router.post("/acumular", function (req, res) {
-    usuarioController.acumular_sp(req, res);
+    usuarioController.atualizar_sp(req, res);
+});
+
+router.post("/votar", function (req, res) {
+    usuarioController.votar(req, res);
 });
 
 module.exports = router;

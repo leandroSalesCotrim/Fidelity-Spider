@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarCarnificina()">
                     <div class="img" id="img2">
                         <div class="nome">
                             <h1>Carnificina</h1>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarChacal()">
                     <div class="img" id="img3">
                         <div class="nome">
                             <h1>Chacal</h1>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarMorbius()">
                     <div class="img" id="img4">
                         <div class="nome">
                             <h1>Morbius</h1>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarMysterio()">
                     <div class="img" id="img5">
                         <div class="nome">
                             <h1>Mysterio</h1>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarKaine()">
                     <div class="img" id="img6">
                         <div class="nome">
                             <h1>Kaine</h1>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="card_viloes">
+                <div class="card_viloes" onclick="return votarKraven()">
                     <div class="img" id="img7">
                         <div class="nome">
                             <h1>Kraven</h1>
@@ -120,13 +120,73 @@
 <script src="js/verificacao.js"></script>
 <script src="js/main.js"></script>
 <script>
-    sp = sessionStorage.SPIDERPOINTS_USUARIO;
+    sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
+    id_usuario = sessionStorage.ID_USUARIO;
     span_sp.innerHTML=sp;
+    var vilao_escolhido;
 
     function votarDuende(){
-        
+        vilao_escolhido = "Duende Macabro";
+        return votar();
+    }
+    function votarCarnificina(){
+        vilao_escolhido = "Carnificina";
+        return votar();
+    }
+    function votarChacal(){
+        vilao_escolhido = "Chacal";
+        return votar();
+    }
+    function votarMorbius(){
+        vilao_escolhido = "Morbius";
+        return votar();
+    }
+    function votarMysterio(){
+        vilao_escolhido = "Mysterio";
+        return votar();
+    }
+    function votarKaine(){
+        vilao_escolhido = "Kaine";
+        return votar();
+    }
+    function votarKraven(){
+        vilao_escolhido = "Kraven";
+        return votar();
     }
 
+    function votar() {
+        sp = sp + 1000;
+        
+        var corpo = {
+            id_usuario: id_usuario,
+            vilao: vilao_escolhido,
+            spider_points: sp
+        }
 
+        fetch(`/usuarios/votar`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+            
+        }).then(function (resposta) {
+        
+            console.log("resposta: ", resposta);
+        
+            if (resposta.ok) {
+                window.alert("Obrigado por votar,\ncomo recompensa você ganhou 1000 SpiderPoints por isto!");
+                sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                //CHAMAR FUNÇÂO DE MOSTRAR AS PORCENTAGEM DE VOTO
+            } else {
+                throw ("Houve um erro ao tentar votar1!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+        
+    }
 
 </script>
