@@ -20,16 +20,13 @@ CREATE TABLE Votos(
 	fk_usuario INT NOT NULL,
     FOREIGN KEY (fk_usuario) REFERENCES Usuario (idUsuario)
 );
-
+SELECT * FROM Votos where fk_usuario = 1;
+ 
 
 SELECT * FROM usuario;
 
-insert into Votos (vilao_voto,fk_usuario) Values
-	('duende', 1);
+SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Carnificina';
 
-desc votos;
+DESC votos;
 
-SELECT * FROM votos;
-INSERT INTO usuario (nome,email,senha,tipoUsuario,spiderPoints) VALUES('leandro','leandro@h.com','senha','usuario',500);
-UPDATE usuario SET spiderPoints = 0 WHERE idUsuario = 1;
 drop table Votos;

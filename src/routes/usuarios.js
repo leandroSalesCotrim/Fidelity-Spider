@@ -11,6 +11,34 @@ router.get("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
 
+router.get("/listar_votos_duende", function (req, res) {
+    usuarioController.listar_votos_duende(req, res);
+});
+
+router.get("/listar_votos_carnificina", function (req, res) {
+    usuarioController.listar_votos_carnificina(req, res);
+});
+
+router.get("/listar_votos_chacal", function (req, res) {
+    usuarioController.listar_votos_chacal(req, res);
+});
+
+router.get("/listar_votos_morbius", function (req, res) {
+    usuarioController.listar_votos_morbius(req, res);
+});
+
+router.get("/listar_votos_mysterio", function (req, res) {
+    usuarioController.listar_votos_mysterio(req, res);
+});
+
+router.get("/listar_votos_kaine", function (req, res) {
+    usuarioController.listar_votos_kaine(req, res);
+});
+
+router.get("/listar_votos_kraven", function (req, res) {
+    usuarioController.listar_votos_kraven(req, res);
+});
+
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
@@ -21,6 +49,10 @@ router.post("/autenticar", function (req, res) {
 
 router.post("/acumular", function (req, res) {
     usuarioController.atualizar_sp(req, res);
+});
+
+router.post("/verificar_voto", function (req, res) {
+    usuarioController.verificar_voto(req, res);
 });
 
 router.post("/votar", function (req, res) {

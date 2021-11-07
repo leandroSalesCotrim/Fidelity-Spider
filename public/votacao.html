@@ -34,10 +34,10 @@
             <div class="txt_centro">
                 <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
                 <div class="titulo">
-                    <h1>Escolha com sabedoria</h1>
+                    <h1 id="titulo_votacao">Escolha com sabedoria</h1>
                     <hr>
                 </div>
-                <p>
+                <p id="txt_votacao">
                     <span>Marvel's Spider-Man 2</span> já está em desenvolvimento e precisamos do seu <span>poder</span>
                     de fã para escolher o próximo vilão para importunar a vida do nosso querido amigo da 
                     vizinhança e seu aprendiz Miles Morales
@@ -53,58 +53,142 @@
         <div class="containerV">
             
             <div class="div_viloes" >
-                <div class="card_viloes" onclick="return votarDuende()">
+                <div class="card_viloes" >
                     <div class="img" id="img1">
-                        <div class="nome">
-                            <h1>Duende macabro</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarDuende()">
+                                <h1>Duende macabro</h1>
+                            </div>
+                            <div id="confirmar_duende" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarDuende()" id="img_confirmar" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarDuende()" id="img_cancelar" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_duende">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarCarnificina()">
+                <div class="card_viloes">
                     <div class="img" id="img2">
-                        <div class="nome">
-                            <h1>Carnificina</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarCarnificina()">
+                                <h1>Carnificina</h1>
+                            </div>
+                            <div id="confirmar_carnificina" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarCarnificina()" id="img_confirmar2" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarCarnificina()" id="img_cancelar2" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_carnificina">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarChacal()">
+                <div class="card_viloes">
                     <div class="img" id="img3">
-                        <div class="nome">
-                            <h1>Chacal</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarChacal()">
+                                <h1>Chacal</h1>
+                            </div>
+                            <div id="confirmar_chacal" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarChacal()" id="img_confirmar3" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarChacal()" id="img_cancelar3" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_chacal">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarMorbius()">
+                <div class="card_viloes">
                     <div class="img" id="img4">
-                        <div class="nome">
-                            <h1>Morbius</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarMorbius()">
+                                <h1>Morbius</h1>
+                            </div>
+                            <div id="confirmar_morbius" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarMorbius()" id="img_confirmar4" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarMorbius()" id="img_cancelar4" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_morbius">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarMysterio()">
+                <div class="card_viloes">
                     <div class="img" id="img5">
-                        <div class="nome">
-                            <h1>Mysterio</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarMysterio()">
+                                <h1>Mysterio</h1>
+                            </div>
+                            <div id="confirmar_mysterio" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarMysterio()" id="img_confirmar5" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarMysterio()" id="img_cancelar5" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_mysterio">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarKaine()">
+                <div class="card_viloes">
                     <div class="img" id="img6">
-                        <div class="nome">
-                            <h1>Kaine</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarKaine()">
+                                <h1>Kaine</h1>
+                            </div>
+                            <div id="confirmar_kaine" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarKaine()" id="img_confirmar6" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarKaine()" id="img_cancelar6" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_kaine">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card_viloes" onclick="return votarKraven()">
+                <div class="card_viloes">
                     <div class="img" id="img7">
-                        <div class="nome">
-                            <h1>Kraven</h1>
+                        <div class="conteudo_card" id="fundo">
+                            <div class="nome" onclick="abrirConfirmarKraven()">
+                                <h1>Kraven</h1>
+                            </div>
+                            <div id="confirmar_kraven" class="div_votar">
+                                <h4>votar neste vilão?</h4>
+                                <div class="div_imgs_votar" >
+                                    <img onclick="return votarKraven()" id="img_confirmar7" draggable="false" src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarKraven()" id="img_cancelar7" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                </div>
+                            </div>
+                            <div class="qtd_votos" id="qtd_votos">
+                                <h2>votos:<span id="qtd_kraven">000</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,12 +201,232 @@
     </div>
 </body>
 </html>
-<script src="js/verificacao.js"></script>
 <script src="js/main.js"></script>
+<script src="js/confirmacaoVoto.js"></script>
+<script>
+    
+</script>
 <script>
     sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
-    id_usuario = sessionStorage.ID_USUARIO;
+    id_usuario = Number(sessionStorage.ID_USUARIO);
     span_sp.innerHTML=sp;
+
+    votos_duende = document.getElementById('qtd_duende');
+    votos_carnificina = document.getElementById('qtd_carnificina');
+    votos_chacal = document.getElementById('qtd_chacal');
+    votos_morbius = document.getElementById('qtd_morbius');
+    votos_mysterio = document.getElementById('qtd_mysterio');
+    votos_kaine = document.getElementById('qtd_kaine');
+    votos_kraven = document.getElementById('qtd_kraven');
+
+    card_fundo = document.getElementById('fundo');
+    
+
+    function listar_votos_duende() {
+        fetch("/usuarios/listar_votos_duende").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_duende()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
+
+                    votosD = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosD.votos);
+
+                    votos_duende.innerHTML = votosD.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_carnificina() {
+        fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
+
+                    votosC = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosC.votos);
+
+                    votos_carnificina.innerHTML = votosC.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_chacal() {
+        fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_chacal()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
+
+                    votosCh = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosCh.votos);
+
+                    votos_chacal.innerHTML = votosCh.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_morbius() {
+        fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_morbius()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
+
+                    votosM = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosM.votos);
+
+                    votos_morbius.innerHTML = votosM.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_mysterio() {
+        fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
+
+                    votosMy = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosMy.votos);
+
+                    votos_mysterio.innerHTML = votosMy.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_kaine() {
+        fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_kaine()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
+
+                    votosK = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosK.votos);
+
+                    votos_kaine.innerHTML = votosK.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_kraven() {
+        fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_kraven()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
+
+                    votosKr = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    console.log(votosKr.votos);
+
+                    votos_kraven.innerHTML = votosKr.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function verificar_voto() {
+        var corpov = {
+            id_usuario: id_usuario,
+        }
+
+        fetch("/usuarios/verificar_voto", {
+            method: "POST",
+            headers: {
+                    "Content-Type": "application/json"
+                },
+            body: JSON.stringify(corpov)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO verificar_voto()!")
+
+            if (resposta.ok) {
+                throw ("O usuario pode votar!");
+            } else {
+                listar_votos_duende();
+                listar_votos_carnificina();
+                listar_votos_chacal();
+                listar_votos_morbius();
+                listar_votos_mysterio();
+                listar_votos_kaine();
+                listar_votos_kraven();
+
+                confirmar_duende.innerHTML = "";
+                confirmar_carnificina.innerHTML = "";
+                confirmar_chacal.innerHTML = "";
+                confirmar_morbius.innerHTML = "";
+                confirmar_mysterio.innerHTML = "";
+                confirmar_kaine.innerHTML = "";
+                confirmar_kraven.innerHTML = "";
+               
+                
+                var c = 0;
+
+                while(c<7){
+                    fundo[c].style.backgroundColor = "#15151588"
+                    qtd_votos[c].style.opacity = "1";
+                    c++;
+                }
+
+                
+
+                titulo_votacao.innerHTML = 'Parece que você já votou!';
+                txt_votacao.innerHTML = `Nós agradecemos profundamente pela sua ajuda,
+                 você não poderá votar mais, mas ainda assim, você consegue acompanhar com
+                  quantos votos os vilões estão.`;
+                throw ("O usuario já votou!");
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    verificar_voto();
+
     var vilao_escolhido;
 
     function votarDuende(){
@@ -175,10 +479,11 @@
             console.log("resposta: ", resposta);
         
             if (resposta.ok) {
-                window.alert("Obrigado por votar,\ncomo recompensa você ganhou 1000 SpiderPoints por isto!");
+                window.alert("Obrigado por votar no "+vilao_escolhido+",\ncomo recompensa você ganhou 1000 SpiderPoints por isto!");
                 sessionStorage.SPIDERPOINTS_USUARIO = sp;
-                //CHAMAR FUNÇÂO DE MOSTRAR AS PORCENTAGEM DE VOTO
+                location.reload();
             } else {
+                console.log(resposta);
                 throw ("Houve um erro ao tentar votar1!");
             }
         }).catch(function (resposta) {
