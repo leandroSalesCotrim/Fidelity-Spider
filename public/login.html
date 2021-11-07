@@ -57,6 +57,9 @@
                             <input class="input_login" name="senha" type="password" placeholder="Senha de usúario">
                         </div>
 
+                        <div id="div_erro" style="color:#EB1C23">
+                        </div>
+
                         <button type="submit"><p class="destaque_btn">Entrar</p></button>
                         <span id="link_cadastro" style="margin: auto;cursor: pointer; border-style: none;width: 40%;" onclick="abrirCadastro()"><h5 style="font-weight: normal;">Ainda não pussui uma conta?</h5></span>
                     </form>
@@ -275,7 +278,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    div_erro.innerHTML = texto;
                 });
             }
 

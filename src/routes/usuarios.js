@@ -59,4 +59,8 @@ router.post("/votar", function (req, res) {
     usuarioController.votar(req, res);
 });
 
+router.post("/vitoriaSh", function (req, res) {
+    usuarioController.vitoriaSh(req, res);
+});
+
 module.exports = router;

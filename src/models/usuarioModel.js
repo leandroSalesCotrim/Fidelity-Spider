@@ -119,6 +119,16 @@ function votar(vilao,idUsuario,spiderPoints) {
     return database.executar(instrucao);
 }
 
+function vitoriaSh(vencedor,idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function vitoriaSh():",vencedor,idUsuario);
+    var instrucao = `
+        INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('${vencedor}', '${idUsuario}');
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -134,4 +144,5 @@ module.exports = {
     listar_votos_mysterio,
     listar_votos_kaine,
     listar_votos_kraven,
+    vitoriaSh,
 };

@@ -295,6 +295,34 @@ function votar(req, res) {
             );
     }
 }
+
+function vitoriaSh(req, res) {
+    var vencedor = req.body.vencedor;
+    var idUsuario = req.body.id_usuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (vencedor == undefined) {
+        res.status(400).send("O vencedor está undefined!");
+    } else {
+        usuarioModel.vitoriaSh(vencedor, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao cadastrar a vitória! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -309,5 +337,6 @@ module.exports = {
     listar_votos_mysterio,
     listar_votos_kaine,
     listar_votos_kraven,
+    vitoriaSh,
     testar
 }
