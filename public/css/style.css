@@ -1156,11 +1156,12 @@ video:hover{
     display: flex;
 }
 .div_dashboardA .containerA{
-    height: 100%;
-    width: 45%;
+    height: 95%;
+    width: 65%;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
 }
 .div_dashboardA .containerA .div_txt{
     margin-left: auto;
@@ -1192,7 +1193,7 @@ video:hover{
 }
 .div_dashboardA .div_img{
     height: 67%;
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1214,12 +1215,13 @@ video:hover{
     width: auto;  
 }
 .div_dashboardA .containerB{
-    height: 80%;
-    width: 60%;
+    height: 85%;
+    width: 70%;
     margin-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 5%;
 }
 .containerB .div_grafico{
     width: 100%;
@@ -1230,21 +1232,17 @@ video:hover{
 .containerB .card_grafico{
     width: 45%;
     height: 100%;
-    background-color: #151515;
+    background-color: #242424;
     border-radius: 10px;
-    box-shadow: 10px 5px 0px #EB1C23;
-}
-.containerB .card_grafico canvas{
-    width: auto;
-    height: 100%;
+    box-shadow: 10px 5px 0px #eb1c238a;
 }
 .containerB .div_registros{
     width: 95%;
     height: 55%;
-    background-color: #151515;
+    background-color: #242424;
     margin: auto;
     border-radius: 10px;
-    box-shadow: 10px 5px 0px #EB1C23;
+    box-shadow: 10px 5px 0px #eb1c238a;
     display: flex;
     flex-direction: column;
     justify-content: center;    
@@ -1255,12 +1253,59 @@ video:hover{
     font-size: 25px;
     margin: auto;
     margin-bottom: 0;
+    text-shadow: 3px 2px 0px #151515;
 }
 .div_registros .container{
-    background-color: #0B689E;
+    background-color: #eb1c23;
     width: 90%;
-    height: 70%;
+    height: 80%;
     margin: auto;
-    border-radius: 10px;
+    margin-bottom: 5%;
+    overflow: scroll;overflow-x: hidden;
 }
-
+.div_registros .container table{
+    border-style: solid;
+    border-collapse: collapse;
+    border-width: 3px;
+    width: 100%;
+    text-align: center;
+    border-color: #EB1C23;
+}
+#titulo_table {
+    width: 88.5%;
+    border-bottom-style: none;
+    border-collapse: collapse;
+    border-bottom-width: 0px;
+    background-color: #b41a1f;
+    margin: auto;
+    margin-left: 5%;
+}
+.div_registros #titulo_table th{
+    color: #f5f5f5;
+}
+.div_registros .container table th{
+    background-color: #da1f25;
+}
+.div_registros .container table th,td{
+    border-color: #b41a1f;
+    border-style: solid;
+    border-width: 3px;
+    color: #F5F5F5;
+}
+/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+e 10px de altura para a barra horizontal */
+::-webkit-scrollbar {
+    width:10px;
+    height: 10px;
+    }
+     
+    /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+    ::-webkit-scrollbar-track {
+    background: #0596EB;
+}
+     
+    /* aqui é a alça da barra, que demonstra a altura que você está na página
+    estou colocando uma cor azul clara nela*/
+    ::-webkit-scrollbar-thumb {
+    background:#0B689E;
+}

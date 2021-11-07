@@ -63,4 +63,12 @@ router.post("/vitoriaSh", function (req, res) {
     usuarioController.vitoriaSh(req, res);
 });
 
+router.get("/listar_vitorias_aranha", function (req, res) {
+    usuarioController.listar_vitorias_aranha(req, res);
+});
+
+router.get("/listar_vitorias_venom", function (req, res) {
+    usuarioController.listar_vitorias_venom(req, res);
+});
+
 module.exports = router;

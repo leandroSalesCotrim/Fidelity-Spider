@@ -20,13 +20,29 @@ CREATE TABLE Votos(
 	fk_usuario INT NOT NULL,
     FOREIGN KEY (fk_usuario) REFERENCES Usuario (idUsuario)
 );
+
+CREATE TABLE Spiderhit(
+	idSpiderhit INT PRIMARY KEY AUTO_INCREMENT,
+	vencedor varchar (20),
+    fk_usuario int,
+    FOREIGN KEY (fk_usuario) REFERENCES Usuario (idUsuario)
+);
+
+
 SELECT * FROM Votos where fk_usuario = 1;
+SELECT COUNT(vencedor) FROM spiderHit where vencedor = "Venom";
  
 
 SELECT * FROM usuario;
+SELECT * FROM Spiderhit;
+SELECT * FROM votos;
 
-SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Carnificina';
+INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
+
+SELECT COUNT(idVoto) FROM votos WHERE vilao_voto = 'Mysterio';
 
 DESC votos;
+DESC spiderhit;
 
 drop table Votos;
+drop table spiderhit;

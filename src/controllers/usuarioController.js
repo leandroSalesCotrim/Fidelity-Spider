@@ -323,6 +323,40 @@ function vitoriaSh(req, res) {
     }
 }
 
+function listar_vitorias_aranha(req, res) {
+    usuarioModel.listar_vitorias_aranha()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function listar_vitorias_venom(req, res) {
+    usuarioModel.listar_vitorias_venom()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -338,5 +372,7 @@ module.exports = {
     listar_votos_kaine,
     listar_votos_kraven,
     vitoriaSh,
+    listar_vitorias_aranha,
+    listar_vitorias_venom,
     testar
 }

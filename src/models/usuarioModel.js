@@ -129,6 +129,24 @@ function vitoriaSh(vencedor,idUsuario) {
     return database.executar(instrucao);
 }
 
+function listar_vitorias_aranha() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_aranha()");
+    var instrucao = `
+        SELECT COUNT(vencedor) as vitorias FROM spiderHit where vencedor = "Homem-aranha";
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function listar_vitorias_venom() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_venom()");
+    var instrucao = `
+        SELECT COUNT(vencedor) as vitorias FROM spiderHit where vencedor = "Venom";
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -145,4 +163,6 @@ module.exports = {
     listar_votos_kaine,
     listar_votos_kraven,
     vitoriaSh,
+    listar_vitorias_aranha,
+    listar_vitorias_venom,
 };
