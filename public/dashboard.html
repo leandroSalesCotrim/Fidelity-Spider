@@ -25,9 +25,9 @@
         
         <div class="containerA">
             <div class="div_txt">
-                <h2>Bem vindo, espetacular <span id="span2">usúario</span>!</h2>
+                <h2 class="txt_dark">Bem vindo, espetacular <span id="span2" class="txt_dark">usúario</span>!</h2>
                 <hr>
-                <h5><span>SpiderPoints:</span> <span id="span_sp">300</span></h5>
+                <h5 ><span>SpiderPoints:</span> <span id="span_sp">300</span></h5>
             </div>
 
             <div class="div_img">
@@ -48,12 +48,12 @@
                     <h1>Vote em um vilão</h1>
                     <p>Ajude-nos a escolher o próximo vilão de Marvel's spider-man 2 e ganhe spiderPoints por isso!</p>
                 </div>
-                <div class="box_card" id="box_card1">
+                <div class="box_card" id="box_card1" onmouseenter="mostrarDesc1()" onmouseleave="ocultarDesc1()">
                     <div class="img_card">
                         <img src="img/venom.png" alt="">
                     </div>
 
-                    <button onmouseenter="mostrarDesc1()" onmouseleave="ocultarDesc1()" onclick="window.location.href='votacao.html';">Votar</button>
+                    <button class="btn_dark"  onclick="window.location.href='votacao.html';">Votar</button>
                 </div>
                 
             </div>
@@ -63,12 +63,12 @@
                     <h1>Jogue Spider hit</h1>
                     <p>Jogue agora spider hit com um amigo, escolha seu lado e ganhe muitos spiderPoints!</p>
                 </div>
-                <div class="box_card" >
+                <div class="box_card"  onmouseenter="mostrarDesc2()" onmouseleave="ocultarDesc2()">
                     <div class="img_card">
                         <img src="img/aranha-branca.png" alt="">
                     </div>
 
-                    <button onmouseenter="mostrarDesc2()" onmouseleave="ocultarDesc2()" onclick="window.location.href='spiderHit.html';">Jogar</button>
+                    <button class="btn_dark" onclick="window.location.href='spiderHit.html';">Jogar</button>
                 </div>
             </div>
 
@@ -77,12 +77,12 @@
                     <h1>Resgatar recompensas</h1>
                     <p>Conheça a nossa loja, onde você pode resgatar recompensas gastando seus spiderPoints</p>
                 </div>
-                <div class="box_card" >
+                <div class="box_card" onmouseenter="mostrarDesc3()" onmouseleave="ocultarDesc3()">
                     <div class="img_card">
                         <img src="img/loja_icon_white.png" alt="">
                     </div>
 
-                    <button onmouseenter="mostrarDesc3()" onclick="window.location.href='loja.html';" onmouseleave="ocultarDesc3()">Resgatar</button>
+                    <button class="btn_dark"  onclick="window.location.href='loja.html';" >Resgatar</button>
                 </div>
             </div>
 
@@ -97,6 +97,7 @@
     
 </body>
 </html>
+<script src="js/dark_mode.js"></script>
 <script>
     nome = sessionStorage.NOME_USUARIO;
     sp = sessionStorage.SPIDERPOINTS_USUARIO;

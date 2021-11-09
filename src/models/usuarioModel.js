@@ -83,7 +83,7 @@ function entrar(nome, senha) {
 function verificar_voto(idUsuario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function verificar_voto(): ", idUsuario)
     var instrucao = `
-        SELECT * FROM Votos where fk_usuario = '${idUsuario}';
+        SELECT * FROM votos where fk_usuario = '${idUsuario}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -110,7 +110,7 @@ function atualizar_sp(spiderPoints,idUsuario) {
 function votar(vilao,idUsuario,spiderPoints) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function votar():", vilao,idUsuario,spiderPoints);
     var instrucao = `
-        INSERT INTO Votos (vilao_voto, fk_usuario) VALUES ('${vilao}', '${idUsuario}');
+        INSERT INTO votos (vilao_voto, fk_usuario) VALUES ('${vilao}', '${idUsuario}');
     `;
 
     atualizar_sp(spiderPoints,idUsuario);//chamando função para atualizar os spider points atuais
@@ -122,7 +122,7 @@ function votar(vilao,idUsuario,spiderPoints) {
 function vitoriaSh(vencedor,idUsuario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function vitoriaSh():",vencedor,idUsuario);
     var instrucao = `
-        INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('${vencedor}', '${idUsuario}');
+        INSERT INTO spiderhit (vencedor, fk_usuario) VALUES ('${vencedor}', '${idUsuario}');
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -132,7 +132,7 @@ function vitoriaSh(vencedor,idUsuario) {
 function listar_vitorias_aranha() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_aranha()");
     var instrucao = `
-        SELECT COUNT(vencedor) as vitorias FROM spiderHit where vencedor = "Homem-aranha";
+        SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Homem-aranha";
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -141,7 +141,7 @@ function listar_vitorias_aranha() {
 function listar_vitorias_venom() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_venom()");
     var instrucao = `
-        SELECT COUNT(vencedor) as vitorias FROM spiderHit where vencedor = "Venom";
+        SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Venom";
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

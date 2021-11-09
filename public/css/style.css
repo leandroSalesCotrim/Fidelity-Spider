@@ -234,7 +234,7 @@ video:hover{
     font-weight: medium;
 }
 .div_input input::placeholder{
-    color: #6e6e6e;
+    color: #f5f5f5;
 }
 .card_login_cadastro .container button{
     background-color: #EB1C23;
@@ -408,7 +408,7 @@ video:hover{
     height: 100%;
     border-radius: 10px;
     background-color: #151515;
-    box-shadow: #EB1C23 10px -10px 0;
+    box-shadow: #EB1C23 10px 10px 0;
     display: flex;
     flex-direction: column;
 }
@@ -425,9 +425,27 @@ video:hover{
     height: 100%;
     transition: 1s;
 }
-.containerB .box_card .img_card img:hover{
-    transform: scale(1.2);
-    transition: 1s;
+@keyframes animacao {
+    0% {filter: drop-shadow(3px 5px 0px #EB1C23);}
+    5% { filter: drop-shadow(3px 5px 0px #eb1c2300); }
+    15% { filter: drop-shadow(3px 5px 0px #eb1c2300); }
+    30% { filter: drop-shadow(3px 5px 0px #EB1C23); }
+    35% { filter: drop-shadow(3px 5px 0px #EB1C2300); }
+    40% { filter: drop-shadow(3px 5px 0px #eb1c23); }
+    45% { filter: drop-shadow(3px 5px 0px #EB1C2300); }
+    50% { filter: drop-shadow(3px 5px 0px #eb1c23); }
+    100% { filter: drop-shadow(3px 5px 0px #eb1c2300);}
+}
+.containerB .box_card:hover .img_card img{
+    transform: scale(1.10);
+    transition: 2s;
+
+    -webkit-animation: animacao 1s linear;
+    -moz-animation: animacao 1s linear;
+    -ms-animation: animacao 1s linear;
+    -o-animation: animacao 1s linear;
+    animation: animacao 1s linear;
+    animation-delay: 0.4s;
 }
 .containerB .box_card button{
     border-radius: 10px;
