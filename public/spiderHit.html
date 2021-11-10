@@ -65,7 +65,7 @@
                     <button onclick="iniciar_jogo()">Iniciar</button>
                 </div>
                 <div class="div_rodada">
-                    <h1>Rodada 1</h1>
+                    <h1 id="rodada_atual">Round 1</h1>
                 </div>
                 <div class="card_minigame_tela">
                     <div id="j1">
@@ -166,6 +166,9 @@
     var anim_desvio_j1 = 0;
     var anim_desvio_j2 = 0;
     var partida = 0;
+    var rodada = 1;
+    var vidasJ1 = 2;
+    var vidasJ2 = 2;
 
     function atualizar_sp() {
        
@@ -308,6 +311,44 @@
                 //Se um dos jogadores tiver a vida menor ou igual a 0, a partida se
                 //encerra e o eventListener para reconhecer as teclas é removido
                 if(Number(hp_j2_atual.innerHTML) <= 0 || Number(hp_j1_atual.innerHTML) <= 0 ){
+                    if(Number(hp_j1_atual.innerHTML) <= 0){
+                        alert("Venom venceu a rodada "+rodada);
+                        vidasj1 = vidasJ1 - 1;
+                        vidasj2 = vidasJ2 + 1;
+
+                        vida_j1.style.width = "100%";
+                        hp_j1_atual.innerHTML = 100;
+                        vidas_j1.innerHTML = `
+                        <img src="img/spiderhit/coracao.png" alt="">
+                        `
+
+                        vida_j2.style.width = "100%";
+                        hp_j2_atual.innerHTML = 100;
+                        vidas_j2.innerHTML += `
+                        <img src="img/spiderhit/coracao.png" alt="">
+                        `
+                    }else if(Number(hp_j2_atual.innerHTML) <= 0){
+                        alert("Homem-aranha venceu a rodada "+rodada);
+                        vidasj2 = vidasJ2 - 1;
+                        vidasj1 = vidasJ2 + 1;
+
+                        vida_j1.style.width = "100%";
+                        hp_j1_atual.innerHTML = 100;
+                        vidas_j1.innerHTML += `
+                        <img src="img/spiderhit/coracao.png" alt="">
+                        `
+
+                        vida_j2.style.width = "100%";
+                        hp_j2_atual.innerHTML = 100;
+                        vidas_j2.innerHTML = `
+                        <img src="img/spiderhit/coracao.png" alt="">
+                        `
+                    }
+                    rodada ++;
+                    rodada_atual.innerHTML = "Round"+rodada;
+                }
+                
+                if(vidasJ1 == 0 || vidasJ2 == 0 ){
                     document.removeEventListener('keydown', gameplay);
                     partida = 0;
 
