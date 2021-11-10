@@ -13,36 +13,36 @@ CREATE TABLE usuario (
     CONSTRAINT CHECK (tipoUsuario = 'usuario' OR tipoUsuario = 'adm' )
 );
 
-CREATE TABLE Votos(
+CREATE TABLE votos(
 	idVoto INT PRIMARY KEY AUTO_INCREMENT,
 	dia_hora_voto DATETIME DEFAULT CURRENT_TIMESTAMP,
 	vilao_voto VARCHAR(20) NOT NULL,
 	fk_usuario INT NOT NULL,
-    FOREIGN KEY (fk_usuario) REFERENCES Usuario (idUsuario)
+    FOREIGN KEY (fk_usuario) REFERENCES usuario (idUsuario)
 );
 
-CREATE TABLE Spiderhit(
+CREATE TABLE spiderhit(
 	idSpiderhit INT PRIMARY KEY AUTO_INCREMENT,
 	vencedor varchar (20),
     fk_usuario int,
-    FOREIGN KEY (fk_usuario) REFERENCES Usuario (idUsuario)
+    FOREIGN KEY (fk_usuario) REFERENCES usuario (idUsuario)
 );
 
 
-SELECT * FROM Votos where fk_usuario = 1;
-SELECT COUNT(vencedor) FROM spiderHit where vencedor = "Venom";
+SELECT * FROM votos where fk_usuario = 1;
+SELECT COUNT(vencedor) FROM spiderhit where vencedor = "Venom";
  
 
 SELECT * FROM usuario;
-SELECT * FROM Spiderhit;
+SELECT * FROM spiderhit;
 SELECT * FROM votos;
 
-INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
+INSERT INTO spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
 
 SELECT COUNT(idVoto) FROM votos WHERE vilao_voto = 'Mysterio';
 
 DESC votos;
 DESC spiderhit;
 
-drop table Votos;
+drop table votos;
 drop table spiderhit;

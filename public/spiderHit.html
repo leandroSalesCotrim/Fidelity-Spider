@@ -41,9 +41,7 @@
         
         </div>
 
-        <div id="iniciar_card" class="iniciar_card">
-            <button onclick="iniciar_jogo()">Iniciar</button>
-        </div>
+        
 
         <div class="containerA">
             
@@ -63,6 +61,12 @@
             </div>
             
             <div class="card_minigame">
+                <div id="iniciar_card" class="iniciar_card">
+                    <button onclick="iniciar_jogo()">Iniciar</button>
+                </div>
+                <div class="div_rodada">
+                    <h1>Rodada 1</h1>
+                </div>
                 <div class="card_minigame_tela">
                     <div id="j1">
                         <img id="img_j1" src="img/spiderhit/aranha_pose.png" alt="">
@@ -87,7 +91,13 @@
                                 <div id="vida_j1" class="vida_j1">
                                 </div>
                             </div>
-                            <h5 id="hp_j1_atual">100</h5><h5>HP</h5>
+                            <div class="div_hp">
+                                <h5 id="hp_j1_atual">100</h5><h5>HP</h5>
+                                <div id="vidas_j1" class="div_coracao">
+                                    <img src="img/spiderhit/coracao.png" alt="">
+                                    <img src="img/spiderhit/coracao.png" alt="">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tecla_j1">
@@ -110,7 +120,13 @@
                                 <div id="vida_j2"class="vida_j2">
                                 </div>
                             </div>
-                            <h5 id="hp_j2_atual">100</h5><h5>HP</h5>
+                            <div class="div_hp">
+                                <div id="vidas_j2"class="div_coracao">
+                                    <img src="img/spiderhit/coracao.png" alt="">
+                                    <img src="img/spiderhit/coracao.png" alt="">
+                                </div>
+                                <h5 id="hp_j2_atual">100</h5><h5>HP</h5>
+                            </div>
                         </div>
 
                         <div class="icon_j2">
@@ -189,8 +205,6 @@
     function iniciar_jogo(){
         iniciar_card.style.display = "none";
         partida = 1; //inicia partida
-        img_j2.style.transform = 'scaleX(-1)';
-        img_venom.style.transform = 'scaleX(-1)';
         
         //se a partida for iniciada, o jogo funciona
         if(partida == 1){

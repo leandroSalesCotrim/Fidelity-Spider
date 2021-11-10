@@ -368,13 +368,36 @@ video:hover{
 .div_dashboardU .div_img{
     height: 67%;
     width: 80%;
-    margin-left: 10%;
     margin-left: auto;
     margin-right: auto;
+    animation: animacao_entrada 0.4s linear;
 }
+@keyframes animacao_entrada{
+    0%{margin-left: -100%;
+    filter: blur(20px);}
+    100%{margin-left: 10%;}
+}
+ @keyframes animacao_fundo {
+    0% {filter: drop-shadow(3px 3px 50px #EB1C2300);
+        }
+    16% { filter: drop-shadow(-5px 5px 10px #eb1c23); }
+    32% { filter: drop-shadow(5px 5px 0px #eb1c23); }
+    48% { filter: drop-shadow(-5px -5px 10px #eb1c23); }
+    64% { filter: drop-shadow(5px -5px 0px #eb1c23); }
+    80% { filter: drop-shadow(5px -5px 10px #eb1c23); }
+    96% { filter: drop-shadow(5px -5px 25px #eb1c2330); }
+    
+    100% { filter: drop-shadow(3px 3px 50px #eb1c2300);}
+} 
 .div_dashboardU .div_img img{
     height: auto;
     width: 100%;    
+    -webkit-animation: animacao_fundo 2s linear;
+    -moz-animation: animacao_fundo 2s linear;
+    -ms-animation: animacao_fundo 2s linear;
+    -o-animation: animacao_fundo 2s linear;
+    animation: animacao_fundo 2s linear;
+    animation-delay: 0.4s;
 }
 .div_dashboardU .div_logout{
     height: 7%;
@@ -772,16 +795,18 @@ video:hover{
     color: #EB1C23;
 }
 .iniciar_card{
-    width: 100%;
-    height: 100%;
+    width: 55%;
+    height: 50%;
+    border-radius: 10px;
     background-color: #eb1c239c;
     justify-content: center;
     position: absolute;
+    z-index: 1;
 }
 .iniciar_card button{
-    margin-left: 45%;
+    margin-left: 42%;
     margin-top: 20%;
-    width: 10%;
+    width: 15%;
     background-color: #151515;
     border-color: #151515;
     color: #f5f5f5;
@@ -800,12 +825,27 @@ video:hover{
 .card_minigame_tela{
     width: 100%;
     height: 70%;
+    margin-top: -4%;
     background-image: url(../img/spiderhit/fundo.gif);
     background-position-y: bottom;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: flex;
     justify-content:space-evenly;
+}
+.div_rodada{
+    background-color: #0B689E;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 0;
+    font-size: 12px;
+    text-align: center;
+}
+.div_rodada h1{
+    color: #f5f5f5;
 }
 .card_minigame_menu{
     background-color: #0B689E;
@@ -836,6 +876,7 @@ video:hover{
     width: auto;
     height: 100%;
     image-rendering: pixelated;
+    transform: scaleX(-1);
 }
 /* JOGADAOR 1 */
 
@@ -890,6 +931,22 @@ video:hover{
     font-size: 15px;
     font-weight: normal;
     color: #F5F5F5;
+    width: 15%;
+    float: left;
+}
+.info_j1 .div_hp{
+    width: 80%;
+    height: 20%;
+    display: flex;
+}
+.info_j1 .div_hp .div_coracao{
+    height: 100%;
+    margin-left: 30%;
+    margin-top: 1%;
+}
+.div_coracao img{
+    width: auto;
+    height: 100%;
 }
 .tecla_j1{
     height: 100%;
@@ -967,6 +1024,18 @@ video:hover{
     background-color: #22E91E;
     border-radius: 10px;
 }
+.info_j2 .div_hp{
+    width: 80%;
+    height: 23%;
+    display: flex;
+    margin-left: 20%;
+    justify-content: end;
+}
+.info_j2 .div_hp .div_coracao{
+    height: 100%;
+    margin-top: 1%;
+    margin-right: 50%;
+}
 
 .info_j2 h5{
     font-size: 15px;
@@ -1014,6 +1083,7 @@ video:hover{
 .div_img_fundo .img_venom img{
     width: auto;
     height: 100%;
+    transform: scaleX(-1);
 }
 .div_img_fundo .img_superiorsm{
     width: auto;

@@ -173,8 +173,13 @@
 
             while ( l < btns.length) {
                 btns[l].style.backgroundColor = "#151515";
-                l++;
-                
+                l++;    
+            }
+
+            while ( m < btns2.length) {
+                btns2[m].style.backgroundColor = "#f5f5f5";
+                btns2[m].style.color = "#151515";
+                m++;
             }
 
             //DEFINE O STATUS DO DARK_MODE ATIVADO E ARMAZENA
@@ -256,6 +261,11 @@
                 btns[l].style.backgroundColor = "#0B689E";
                 l++;
                 
+            }
+            while ( m < btns2.length) {
+                btns2[m].style.backgroundColor = "#151515";
+                btns2[m].style.color = "#f5f5f5";
+                m++;
             }
             
             url_icon.src = "img/icones/dark-mode-dark.png";

@@ -115,7 +115,13 @@
     
 
         function abrirCadastro(){
-        
+        var inputs = document.getElementsByClassName('input_login');
+        var c = 0;
+
+        while(c<inputs.length){ 
+            inputs[c].style.transition = "1s";
+            c++;
+        }
         container1.style.width = "50%";
         container1.style.transition = "1s";
         
