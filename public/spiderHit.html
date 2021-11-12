@@ -77,6 +77,10 @@
                     </div>
                     
                 </div>
+                <audio id="musica">
+                    <source src="risada.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
 
                 <div class="card_minigame_menu">
                     <div class="card_minigame_statusJ1">
@@ -153,7 +157,6 @@
     </div>
 </body>
 </html>
-
 <script>
     sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
     id_usuario = sessionStorage.ID_USUARIO;
@@ -208,6 +211,7 @@
     function iniciar_jogo(){
         iniciar_card.style.display = "none";
         partida = 1; //inicia partida
+        musica.play();
         
         //se a partida for iniciada, o jogo funciona
         if(partida == 1){
@@ -247,7 +251,7 @@
                         img_j1.style.marginTop = "0%";//volta para posição original
                         
                         anim_desvio_j1 = 0;
-                    }, 200);
+                    }, 600);
 
                 }else if (event.keyCode == 74){
                     img_j2.src = "img/spiderhit/venom_soco.png";//troca para imagem de soco
@@ -281,14 +285,25 @@
                         
                         anim_desvio_j2 = 0;
                         
-                    }, 200);
+                    }, 600);
                 }
 
                 //se o J1 dar um soco e o J2 não desviar, o J2 recebe dano
                 if(anim_soco_j1 == 1 && anim_desvio_j2 == 0){
 
-                    vida_j2.style.width = Number(hp_j2_atual.innerHTML)+"%";  
+                    vida_j2.style.width = (Number(hp_j2_atual.innerHTML)-3)+"%";  
                     hp_j2_atual.innerHTML = Number(hp_j2_atual.innerHTML) - 3;
+
+                    vida_j2.style.backgroundColor = '#1b9419';
+                    vida_j2.style.transition = '0s';
+
+                    setTimeout(function(){
+                        vida_j2.style.transition = '0.5s';
+                        
+                        vida_j2.style.backgroundColor = '#22E91E';
+                        
+                    }, 200);
+                    
 
                 }else 
                 //Se a animação de desvio do J2 e a animação de ataque do j1 forem ativadas ao mesmo tempo
@@ -299,8 +314,18 @@
                 //se o J2 dar um soco e o J1 não desviar, o J1 recebe dano
                 if(anim_soco_j2 == 1 && anim_desvio_j1 == 0){
 
-                    vida_j1.style.width = Number(hp_j1_atual.innerHTML)+"%";
+                    vida_j1.style.width = (Number(hp_j1_atual.innerHTML)-3)+"%";  
                     hp_j1_atual.innerHTML = Number(hp_j1_atual.innerHTML) - 3;
+
+                    vida_j1.style.backgroundColor = '#1b9419';
+                    vida_j1.style.transition = '0s';
+
+                    setTimeout(function(){
+                        vida_j1.style.transition = '0.5s';
+                        
+                        vida_j1.style.backgroundColor = '#22E91E';
+                        
+                    }, 200);
 
                 }else 
                 //Se a animação de desvio do J2 e a animação de ataque do j1 forem ativadas ao mesmo tempo
@@ -313,36 +338,53 @@
                 if(Number(hp_j2_atual.innerHTML) <= 0 || Number(hp_j1_atual.innerHTML) <= 0 ){
                     if(Number(hp_j1_atual.innerHTML) <= 0){
                         alert("Venom venceu a rodada "+rodada);
-                        vidasj1 = vidasJ1 - 1;
-                        vidasj2 = vidasJ2 + 1;
+                        vidasJ1 = vidasJ1 - 1;
+                        vidasJ2 = vidasJ2 + 1;
+                        console.log(vidasJ1);
+                        console.log(vidasJ2);
 
                         vida_j1.style.width = "100%";
                         hp_j1_atual.innerHTML = 100;
-                        vidas_j1.innerHTML = `
-                        <img src="img/spiderhit/coracao.png" alt="">
-                        `
+                        vidas_j1.innerHTML = ``;
+                        for(var c = 0; c < vidasJ1; c++){
+                            vidas_j1.innerHTML += `
+                            <img src="img/spiderhit/coracao.png" alt="">
+                            `
+                        }
+                        
 
                         vida_j2.style.width = "100%";
                         hp_j2_atual.innerHTML = 100;
-                        vidas_j2.innerHTML += `
-                        <img src="img/spiderhit/coracao.png" alt="">
-                        `
+                        vidas_j2.innerHTML = ``;
+                        for(var c = 0; c < vidasJ2; c++){
+                            vidas_j2.innerHTML += `
+                            <img src="img/spiderhit/coracao.png" alt="">
+                            `
+                        }
+                    
                     }else if(Number(hp_j2_atual.innerHTML) <= 0){
                         alert("Homem-aranha venceu a rodada "+rodada);
-                        vidasj2 = vidasJ2 - 1;
-                        vidasj1 = vidasJ2 + 1;
+                        vidasJ2 = vidasJ2 - 1;
+                        vidasJ1 = vidasJ1 + 1;
 
                         vida_j1.style.width = "100%";
                         hp_j1_atual.innerHTML = 100;
-                        vidas_j1.innerHTML += `
-                        <img src="img/spiderhit/coracao.png" alt="">
-                        `
+                        vidas_j1.innerHTML = ``;
+                        for(var c = 0; c < vidasJ1; c++){
+                            vidas_j1.innerHTML += `
+                            <img src="img/spiderhit/coracao.png" alt="">
+                            `
+                        }
 
                         vida_j2.style.width = "100%";
                         hp_j2_atual.innerHTML = 100;
-                        vidas_j2.innerHTML = `
-                        <img src="img/spiderhit/coracao.png" alt="">
-                        `
+                        vidas_j2.innerHTML = ``;
+                        for(var c = 0; c < vidasJ2; c++){
+                            vidas_j2.innerHTML = `
+                            <img src="img/spiderhit/coracao.png" alt="">
+                            `
+                        }
+                        
                     }
                     rodada ++;
                     rodada_atual.innerHTML = "Round"+rodada;
@@ -353,10 +395,10 @@
                     partida = 0;
 
                     if(Number(hp_j2_atual.innerHTML) <= 0){
-                        alert("Fim de jogo \nHomem-aranha venceu");
+                        alert("Fim de jogo \nHomem-aranha venceu\nVocê ganhou 300 SP");
                         var vencedor = "Homem-aranha";
                     }else if(Number(hp_j1_atual.innerHTML) <= 0){
-                        alert("Fim de jogo \nVenom venceu");
+                        alert("Fim de jogo \nVenom venceu\nVocê ganhou 300 SP");
                         var vencedor = "Venom";
                     }
 

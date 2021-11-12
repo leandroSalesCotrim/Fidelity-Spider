@@ -30,14 +30,14 @@ CREATE TABLE spiderhit(
 
 
 SELECT * FROM votos where fk_usuario = 1;
-SELECT COUNT(vencedor) FROM spiderhit where vencedor = "Venom";
+SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Venom";
  
 
 SELECT * FROM usuario;
-SELECT * FROM spiderhit;
+SELECT * FROM Spiderhit;
 SELECT * FROM votos;
 
-INSERT INTO spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
+INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
 
 SELECT COUNT(idVoto) FROM votos WHERE vilao_voto = 'Mysterio';
 
