@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,207 +12,208 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
-function listar_votos_duende() {
-    fetch("/usuarios/listar_votos_duende").then(function (resposta) {
-        console.log("ESTOU NO THEN DO listar_votos_duende()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
+        function listar_votos_duende() {
+            fetch("/usuarios/listar_votos_duende").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_duende()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
 
-                votosD = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                console.log(votosD.votos);
-                sessionStorage.VOTOSD = votosD.votos;
+                        votosD = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosD.votos);
+                        sessionStorage.VOTOSD = votosD.votos;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
 
-function listar_votos_carnificina() {
-    fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
-        console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
-                votosC = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                console.log(votosC.votos);
+        function listar_votos_carnificina() {
+            fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
+                        votosC = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosC.votos);
 
-                sessionStorage.VOTOSC = votosC.votos;
+                        sessionStorage.VOTOSC = votosC.votos;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
-function listar_votos_chacal() {
-    fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
-        console.log("ESTOU NO THEN DO listar_votos_chacal()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
+        function listar_votos_chacal() {
+            fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_chacal()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
 
-                votosCh = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                console.log(votosCh.votos);
-                sessionStorage.VOTOSCH = votosCh.votos;
+                        votosCh = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosCh.votos);
+                        sessionStorage.VOTOSCH = votosCh.votos;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
 
-function listar_votos_morbius() {
-    fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
-        console.log("ESTOU NO THEN DO listar_votos_morbius()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
+        function listar_votos_morbius() {
+            fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_morbius()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
 
-                votosM = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                console.log(votosM.votos);
-                sessionStorage.VOTOSM = votosM.votos;
+                        votosM = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosM.votos);
+                        sessionStorage.VOTOSM = votosM.votos;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
 
-function listar_votos_mysterio() {
-    fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
-        console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
+        function listar_votos_mysterio() {
+            fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
 
-                votosMy = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                console.log(votosMy.votos);
-                sessionStorage.VOTOSMY = votosMy.votos;
+                        votosMy = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosMy.votos);
+                        sessionStorage.VOTOSMY = votosMy.votos;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
 
-  function listar_votos_kaine() {
-      fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
-          console.log("ESTOU NO THEN DO listar_votos_kaine()!")
-          if (resposta.ok) {
-              resposta.json().then(function (resposta) {
-                  console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
+        function listar_votos_kaine() {
+            fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_kaine()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
 
-                  votosK = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                  console.log(votosK.votos);
-                  sessionStorage.VOTOSK = votosK.votos;
+                        votosK = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosK.votos);
+                        sessionStorage.VOTOSK = votosK.votos;
 
-              });
-          } else {
-              console.log("Dados recebidos: ", JSON.stringify(resposta));
-          }
-      }).catch(function (erro) {
-          console.log(erro);
-      })
-      return false;
-  }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
-    function listar_votos_kraven() {
-        fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
-            console.log("ESTOU NO THEN DO listar_votos_kraven()!")
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
+        function listar_votos_kraven() {
+            fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_votos_kraven()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
 
-                    votosKr = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                    console.log(votosKr.votos);
-                    sessionStorage.VOTOSKR = votosKr.votos;
+                        votosKr = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(votosKr.votos);
+                        sessionStorage.VOTOSKR = votosKr.votos;
 
-                });
-            } else {
-                console.log("Dados recebidos: ", JSON.stringify(resposta));
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
-    }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
-    function listar_vitorias_aranha() {
-        fetch("/usuarios/listar_vitorias_aranha").then(function (resposta) {
-            console.log("ESTOU NO THEN DO listar_vitorias_aranha()!")
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
+        function listar_vitorias_aranha() {
+            fetch("/usuarios/listar_vitorias_aranha").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_vitorias_aranha()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
 
-                    vitoriasA = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                    console.log(vitoriasA.vitorias);
-                    sessionStorage.VITORIAS_A = vitoriasA.vitorias;
+                        vitoriasA = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(vitoriasA.vitorias);
+                        sessionStorage.VITORIAS_A = vitoriasA.vitorias;
 
-                });
-            } else {
-                console.log("Dados recebidos: ", JSON.stringify(resposta));
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
-    }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
-    function listar_vitorias_venom() {
-        fetch("/usuarios/listar_vitorias_venom").then(function (resposta) {
-            console.log("ESTOU NO THEN DO listar_vitorias_venom()!")
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
+        function listar_vitorias_venom() {
+            fetch("/usuarios/listar_vitorias_venom").then(function (resposta) {
+                console.log("ESTOU NO THEN DO listar_vitorias_venom()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
 
-                    vitoriasV = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
-                    console.log(vitoriasV.vitorias);
-                    sessionStorage.VITORIAS_V = vitoriasV.vitorias;
+                        vitoriasV = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(vitoriasV.vitorias);
+                        sessionStorage.VITORIAS_V = vitoriasV.vitorias;
 
-                });
-            } else {
-                console.log("Dados recebidos: ", JSON.stringify(resposta));
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
-    }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
-    listar_votos_duende();
-    listar_votos_carnificina();
-    listar_votos_chacal();
-    listar_votos_morbius();
-    listar_votos_mysterio();
-    listar_votos_kaine();
-    listar_votos_kraven();
-    listar_vitorias_aranha();
-    listar_vitorias_venom();
+        listar_votos_duende();
+        listar_votos_carnificina();
+        listar_votos_chacal();
+        listar_votos_morbius();
+        listar_votos_mysterio();
+        listar_votos_kaine();
+        listar_votos_kraven();
+        listar_vitorias_aranha();
+        listar_vitorias_venom();
     </script>
-    
+
 
 </head>
+
 <body>
 
     <!-- MENU -->
@@ -225,12 +227,12 @@ function listar_votos_mysterio() {
 
     <!-- CONTEUDO -->
     <div class="div_dashboardA">
-        
+
         <div class="containerA">
             <div class="div_txt">
-                <h2>Bem vindo, Incrivel <span id="span2">usúario!</span></h2>
+                <h2 class="txt_dark">Bem vindo, Incrivel <span id="span2" class="txt_dark">usúario!</span></h2>
                 <hr>
-                <h5>Esses são os dados que o Fidelity Spider está gerando.</h5>
+                <h5 class="txt_dark">Esses são os dados que o Fidelity Spider está gerando.</h5>
             </div>
 
             <div class="div_img">
@@ -248,204 +250,103 @@ function listar_votos_mysterio() {
 
             <div class="div_grafico">
                 <div class="card_grafico">
-                    <canvas id="myChart1" ></canvas>
+                    <canvas id="myChart1"></canvas>
                 </div>
                 <div class="card_grafico">
-                    <canvas id="myChart2" ></canvas>
+                    <canvas id="myChart2"></canvas>
                 </div>
             </div>
 
-            <div class="div_registros">
-
-                <h1>Resgates</h1>
-                <table id="titulo_table" >
-                  <tr>
-                    <th>usuario</th>
-                    <th>Email</th>
-                    <th>Data/hora</th>
-                    <th>Jogo</th>
-                    <th>Desconto</th>
-                </tr>
-                </table>
-                <div class="container" >
-                    <table border="1">
-                        
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                        <tr>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                          <td>bb</td>
-                        </tr>
-                    </table>
-
+            <div class="div_registros" onclick="">
+                <div class="div_img_registro">
+                    <img draggable="false" src="img/icones/historico.png" alt="">
                 </div>
+                <h1>Resgates efetuados</h1>
             </div>
 
         </div>
-        
-        
-        <div class="btn_dark_mode" >
-            <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
+
+
+        <div class="btn_dark_mode">
+            <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                alt="Modo escuro">
         </div>
 
 
-        </div>
     </div>
-    
+    </div>
+
 </body>
+
 </html>
+<script src="js/dark_mode.js"> </script>
 <script>
-      
-  
+
+
     // Inicia uma variável do tipo constante (não pode ser reatribuida)
-    const config1 = { 
-      type: "doughnut", // tipo do gráfico
-      data: { // objeto que vai conter os dados do gráfico
-        labels: ["Duende Macabro", "Carnificina", "Chacal", "Morbius", "Mysterio", "Kaine", "Kraven"], // labels (rótulos) que serão identificados os nossos dados 
-        datasets: [ // datasets (conjunto de dados)
-          {
-            data: [Number(sessionStorage.VOTOSD), Number(sessionStorage.VOTOSC), Number(sessionStorage.VOTOSCH), Number(sessionStorage.VOTOSM), Number(sessionStorage.VOTOSMY), Number(sessionStorage.VOTOSK), Number(sessionStorage.VOTOSKR) ], // os dados referentes aqueles rótulos
-            backgroundColor: ["#FA5C00","#FA003E","#7C2DFA","#0060FA","#58EB00","#EB1B00" ,"#FACD02"], // cor das "bolinhas" do gráfico
-            borderColor: ["#7A2C00","#7A001E","#3D167A","#002F7A","#276B00","#6B0C00" ,"#7A6301"] // cor da "linha" do gráfico
-          }
-        ]
-      },
-      options: {
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-            position: 'left',
-            },
-            title: {
-            display: true,
-            text: 'Vilões mais votados',
-            color: '#f5f5f5'
-            }
-        }
-        /* maintainAspectRatio (manter relação de aspecto) 
-          caso true: ele "obdece" a altura e largura que colocamos
-          caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
-        */
-      }
-    }
-    
-    const config2 = { 
-      type: "pie", // tipo do gráfico
-      data: { // objeto que vai conter os dados do gráfico
-        labels: ["Venom", "Homem-Aranha"], // labels (rótulos) que serão identificados os nossos dados 
-        datasets: [ // datasets (conjunto de dados)
-          {
-            data: [Number(sessionStorage.VITORIAS_A), Number(sessionStorage.VITORIAS_V)], // os dados referentes aqueles rótulos
-            backgroundColor: ["#5C00FA", "#EB1C23"], // cor das "bolinhas" do gráfico
-            borderColor: ["#310085", "#750E12"] // cor da "linha" do gráfico
-          }
-        ]
-      },
-      options: {
-      maintainAspectRatio: false,
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
+    const config1 = {
+        type: "doughnut", // tipo do gráfico
+        data: { // objeto que vai conter os dados do gráfico
+            labels: ["Duende Macabro", "Carnificina", "Chacal", "Morbius", "Mysterio", "Kaine", "Kraven"], // labels (rótulos) que serão identificados os nossos dados 
+            datasets: [ // datasets (conjunto de dados)
+                {
+                    data: [Number(sessionStorage.VOTOSD), Number(sessionStorage.VOTOSC), Number(sessionStorage.VOTOSCH), Number(sessionStorage.VOTOSM), Number(sessionStorage.VOTOSMY), Number(sessionStorage.VOTOSK), Number(sessionStorage.VOTOSKR)], // os dados referentes aqueles rótulos
+                    backgroundColor: ["#FA5C00", "#FA003E", "#7C2DFA", "#0060FA", "#58EB00", "#EB1B00", "#FACD02"], // cor das "bolinhas" do gráfico
+                    borderColor: ["#7A2C00", "#7A001E", "#3D167A", "#002F7A", "#276B00", "#6B0C00", "#7A6301"] // cor da "linha" do gráfico
+                }
+            ]
         },
-        title: {
-          display: true,
-          text: 'Vitorias spider-hit',
-          color: '#f5f5f5'
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'left',
+                },
+                title: {
+                    display: true,
+                    text: 'Vilões mais votados',
+                    color: '#f5f5f5'
+                }
+            }
+            /* maintainAspectRatio (manter relação de aspecto) 
+              caso true: ele "obdece" a altura e largura que colocamos
+              caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+            */
         }
-      }
-    },
-  };
-    
-   
-  
-    var myChartLine1 = new Chart(document.getElementById("myChart1"), config1); 
-    var myChartLine2 = new Chart(document.getElementById("myChart2"), config2); 
+    }
+
+    const config2 = {
+        type: "pie", // tipo do gráfico
+        data: { // objeto que vai conter os dados do gráfico
+            labels: ["Venom", "Homem-Aranha"], // labels (rótulos) que serão identificados os nossos dados 
+            datasets: [ // datasets (conjunto de dados)
+                {
+                    data: [Number(sessionStorage.VITORIAS_A), Number(sessionStorage.VITORIAS_V)], // os dados referentes aqueles rótulos
+                    backgroundColor: ["#5C00FA", "#EB1C23"], // cor das "bolinhas" do gráfico
+                    borderColor: ["#310085", "#750E12"] // cor da "linha" do gráfico
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Vitorias spider-hit',
+                    color: '#f5f5f5'
+                }
+            }
+        },
+    };
+
+
+
+    var myChartLine1 = new Chart(document.getElementById("myChart1"), config1);
+    var myChartLine2 = new Chart(document.getElementById("myChart2"), config2);
     /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
     e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
     separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
@@ -457,7 +358,7 @@ function listar_votos_mysterio() {
 
 
     nome = sessionStorage.NOME_USUARIO;
-    span2.innerHTML=nome;
+    span2.innerHTML = nome;
 
-    
-  </script>
+
+</script>
