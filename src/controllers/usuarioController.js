@@ -24,6 +24,23 @@ function listar(req, res) {
         );
 }
 
+function listarResgate(req, res) {
+    usuarioModel.listarResgate()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function entrar(req, res) {
     var nome = req.body.nome;
     var senha = req.body.senha;
@@ -181,7 +198,7 @@ function verificar_voto(req, res) {
     var idUsuario = req.body.id_usuario;
 
     if (idUsuario == undefined) {
-        res.status(400).send("Seu id está undefinido!"+idUsuario);
+        res.status(400).send("Seu id está undefinido!" + idUsuario);
     } else {
         usuarioModel.verificar_voto(idUsuario)
             .then(
@@ -277,8 +294,8 @@ function votar(req, res) {
         res.status(400).send("O vilão escolhido está undefined!");
     } else if (spiderPoints == undefined) {
         res.status(400).send("Seus spiderPoints estão undefined!");
-    }else {
-        usuarioModel.votar(vilao, idUsuario,spiderPoints)
+    } else {
+        usuarioModel.votar(vilao, idUsuario, spiderPoints)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -361,6 +378,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    listarResgate,
     atualizar_sp,
     verificar_voto,
     votar,

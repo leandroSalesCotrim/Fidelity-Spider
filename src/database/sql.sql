@@ -28,14 +28,45 @@ CREATE TABLE spiderhit(
     FOREIGN KEY (fk_usuario) REFERENCES usuario (idUsuario)
 );
 
+CREATE TABLE jogo(
+	idJogo INT PRIMARY KEY AUTO_INCREMENT,
+	nomejogo VARCHAR(8),
+	preco DOUBLE,
+	desconto INT
+);
 
-SELECT * FROM votos where fk_usuario = 1;
-SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Venom";
+CREATE TABLE resgate(
+	dataHoraResgate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    cupomResgate CHAR(16),
+	fk_jogo INT,
+	fk_usuario INT,
+    PRIMARY KEY (fk_jogo,fk_usuario),
+    FOREIGN KEY (fk_jogo) REFERENCES jogo(idJogo),
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
+
+INSERT INTO jogo (nomeJogo,preco,desconto)
+	VALUES('SM-PS4',199.50,50),
+    ('SM-MM',349.90,25),
+    ('SM-2',0,0),
+    ('WOLV',0,0);
+    
+INSERT INTO resgate (cupomResgate,fk_jogo,fk_usuario) 
+	VALUES ('8102234466278160',1,1),
+	('1687647287184865',2,1),
+    ('6753302800904397',1,2),
+    ('6625608319502925',2,3),
+    ('4555109586655406',2,4),
+    ('7546233422123760',1,4);
+    
+SELECT nome,email,nomeJogo,preco,desconto,DATE_FORMAT (`dataHoraResgate`,'%d/%m/%Y %H:%i:%s') as dataHoraresgate 
+	FROM usuario JOIN resgate ON idUsuario = fk_Usuario
+	JOIN jogo ON idJogo = fk_Jogo;
  
-
 SELECT * FROM usuario;
 SELECT * FROM Spiderhit;
 SELECT * FROM votos;
+SELECT * FROM jogo;
 
 INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
 

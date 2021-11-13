@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <div class="container">
+            <div class="div_logo_sony">
+                <img id="logo_sony" src="img/sony-logo-branca.png" draggable="false" alt="Logo Sony">
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEUDO -->
+    <div class="div_registros">
+        <div class="container">
+
+            <div class="div_img_voltar">
+                <a href="dashboard-adm.html">
+                    <img src="img/icones/voltar.png" alt="">
+                </a>
+            </div>
+
+            <div class="txt_centro">
+                <div class="titulo">
+                    <h1 class="txt_dark" id="titulo_registros">Aqui está!</h1>
+                    <hr>
+                </div>
+                <p id="txt_registros" class="txt_dark">
+                    Este é o histórico de resgates que o Fidelity Spider gerou até o momento.
+                    Todos os resgates efetuados pelos usuarios podem ser encontrados aqui!
+                </p>
+            </div>
+            <div class="btn_dark_mode">
+                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                    alt="Modo escuro">
+            </div>
+
+
+        </div>
+
+        <div class="containerR">
+            <br>
+            <table id="tabela">
+                    <tr id="linhaTitulo">
+
+                    </tr>
+
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+     listarResgate();
+
+    linhaTitulo.innerHTML = `
+        <th>Usuário</th>
+        <th>E-mail</th>
+        <th>Jogo</th>
+        <th>Preço</th>
+        <th>Desconto</th>
+        <th>Data/Hora</th>
+    `;
+    function listarResgate() {
+        fetch("/usuarios/listarResgate").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listarResgate()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do historico de Resgate: ", JSON.stringify(resposta));
+
+                    if (resposta.status == 204) {
+                        linhaTitulo.innerHTML = "Nenhum resultado encontrado."
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    // resposta.json().then(function (resposta) {
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+
+                        if((i+1)%2 == 0){
+                            tabela.innerHTML += `<tr">
+                                <td style="background-color:#C6141A">${registro.nome}</td>
+                                <td style="background-color:#C6141A">${registro.email}</td>
+                                <td style="background-color:#C6141A">${registro.nomeJogo}</td>
+                                <td style="background-color:#C6141A">${registro.preco}</td>
+                                <td style="background-color:#C6141A">${registro.desconto}%</td>
+                                <td style="background-color:#C6141A">${registro.dataHoraResgate}</td>
+                            <tr>`;
+                        }else{
+                            tabela.innerHTML += `<tr">
+                                <td>${registro.nome}</td>
+                                <td>${registro.email}</td>
+                                <td>${registro.nomeJogo}</td>
+                                <td>${registro.preco}</td>
+                                <td>${registro.desconto}%</td>
+                                <td>${registro.dataHoraResgate}</td>
+                            <tr>`;
+                        }
+                         
+                    }
+
+                });
+
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+</script>

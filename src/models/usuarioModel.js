@@ -8,6 +8,16 @@ function listar() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function listarResgate() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarResgate()");
+    var instrucao = `
+        SELECT nome,email,nomeJogo,preco,desconto,DATE_FORMAT (dataHoraResgate,'%d/%m/%Y %H:%i:%s') as dataHoraResgate
+	        FROM usuario JOIN resgate ON idUsuario = fk_Usuario
+	        JOIN jogo ON idJogo = fk_Jogo;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 function listar_votos_duende() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_duende()");
     var instrucao = `
@@ -89,7 +99,7 @@ function verificar_voto(idUsuario) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome,email, senha) {
+function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha);
     var instrucao = `
         INSERT INTO usuario (nome, email, senha, tipoUsuario) VALUES ('${nome}', '${email}', '${senha}', 'usuario');
@@ -98,8 +108,8 @@ function cadastrar(nome,email, senha) {
     return database.executar(instrucao);
 }
 
-function atualizar_sp(spiderPoints,idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizar_sp():", spiderPoints,idUsuario);
+function atualizar_sp(spiderPoints, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizar_sp():", spiderPoints, idUsuario);
     var instrucao = `
         UPDATE usuario SET spiderPoints = ${spiderPoints} WHERE idUsuario = ${idUsuario};
     `;
@@ -107,20 +117,20 @@ function atualizar_sp(spiderPoints,idUsuario) {
     return database.executar(instrucao);
 }
 
-function votar(vilao,idUsuario,spiderPoints) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function votar():", vilao,idUsuario,spiderPoints);
+function votar(vilao, idUsuario, spiderPoints) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function votar():", vilao, idUsuario, spiderPoints);
     var instrucao = `
         INSERT INTO votos (vilao_voto, fk_usuario) VALUES ('${vilao}', '${idUsuario}');
     `;
 
-    atualizar_sp(spiderPoints,idUsuario);//chamando função para atualizar os spider points atuais
+    atualizar_sp(spiderPoints, idUsuario);//chamando função para atualizar os spider points atuais
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function vitoriaSh(vencedor,idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function vitoriaSh():",vencedor,idUsuario);
+function vitoriaSh(vencedor, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function vitoriaSh():", vencedor, idUsuario);
     var instrucao = `
         INSERT INTO spiderhit (vencedor, fk_usuario) VALUES ('${vencedor}', '${idUsuario}');
     `;
@@ -151,6 +161,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    listarResgate,
     atualizar_sp,
     verificar_voto,
     votar,

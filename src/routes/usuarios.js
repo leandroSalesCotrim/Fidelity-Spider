@@ -11,6 +11,10 @@ router.get("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
 
+router.get("/listarResgate", function (req, res) {
+    usuarioController.listarResgate(req, res);
+});
+
 router.get("/listar_votos_duende", function (req, res) {
     usuarioController.listar_votos_duende(req, res);
 });
