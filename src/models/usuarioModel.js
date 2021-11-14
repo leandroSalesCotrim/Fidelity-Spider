@@ -99,6 +99,28 @@ function verificar_voto(idUsuario) {
     return database.executar(instrucao);
 }
 
+function verificar_resgate(idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function verificar_resgate(): ", idUsuario)
+    var instrucao = `
+        SELECT * FROM resgate 
+            JOIN usuario ON idUsuario = fk_usuario 
+            JOIN jogo ON idJogo = fk_jogo 
+            WHERE fk_usuario = '${idUsuario}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function resgatar(cupom, idJogo, idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function resgatar():", cupom, idJogo, idUsuario);
+    var instrucao = `
+    INSERT INTO resgate (cupomResgate,fk_jogo,fk_usuario) 
+	    VALUES ('${cupom}',${idJogo},${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha);
     var instrucao = `
@@ -164,6 +186,8 @@ module.exports = {
     listarResgate,
     atualizar_sp,
     verificar_voto,
+    verificar_resgate,
+    resgatar,
     votar,
     listar_votos_duende,
     listar_votos_carnificina,

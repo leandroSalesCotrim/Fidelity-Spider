@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
 
+    <script>
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }
+    </script>
+
 </head>
 <body>
 
@@ -459,7 +467,7 @@
     }
 
     function votar() {
-        sp = sp + 1000;
+        sp = sp + 50000;
         
         var corpo = {
             id_usuario: id_usuario,
@@ -479,7 +487,7 @@
             console.log("resposta: ", resposta);
         
             if (resposta.ok) {
-                window.alert("Obrigado por votar no "+vilao_escolhido+",\ncomo recompensa você ganhou 1000 SpiderPoints por isto!");
+                window.alert("Obrigado por votar no "+vilao_escolhido+",\ncomo recompensa você ganhou 50000 SpiderPoints por isto!");
                 sessionStorage.SPIDERPOINTS_USUARIO = sp;
                 location.reload();
             } else {

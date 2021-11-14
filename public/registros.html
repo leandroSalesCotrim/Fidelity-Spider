@@ -9,6 +9,14 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+    <script>
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }else if(sessionStorage.TIPO_USUARIO == "usuario"){
+            window.location = "./dashboard.html";
+        }
+    </script>
 
 </head>
 
@@ -66,6 +74,7 @@
 
 </html>
 
+<script src="js/dark_mode.js"> </script>
 <script>
      listarResgate();
 

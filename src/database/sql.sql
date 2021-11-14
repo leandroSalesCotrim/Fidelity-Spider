@@ -12,6 +12,8 @@ CREATE TABLE usuario (
     spiderPoints INT DEFAULT 0,
     CONSTRAINT CHECK (tipoUsuario = 'usuario' OR tipoUsuario = 'adm' )
 );
+INSERT INTO usuario (nome,email,senha,tipoUsuario) 
+	VALUES('adm','adm@g.com','adm','adm');
 
 CREATE TABLE votos(
 	idVoto INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,14 +61,28 @@ INSERT INTO resgate (cupomResgate,fk_jogo,fk_usuario)
     ('4555109586655406',2,4),
     ('7546233422123760',1,4);
     
-SELECT nome,email,nomeJogo,preco,desconto,DATE_FORMAT (`dataHoraResgate`,'%d/%m/%Y %H:%i:%s') as dataHoraresgate 
+TRUNCATE resgate;
+
+UPDATE usuario SET spiderPoints = 9999999 WHERE idUsuario = 1;
+    
+INSERT INTO resgate (cupomResgate,fk_jogo,fk_usuario)
+	values ('6BD4E8B9C8392523', 1, 3);
+    
+SELECT nome,email,nomeJogo,preco,desconto,DATE_FORMAT (dataHoraResgate,'%d/%m/%Y %H:%i:%s') as dataHoraResgate 
 	FROM usuario JOIN resgate ON idUsuario = fk_Usuario
 	JOIN jogo ON idJogo = fk_Jogo;
+    
+SELECT nomeJogo 
+	FROM resgate JOIN usuario ON idUsuario = fk_usuario 
+	JOIN jogo ON idJogo = fk_jogo 
+	where fk_usuario = '1';
+
  
 SELECT * FROM usuario;
 SELECT * FROM Spiderhit;
 SELECT * FROM votos;
 SELECT * FROM jogo;
+SELECT * FROM resgate;
 
 INSERT INTO Spiderhit (vencedor, fk_usuario) VALUES ('Homem-aranha', '1');
 

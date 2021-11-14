@@ -226,6 +226,69 @@ function verificar_voto(req, res) {
     }
 }
 
+function verificar_resgate(req, res) {
+    var idUsuario = req.body.id_usuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefinido!" + idUsuario);
+    } else {
+        usuarioModel.verificar_resgate(idUsuario)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        console.log("O usuario ainda pode resgatar");
+                        console.log(resultado);
+                        res.status(200).json(resultado);
+                    } else if (resultado.length == 0) {
+                        console.log("O usuario ainda não resgatou nenhum jogo");
+                        res.status(200).json(resultado);
+                    } else if(resultado.length == 2){
+                        res.status(403).send("O usuario não pode fazer mais resgates");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve ao realizar a consulta dos votos! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function resgatar(req, res) {
+    var cupom = req.body.cupom_resgate;
+    var idJogo = req.body.id_jogo;
+    var idUsuario = req.body.id_usuario;
+
+    if (cupom == undefined) {
+        res.status(400).send("Seu cupom está undefined!");
+    } else if (idJogo == undefined) {
+        res.status(400).send("Seu idJogo está undefined!");
+    } else if (idUsuario == undefined) {
+        res.status(400).send("Seu idUsuario está undefined!");
+    } else {
+        usuarioModel.resgatar(cupom, idJogo, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 function cadastrar(req, res) {
     var nome = req.body.nome_cad;
     var senha = req.body.senha_cad;
@@ -381,6 +444,8 @@ module.exports = {
     listarResgate,
     atualizar_sp,
     verificar_voto,
+    verificar_resgate,
+    resgatar,
     votar,
     listar_votos_duende,
     listar_votos_carnificina,

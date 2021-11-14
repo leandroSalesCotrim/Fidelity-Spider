@@ -59,6 +59,14 @@ router.post("/verificar_voto", function (req, res) {
     usuarioController.verificar_voto(req, res);
 });
 
+router.post("/verificar_resgate", function (req, res) {
+    usuarioController.verificar_resgate(req, res);
+});
+
+router.post("/resgatar", function (req, res) {
+    usuarioController.resgatar(req, res);
+});
+
 router.post("/votar", function (req, res) {
     usuarioController.votar(req, res);
 });

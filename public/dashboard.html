@@ -8,6 +8,14 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+
+    <script>
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }
+    </script>
 </head>
 <body>
 
@@ -34,7 +42,7 @@
                 <img src="img/Miles_Morales.png" draggable="false" alt="">
             </div>
 
-            <div class="div_logout">
+            <div onclick="sessionStorage.clear();" class="div_logout">
                 <a href="index.html">
                     <img draggable="false" src="img/icones/logout.png" alt="">
                 </a>

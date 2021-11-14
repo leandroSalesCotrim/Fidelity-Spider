@@ -12,6 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            // window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }else if(sessionStorage.TIPO_USUARIO == "usuario"){
+            window.location = "./dashboard.html";
+        }
+
         function listar_votos_duende() {
             fetch("/usuarios/listar_votos_duende").then(function (resposta) {
                 console.log("ESTOU NO THEN DO listar_votos_duende()!")
@@ -240,7 +248,7 @@
             </div>
 
             <div class="div_logout">
-                <a href="index.html">
+                <a onclick="sessionStorage.clear();" href="index.html">
                     <img draggable="false" src="img/icones/logout.png" alt="">
                 </a>
             </div>

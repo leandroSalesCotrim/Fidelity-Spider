@@ -1244,6 +1244,7 @@ video:hover{
     font-weight: bold;
     color: #F5F5F5;
     margin: auto;
+    cursor: pointer;
 }
 .containerCards .cardItem button span{
     color: #EB1C23;

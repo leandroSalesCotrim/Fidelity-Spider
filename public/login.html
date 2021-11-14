@@ -8,6 +8,13 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+    <script>
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            // window.location = "./login.html";
+        }
+    </script>
 </head>
 <body>
 
@@ -168,9 +175,14 @@
 
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.TIPO_USUARIO = json.tipoUsuario;
                     sessionStorage.SPIDERPOINTS_USUARIO = json.spiderPoints;
 
-                    window.location = "./dashboard.html";
+                    if(sessionStorage.TIPO_USUARIO == "adm"){
+                        window.location = "./dashboard-adm.html";
+                    }else{
+                        window.location = "./dashboard.html";
+                    }
 
                 });
 
