@@ -75,151 +75,31 @@ function entrar(req, res) {
     }
 }
 
-function listar_votos_duende(req, res) {
-    usuarioModel.listar_votos_duende()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
+function checar_cadastro(req, res) {
+    var nome = req.body.nome_cad;
+    var cpf = req.body.cpf_cad;
 
-function listar_votos_carnificina(req, res) {
-    usuarioModel.listar_votos_carnificina()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_votos_chacal(req, res) {
-    usuarioModel.listar_votos_chacal()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_votos_morbius(req, res) {
-    usuarioModel.listar_votos_morbius()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_votos_mysterio(req, res) {
-    usuarioModel.listar_votos_mysterio()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_votos_kaine(req, res) {
-    usuarioModel.listar_votos_kaine()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_votos_kraven(req, res) {
-    usuarioModel.listar_votos_kraven()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function verificar_voto(req, res) {
-    var idUsuario = req.body.id_usuario;
-
-    if (idUsuario == undefined) {
-        res.status(400).send("Seu id está undefinido!" + idUsuario);
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefinido!");
+    } else if (cpf == undefined) {
+        res.status(400).send("Seu CPF está indefinida!");
     } else {
-        usuarioModel.verificar_voto(idUsuario)
+        usuarioModel.checar_cadastro(nome, cpf)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
 
-                    if (resultado.length == 1) {
-                        console.log(resultado);
-                        res.status(403).send("O usuario já votou");
-                    } else if (resultado.length == 0) {
-                        console.log("O usuario ainda não votou");
-                        res.json(resultado[0]);
+                    if (resultado.length == 0) {
+                        res.status(200).json(resultado);
                     } else {
-                        res.status(403).send("O usuario possui mais de um voto");
+                        res.status(403).send("Já existe um usuário cadastrado com este cpf e/ou nome!");
                     }
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nHouve ao realizar a consulta dos votos! Erro: ", erro.sqlMessage);
+                    console.log("\nHouve um erro a verificação o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -293,6 +173,7 @@ function cadastrar(req, res) {
     var nome = req.body.nome_cad;
     var senha = req.body.senha_cad;
     var email = req.body.email_cad;
+    var cpf = req.body.cpf_cad;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -300,8 +181,10 @@ function cadastrar(req, res) {
         res.status(400).send("Seu E-mail está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else {
-        usuarioModel.cadastrar(nome, email, senha)
+    }else if (cpf == undefined) {
+        res.status(400).send("Seu CPF está undefined!");
+    }else {
+        usuarioModel.cadastrar(nome, email, cpf, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -441,19 +324,12 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    checar_cadastro,
     listarResgate,
     atualizar_sp,
-    verificar_voto,
     verificar_resgate,
     resgatar,
     votar,
-    listar_votos_duende,
-    listar_votos_carnificina,
-    listar_votos_chacal,
-    listar_votos_morbius,
-    listar_votos_mysterio,
-    listar_votos_kaine,
-    listar_votos_kraven,
     vitoriaSh,
     listar_vitorias_aranha,
     listar_vitorias_venom,

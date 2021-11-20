@@ -18,68 +18,6 @@ function listarResgate() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function listar_votos_duende() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_duende()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Duende Macabro';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_carnificina() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_carnificina()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Carnificina';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_chacal() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_chacal()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Chacal';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_morbius() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_morbius()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Morbius';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_mysterio() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_mysterio()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Mysterio';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_kaine() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_kaine()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Kaine';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_votos_kraven() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_votos_kraven()");
-    var instrucao = `
-        SELECT COUNT(idVoto) as votos FROM votos WHERE vilao_voto = 'Kraven';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
 
 function entrar(nome, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", nome, senha)
@@ -90,10 +28,10 @@ function entrar(nome, senha) {
     return database.executar(instrucao);
 }
 
-function verificar_voto(idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function verificar_voto(): ", idUsuario)
+function checar_cadastro(nome, cpf) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function checar_cadastro(): ", nome, cpf)
     var instrucao = `
-        SELECT * FROM votos where fk_usuario = '${idUsuario}';
+        SELECT * FROM usuario WHERE nome = '${nome}' OR cpf = '${cpf}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -121,10 +59,10 @@ function resgatar(cupom, idJogo, idUsuario) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha);
+function cadastrar(nome, email, cpf, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha, email, cpf);
     var instrucao = `
-        INSERT INTO usuario (nome, email, senha, tipoUsuario) VALUES ('${nome}', '${email}', '${senha}', 'usuario');
+        INSERT INTO usuario (nome, email, cpf, senha, tipoUsuario) VALUES ('${nome}', '${email}', '${cpf}','${senha}','usuario');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -183,20 +121,12 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    checar_cadastro,
     listarResgate,
     atualizar_sp,
-    verificar_voto,
     verificar_resgate,
     resgatar,
     votar,
-    listar_votos_duende,
-    listar_votos_carnificina,
-    listar_votos_carnificina,
-    listar_votos_chacal,
-    listar_votos_morbius,
-    listar_votos_mysterio,
-    listar_votos_kaine,
-    listar_votos_kraven,
     vitoriaSh,
     listar_vitorias_aranha,
     listar_vitorias_venom,

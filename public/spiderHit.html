@@ -62,14 +62,17 @@
                     <hr>
                 </div>
                 <h4 class="txt_dark">
-                    Para <span>atacar</span> e <span>desviar</span> com o cabeça de teia, utilize as teclas <span>"A"</span> e <span>"D"</span><br>
-                    E para <span>atacar</span> e <span>desviar</span> com o monstruoso venom, utilize as teclas <span>"J"</span> e <span>"K"</span><br><br>
                     Convide um amigo para disputar com você e descubra quem é o melhor lutador em Spider hit.
-                    Aquele que <span>ganhar</span> 2 rodadas seguidas <span>vence</span><br>
+                    Aquele que <span>ganhar</span> 2 rodadas seguidas <span>vence</span>
                 </h4>
+                <h5 class="txt_dark">
+                    <span>Instruções</span><br>
+                    Para <span>atacar</span> e <span>desviar</span> com o cabeça de teia, utilize as teclas <span>"A"</span> e <span>"D"</span><br>
+                    E para <span>atacar</span> e <span>desviar</span> com o monstruoso venom, utilize as teclas <span>"J"</span> e <span>"K"</span>
+                </h5>
 
                 <h5 class="txt_dark">
-                    <span>Curiosidade</span>: a cada rodado jogada você ganha 300 pontos
+                    <span>Curiosidade</span>: a cada partida você ganha 300 pontos
                 </h5>
             </div>
 
@@ -544,7 +547,7 @@
                             
                             setTimeout(function () {
                                 atualizar_sp();
-                                vitoriaSh();
+                                vitoriaSh(vencedor);
                             }, 4000)
                         
                         }, 100);
@@ -562,7 +565,7 @@
                             
                             setTimeout(function () {
                                 atualizar_sp();
-                                vitoriaSh();
+                                vitoriaSh(vencedor);
                             }, 4000)
                         
                         }, 100);
@@ -572,7 +575,7 @@
                     partida = 0;
                 }
 
-                function vitoriaSh() {
+                function vitoriaSh(vencedor) {
                     var corpo = {
                         id_usuario: id_usuario,
                         vencedor: vencedor
