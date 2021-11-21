@@ -22,7 +22,7 @@ function listarResgate() {
 function entrar(nome, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", nome, senha)
     var instrucao = `
-        SELECT * FROM usuario WHERE nome = '${nome}' AND senha = '${senha}';
+        SELECT * FROM usuario WHERE nome = '${nome}' AND senha = SHA2('${senha}',224);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -62,7 +62,7 @@ function resgatar(cupom, idJogo, idUsuario) {
 function cadastrar(nome, email, cpf, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, senha, email, cpf);
     var instrucao = `
-        INSERT INTO usuario (nome, email, cpf, senha, tipoUsuario) VALUES ('${nome}', '${email}', '${cpf}','${senha}','usuario');
+        INSERT INTO usuario (nome, email, cpf, senha, tipoUsuario) VALUES ('${nome}', '${email}', '${cpf}',SHA2('${senha}',224),'usuario');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

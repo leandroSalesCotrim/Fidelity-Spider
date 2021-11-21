@@ -16,6 +16,8 @@
             // window.location = "./login.html";
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 </head>
 
 <body>
@@ -90,14 +92,15 @@
                             <div class="div_img_input">
                                 <img src="img/icones/user_icon.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" name="nome_cad" maxlength="20" placeholder="Nome de usuário">
+                            <input class="input_login" name="nome_cad" maxlength="20" required
+                                placeholder="Nome de usuário">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/user_icon.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="number" maxlength="11" name="cpf_cad"
+                            <input class="input_login" id="input_cpf" maxlength="11" name="cpf_cad" required
                                 placeholder="Cpf do usuário">
                         </div>
 
@@ -105,21 +108,22 @@
                             <div class="div_img_input">
                                 <img src="img/icones/o-email.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" name="email_cad" maxlength="45" placeholder="E-mail">
+                            <input class="input_login" name="email_cad" maxlength="45" required placeholder="E-mail">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/padlock.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="text" maxlength="45" name="senha_cad" placeholder="Senha">
+                            <input class="input_login" type="text" maxlength="45" name="senha_cad" required
+                                placeholder="Senha">
                         </div>
 
                         <div class="div_input">
                             <div class="div_img_input">
                                 <img src="img/icones/padlock.png" draggable="false" alt="">
                             </div>
-                            <input class="input_login" type="text" maxlength="45" name="confirmar_senha_cad"
+                            <input class="input_login" type="text" maxlength="45" required name="confirmar_senha_cad"
                                 placeholder="Confirmar senha">
                         </div>
 
@@ -137,6 +141,9 @@
 </html>
 <script src="js/dark_mode.js"></script>
 <script>
+    $(document).ready(function () {
+        $('#input_cpf').mask('999.999.999-99');
+    });
 
     function abrirCadastro() {
         var inputs = document.getElementsByClassName('input_login');
@@ -249,6 +256,23 @@
             return false;
         }
 
+        if (nome_cad.length < 5) {
+            alert('nome curto de mais')
+            return false;
+        }
+        if (senha_cad.length < 5) {
+            alert('senha curta de mais')
+            return false;
+        }
+        if (cpf_cad.length < 14) {
+            alert('CPF curto de mais')
+            return false;
+        }
+        if (email_cad.length < 10) {
+            alert('email curto de mais')
+            return false;
+        }
+
         if (email_cad.indexOf("@") == -1 || email_cad.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             return false;
@@ -270,7 +294,7 @@
             if (resposta.ok) {
                 cadastrar();
             } else {
-                window.alert("Você não pode se cadastrar\nJá existe um usuario com o nome e cpf inseridos!");
+                window.alert("Você não pode se cadastrar\nJá existe um usuario com o nome e/ou cpf inseridos!");
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {

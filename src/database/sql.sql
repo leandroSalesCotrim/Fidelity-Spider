@@ -8,7 +8,7 @@ CREATE TABLE usuario (
     cpf CHAR(11),
     nome VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    senha VARCHAR(45) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
     tipoUsuario VARCHAR(45) NOT NULL,
     spiderPoints INT DEFAULT 0,
     CONSTRAINT CHECK (tipoUsuario = 'usuario' OR tipoUsuario = 'adm' ),
@@ -49,7 +49,7 @@ CREATE TABLE resgate(
 
 -- INSERINDO DADOS NO BANDO DE FORMA QUE TENHA CADASTRADO NO MINIMO UM ADM, E NO MINIMO 4 JOGOS DE ACORDO COM A LOJA DO SITE
 INSERT INTO usuario (nome,email,cpf,senha,tipoUsuario) 
-	VALUES('adm','adm@g.com','12345678901','adm','adm');
+	VALUES('adm','adm@g.com','12345678901',SHA2('adm',224),'adm'); 
     
 INSERT INTO jogo (nomeJogo,preco,desconto)
 	VALUES('SM-PS4',199.50,50),
@@ -80,6 +80,7 @@ SELECT nomeJogo
 	JOIN jogo ON idJogo = fk_jogo 
 	where fk_usuario = '1';
 
+truncate resgate;
 -- SELECT DE TODOS OS DADOS, SEPARADAMENTE
 SELECT * FROM usuario;
 SELECT * FROM Spiderhit;

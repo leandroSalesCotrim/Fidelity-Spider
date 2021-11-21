@@ -174,6 +174,9 @@ function cadastrar(req, res) {
     var senha = req.body.senha_cad;
     var email = req.body.email_cad;
     var cpf = req.body.cpf_cad;
+    cpf = cpf.replace('.', '')//removendo primeiro ponto
+    cpf = cpf.replace('.', '')//removendo segundo ponto
+    cpf = cpf.replace('-', '')//removendo traço
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
