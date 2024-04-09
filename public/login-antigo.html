@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um momento...</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
+    <script>
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            // window.location = "./login.html";
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <div class="container">
+            <div class="div_logo_sony">
+                <img id="logo_sony" src="img/sony-logo-branca.png" alt="Logo Sony">
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEUDO -->
+    <div class="div_login">
+        <div class="div_porco_aranha">
+            <img src="img/Peter_Porker.png" draggable="false" alt="">
+        </div>
+        <div class="container">
+
+            <div class="btn_dark_mode">
+                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                    alt="Modo escuro">
+            </div>
+
+            <div class="div_aviso_login">
+                <h1 class="txt_dark">Um momento amigo...</h1>
+                <h5 class="txt_dark">Antes é necessário que você se conecte
+                    <br>
+                    para acessar nosso conteúdo.
+                </h5>
+            </div>
+            <div id="card_login_cadastro" class="card_login_cadastro">
+                <div id="container1" class="container">
+
+                    <form id="form_login" onsubmit="return entrar()" method="post">
+                        <h1>Login</h1>
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/user_icon.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" name="nome" maxlength="20" placeholder="Nome de usuário">
+                        </div>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/padlock.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" name="senha" type="password" maxlength="45"
+                                placeholder="Senha de usuário">
+                        </div>
+
+                        <div id="div_erro" style="color:#EB1C23">
+                        </div>
+
+                        <button type="submit">
+                            <p class="destaque_btn">Entrar</p>
+                        </button>
+                        <span id="link_cadastro" style="margin: auto;cursor: pointer; border-style: none;width: 40%;"
+                            onclick="abrirCadastro()">
+                            <h5 style="font-weight: normal;">Ainda não pussui uma conta?</h5>
+                        </span>
+                    </form>
+                </div>
+
+                <div id="container2" class="container2">
+
+                    <form id="form_cadastro" onsubmit="return checar_cadastro()" method="post">
+                        <h1>Cadastrar</h1>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/user_icon.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" name="nome_cad" maxlength="20" required
+                                placeholder="Nome de usuário">
+                        </div>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/user_icon.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" id="input_cpf" maxlength="11" name="cpf_cad" required
+                                placeholder="Cpf do usuário">
+                        </div>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/o-email.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" name="email_cad" maxlength="45" required placeholder="E-mail">
+                        </div>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/padlock.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" type="text" maxlength="45" name="senha_cad" required
+                                placeholder="Senha">
+                        </div>
+
+                        <div class="div_input">
+                            <div class="div_img_input">
+                                <img src="img/icones/padlock.png" draggable="false" alt="">
+                            </div>
+                            <input class="input_login" type="text" maxlength="45" required name="confirmar_senha_cad"
+                                placeholder="Confirmar senha">
+                        </div>
+
+                        <button type="submit">
+                            <p class="destaque_btn">Cadastrar</p>
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/dark_mode.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#input_cpf').mask('999.999.999-99');
+    });
+
+    function abrirCadastro() {
+        var inputs = document.getElementsByClassName('input_login');
+        var c = 0;
+
+        while (c < inputs.length) {
+            inputs[c].style.transition = "1s";
+            c++;
+        }
+        container1.style.width = "50%";
+        container1.style.transition = "1s";
+
+        container2.style.opacity = "1";
+        container2.style.width = "50%";
+        container2.style.display = "block";
+        container2.style.transition = "1s";
+
+        card_login_cadastro.style.width = "60%";
+        card_login_cadastro.style.transition = "1s";
+    }
+
+
+
+    function entrar() {
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var nome = formulario.get("nome");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", nome);
+        console.log("FORM SENHA: ", senha);
+
+        if (nome == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            return false;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.TIPO_USUARIO = json.tipoUsuario;
+                    sessionStorage.SPIDERPOINTS_USUARIO = json.spiderPoints;
+
+                    if (sessionStorage.TIPO_USUARIO == "adm") {
+                        window.location = "./dashboard-adm.html";
+                    } else {
+                        window.location = "./dashboard.html";
+                    }
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    div_erro.innerHTML = texto;
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function checar_cadastro() {
+
+        var formulario_cad = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome_cad = formulario_cad.get("nome_cad");
+        var email_cad = formulario_cad.get("email_cad");
+        var cpf_cad = formulario_cad.get("cpf_cad");
+        var senha_cad = formulario_cad.get("senha_cad");
+        var confirmacaoSenha = formulario_cad.get("confirmar_senha_cad");
+
+        if (nome_cad == "" || email_cad == "" || senha_cad == "" || confirmacaoSenha == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome_cad == "") {
+                console.log('nome está em branco')
+            }
+            if (email_cad == "") {
+                console.log('email está em branco')
+            }
+            if (cpf_cad == "") {
+                console.log('CPF está em branco')
+            }
+            if (senha_cad == "") {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            return false;
+        }
+
+        if (nome_cad.length < 5) {
+            alert('nome curto de mais')
+            return false;
+        }
+        if (senha_cad.length < 5) {
+            alert('senha curta de mais')
+            return false;
+        }
+        if (cpf_cad.length < 14) {
+            alert('CPF curto de mais')
+            return false;
+        }
+        if (email_cad.length < 10) {
+            alert('email curto de mais')
+            return false;
+        }
+
+        if (email_cad.indexOf("@") == -1 || email_cad.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            return false;
+        }
+
+        if (senha_cad != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            return false;
+        }
+
+        fetch("/usuarios/checar_cadastro", {
+            method: "POST",
+            body: formulario_cad
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO checar_cadastro()!")
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cadastrar();
+            } else {
+                window.alert("Você não pode se cadastrar\nJá existe um usuario com o nome e/ou cpf inseridos!");
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        return false;
+    }
+
+    function cadastrar() {
+
+        var formulario_cad = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario_cad
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO cadastrar()!")
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "./login.html";
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+</script>
