@@ -17,6 +17,23 @@
     text-decoration: none;
 }
 
+body::before {
+    content: "";
+    background-image: url(../img/background/background-default.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1; /* Opacidade da imagem de fundo */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+body.index::before{
+    background-image: none;
+}
 button {
     background-color: #F5F5F5;
     border-style: solid;
@@ -172,6 +189,8 @@ video:hover {
     width: 100%;
     height: 96%;
     background-image: url(../img/background/background-login.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: 100%;
 }
 
@@ -286,6 +305,8 @@ input:-webkit-autofill {
     height: 96%;
     background-image: url(../img/background/background-cadastro.jpg);
     background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .div_cadastro .container {
@@ -305,14 +326,29 @@ input:-webkit-autofill {
     flex-direction: column;
     justify-content: center;
 }
+.cadastro_box .div_btn_sair{
+    width: auto;
+    height: 4%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.cadastro_box .div_btn_sair a{
+    height: 100%;
+    width: auto;
+    margin-right: 10%;
+    cursor: pointer;
+}
+.cadastro_box .div_btn_sair a img{
+    height: 100%;
+}
 
 .cadastro_box form {
     width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0 auto;
 }
 
 .cadastro_box h1 {
@@ -321,13 +357,13 @@ input:-webkit-autofill {
 
 .cadastro_box .div_input {
     width: 60%;
-    height: 6%;
+    height: 100%;
     border-radius: 100px;
     background-color: #3c38387e;
     display: flex;
     justify-content: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-top: 4%;
+    margin-bottom: 2%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -349,12 +385,11 @@ input:-webkit-autofill {
 
 #div_forca_senha {
     width: 60%;
-    height: 1.5%;
+    height: 20%;
     display: flex;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2%;
 }
 
 .nivel_forca {
@@ -369,7 +404,7 @@ input:-webkit-autofill {
 #form_cadastro button {
     background-color: #C6141A;
     width: 60%;
-    height: 6%;
+    height: 100%;
     margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
