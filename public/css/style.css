@@ -207,11 +207,11 @@ video:hover {
     margin-bottom: 5%;
 }
 
-.div_input {
+.login_box .div_input {
     width: 60%;
     height: 6%;
     border-radius: 100px;
-    background-color: #3c38381f;
+    background-color: #3c383844;
     display: flex;
     justify-content: center;
     margin-top: 4%;
@@ -220,7 +220,7 @@ video:hover {
     margin-right: auto;
 }
 
-.div_input input {
+.login_box .div_input input {
     width: 80%;
     height: 100%;
     background-color: #3c383800;
@@ -243,11 +243,12 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff !important;
 }
 
-#link_cadastro{
+#link_cadastro {
     margin-top: 1%;
     margin-bottom: 5%;
 }
-#link_cadastro a{
+
+#link_cadastro a {
     display: inline;
     color: #0596EB;
     font-size: 13px;
@@ -255,7 +256,8 @@ input:-webkit-autofill {
     cursor: pointer;
 
 }
-#form_login button{
+
+#form_login button {
     background-color: #C6141A;
     width: 60%;
     height: 6%;
@@ -264,13 +266,14 @@ input:-webkit-autofill {
     border-radius: 100px;
     cursor: pointer;
 }
-#form_login button p{
+
+#form_login button p {
     font-size: 20px;
     font-weight: normal;
     color: white;
 }
 
-#div_erro{
+#div_erro {
     color: #C6141A;
 }
 
@@ -278,199 +281,108 @@ input:-webkit-autofill {
 
 /* CONTEUDO CADASTRO */
 
+.div_cadastro {
+    width: 100%;
+    height: 96%;
+    background-image: url(../img/background/background-cadastro.jpg);
+    background-size: 100%;
+}
 
-
-/* .div_login .container{
+.div_cadastro .container {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction:column;
+    justify-content: start;
 }
-.div_login .container .btn_dark_mode{
-    height:7%; 
-    width: auto;
-    align-self: end;
-}
-.div_login .container .btn_dark_mode .src_icon{
-    width: 100%;
-    height: auto;
-}
-.div_aviso_login{
-    margin-left: auto;
-    margin-right: auto;
+
+.cadastro_box {
     width: 40%;
+    height: 100%;
+    background-color: #15151577;
+    backdrop-filter: blur(4px);
     text-align: center;
-}
-.div_aviso_login h1{
-    font-size: 45px;
-    font-weight: bold;
-    color: #151515;
-}
-.div_aviso_login h5{
-    font-size: 20px;
-    font-weight: 500;
-    color: #151515;
-}
-.card_login_cadastro{
-    width: 35%;
-    height: 60%;
-    border-radius: 10px;
-    background-color: #151515;
-    margin: auto;
-    box-shadow: 15px 10px 0px #eb1c238a;
-    transition: 0.5s;
     display: flex;
-}
-.card_login_cadastro:hover{
-    box-shadow: 15px 10px 0px #EB1C23;
-    transition: 0.5s;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.card_login_cadastro .container{
+.cadastro_box form {
     width: 100%;
     height: 100%;
-    text-align: center;
-}
-.card_login_cadastro .container h1{
-    color: #F5F5F5;
-    margin-top: 3%;
-    font-size: 30px;
-}
-.card_login_cadastro .container h5{
-    color: #F5F5F5;
-}
-.card_login_cadastro .container form{
-    width: auto;
-    height: 100%;
-    margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 0 auto;
 }
-.div_input{
-    width: 100%;
-    height: 10%;
-    border-radius: 11px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #EB1C23;
-    margin: auto;
+
+.cadastro_box h1 {
+    color: #ffffff;
 }
-.div_img_input{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    width: 20%;
-    height: 100%;
-    background-color: #EB1C23;
-    float: left;
+
+.cadastro_box .div_input {
+    width: 60%;
+    height: 6%;
+    border-radius: 100px;
+    background-color: #3c38387e;
     display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.div_img_input img{
-    width: auto;
-    height: 90%;
-    margin: auto;
-}
-.div_input input{
-    width: 70%;
+
+.cadastro_box .div_input input {
+    width: 80%;
     height: 100%;
-    float: left;
-    margin-left: 5%;
-    background-color: #151515;
-    border-style: none;
-    color:#ffffff;
-    outline: 0;
-    font-size: 18px;
-    font-weight: medium;
-}
-.div_input input::placeholder{
-    color: #f5f5f5;
-}
-.card_login_cadastro .container button{
-    background-color: #EB1C23;
-    width: 40%;
-    height:10%;
-    border-radius: 10px;
+    background-color: #3c383800;
     border-style: none;
     color: #ffffff;
-    margin-top: 7%;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;    
-    transition: ease-in 0.2s ;
+    outline: 0;
+    font-size: 16px;
+    font-weight: 0;
 }
-.card_login_cadastro button:hover{
-    background-color: #851317;
-    transition: ease-in 0.2s ;
-    cursor: pointer;
+
+.div_input input::placeholder {
+    color: #DEDEDE;
 }
-.card_login_cadastro button .destaque_btn{
-    color: #F5F5F5;
-}
-.destaque_btn{
-    color: #EB1C23;
-    font-size: 18px;
-    font-weight: normal;
-}
-.card_login_cadastro .container button h5{
-    font-size: 13px;
-    width: 100%;
-    font-weight: normal;
-}
-.div_login .container a h5{
-    font-weight: normal;
-    margin-top: 5%;
-    font-size: 13px;
-}
-.container2{
-    float: left;
-    width: 50%;
-    height: 100%;
-    display: none;
-    opacity: 0;
-    animation: opacidade 3s ;
-    border-left: solid #EB1C23 2px;
-    text-align: center;
-}
-.container2 form{
-    width: 75%;
-    height: 100%;
-    margin: auto;
+
+#div_forca_senha {
+    width: 60%;
+    height: 1.5%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
 }
-.container2 h1{
-    color: #F5F5F5;
-    margin-top: 3%;
-    font-size: 30px;
-}
-.container2 button{
-    background-color: #EB1C23;
-    border-radius: 10px;
-    border-style: none;
-    margin-top: 7%;
-    width: 50%;
-    height:10%;
-    margin: auto;
-}
-@keyframes opacidade {
-    0%   { opacity: 0; }
-    18%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
 
-.div_porco_aranha{
-    margin-left: 80%;
-    margin-top: 20%;
-    position: absolute;
-    width: 22%;
+.nivel_forca {
+    background-color: #D9D9D9;
     height: 50%;
+    width: 40%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 100px;
 }
-.div_porco_aranha img{
-    margin-left: 25%;
-    width: 100%;
-    height: auto;
-} */
+
+#form_cadastro button {
+    background-color: #C6141A;
+    width: 60%;
+    height: 6%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#form_cadastro button p {
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+}
+
 /*----------------------------------------------------------------------------------------------------------------*/
 
 /* CONTEUDO DASHBOARD */

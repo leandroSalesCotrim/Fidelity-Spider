@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icones/aranha-vermelha.ico" type="image/x-icon">
@@ -13,12 +13,11 @@
         if (sessionStorage.TIPO_USUARIO == "adm") {
             window.location = "./dashboard-adm.html";
         }
-        //  else if (sessionStorage.TIPO_USUARIO == undefined) {
-        //     // window.location = "./login.html";
-        // }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+
 </head>
 
 <body>
@@ -33,29 +32,45 @@
     </header>
 
     <!-- CONTEUDO -->
-    <div class="div_login">
+    <div class="div_cadastro">
         <div class="container">
-            <div class="login_box">
-                <form id="form_login" onsubmit="return entrar()" method="post">
-                    <h1>Realizar login</h1>
+            <div class="cadastro_box">
+                <form id="form_cadastro" onsubmit="return checar_cadastro()" method="post">
+                    <h1>Realizar cadastro</h1>
+
                     <div class="div_input">
-                        <input class="input_login" name="nome" maxlength="20" placeholder="Nome de usuário">
+                        <input class="input_cadastro" minlength="8" maxlength="20" name="nome_cad"
+                            placeholder="Nome de usuário" type="text">
                     </div>
 
                     <div class="div_input">
-                        <input class="input_login" name="senha" type="password" maxlength="45" placeholder="Senha">
+                        <input class="input_cadastro" id="input_cpf" minlength="11" maxlength="11" name="cpf_cad"
+                            placeholder="Cpf do usuário">
                     </div>
 
-                    <div id="div_erro" >
+                    <div class="div_input">
+                        <input class="input_cadastro" maxlength="45" name="email_cad" placeholder="E-mail" type="email">
                     </div>
-                    <div id="link_cadastro">
-                        <a href="cadastro.html">
-                            Não possuí uma conta? 
-                            <br>cadastre-se aqui !
-                        </a>
+
+                    <div class="div_input">
+                        <input class="input_cadastro" id="password" minlength="8" maxlength="25" name="senha_cad"
+                            placeholder="Senha" type="password">
                     </div>
+
+                    <div id="div_forca_senha">
+                        <div id="forca1" class="nivel_forca"></div>
+                        <div id="forca2" class="nivel_forca"></div>
+                        <div id="forca3" class="nivel_forca"></div>
+                        <div id="forca4" class="nivel_forca"></div>
+                    </div>
+
+                    <div class="div_input">
+                        <input class="input_cadastro" type="password" minlength="8" maxlength="25"
+                            name="confirmar_senha_cad" placeholder="Confirmar senha">
+                    </div>
+
                     <button type="submit">
-                        <p class="destaque_btn">Entrar</p>
+                        <p class="destaque_btn">Cadastrar</p>
                     </button>
 
                 </form>
@@ -67,88 +82,33 @@
 </html>
 <script src="js/dark_mode.js"></script>
 <script>
+
+    //criando timer e evento para que a cada 700 ms após o usuário digitar no campo senha, executar o verificar_forca_senha()
+    let timer;
+
+    document.getElementById("password").addEventListener("input", function () {
+        clearTimeout(timer);
+        timer = setTimeout(verificar_forca_senha, 700); // Espera 500ms após o usuário parar de digitar
+    });
+
+    //Adicionando a mascara ao campo de cpf
     $(document).ready(function () {
         $('#input_cpf').mask('999.999.999-99');
     });
 
-    // function abrirCadastro() {
-    //     var inputs = document.getElementsByClassName('input_login');
-    //     var c = 0;
+    function verificar_forca_senha() {
+        let senha = document.getElementById("password").value;
+        var result = zxcvbn(senha);
 
-    //     while (c < inputs.length) {
-    //         inputs[c].style.transition = "1s";
-    //         c++;
-    //     }
-    //     container1.style.width = "50%";
-    //     container1.style.transition = "1s";
+        var forcas = document.querySelectorAll(".nivel_forca");
 
-    //     container2.style.opacity = "1";
-    //     container2.style.width = "50%";
-    //     container2.style.display = "block";
-    //     container2.style.transition = "1s";
-
-    //     card_login_cadastro.style.width = "60%";
-    //     card_login_cadastro.style.transition = "1s";
-    // }
-
-
-
-    function entrar() {
-
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
-
-        var nome = formulario.get("nome");
-        var senha = formulario.get("senha");
-
-        console.log("FORM LOGIN: ", nome);
-        console.log("FORM SENHA: ", senha);
-
-        if (nome == "" || senha == "") {
-            window.alert("Preencha todos os campos para prosseguir!");
-            return false;
-        }
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            body: formulario
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.TIPO_USUARIO = json.tipoUsuario;
-                    sessionStorage.SPIDERPOINTS_USUARIO = json.spiderPoints;
-
-                    if (sessionStorage.TIPO_USUARIO == "adm") {
-                        window.location = "./dashboard-adm.html";
-                    } else {
-                        window.location = "./dashboard.html";
-                    }
-
-                });
-
+        for (var i = 0; i < forcas.length; i++) {
+            if (i < result.score) {
+                forcas[i].style.backgroundColor = "#0596EB"; // verde escuro
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    div_erro.innerHTML = texto;
-                });
+                forcas[i].style.backgroundColor = "#D9D9D9"; // cor padrão
             }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+        }
     }
 
     function checar_cadastro() {
@@ -161,48 +121,6 @@
         var senha_cad = formulario_cad.get("senha_cad");
         var confirmacaoSenha = formulario_cad.get("confirmar_senha_cad");
 
-        if (nome_cad == "" || email_cad == "" || senha_cad == "" || confirmacaoSenha == "") {
-
-            window.alert("Preencha todos os campos para prosseguir!");
-            if (nome_cad == "") {
-                console.log('nome está em branco')
-            }
-            if (email_cad == "") {
-                console.log('email está em branco')
-            }
-            if (cpf_cad == "") {
-                console.log('CPF está em branco')
-            }
-            if (senha_cad == "") {
-                console.log('senha está em branco')
-            }
-            if (confirmacaoSenha == "") {
-                console.log('confirmacaoSenha está em branco')
-            }
-            return false;
-        }
-
-        if (nome_cad.length < 5) {
-            alert('nome curto de mais')
-            return false;
-        }
-        if (senha_cad.length < 5) {
-            alert('senha curta de mais')
-            return false;
-        }
-        if (cpf_cad.length < 14) {
-            alert('CPF curto de mais')
-            return false;
-        }
-        if (email_cad.length < 10) {
-            alert('email curto de mais')
-            return false;
-        }
-
-        if (email_cad.indexOf("@") == -1 || email_cad.indexOf(".com") == -1) {
-            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            return false;
-        }
 
         if (senha_cad != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
