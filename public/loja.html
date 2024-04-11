@@ -46,7 +46,7 @@
             </div>
 
             <div class="btn_dark_mode">
-                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                <img id="src_icon" onclick="check_dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
                     alt="Modo escuro">
             </div>
 
@@ -136,7 +136,12 @@
     id_jogo = 0;
 
     function atualizar_sp() {
-
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }
 
         var corpo = {
             id_usuario: id_usuario,
@@ -169,6 +174,12 @@
     }
 
     function resgate(num_resgate) {
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        }
         if (num_resgate == 1) {
             if (resgate1.innerHTML == "Indisponivel") {
                 alert('Você já resgatou este prêmio');
@@ -241,69 +252,77 @@
     }
 
     function verificar_resgate() {
-        var corpoR = {
-            id_usuario: id_usuario,
-        }
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        } else {
 
-        fetch("/usuarios/verificar_resgate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpoR)
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO verificar_resgate()!")
-
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    var resgates = resposta;
-
-                    // for (let i = 0; i < resposta.length; i++) {
-                    //     console.log(resgates);
-                    // }
-
-                    if (resgates.length >= 0 && resgates.length < 2) {
-                        console.log("O usuario ainda pode resgatar um premio");
-                        for (var i = 0; i < resgates.length; i++) {
-                            var tituloJogo = [];
-                            tituloJogo[i] = resgates[i].nomejogo;
-                            console.log("O usuário resgatou o " + tituloJogo);
-
-                            if (tituloJogo[i] == "SM-MM") {
-                                resgate1.innerHTML = "Indisponivel";
-                                console.log(tituloJogo[0]);
-                            } else if (tituloJogo[i] == "SM-PS4") {
-                                resgate2.innerHTML = "Indisponivel";
-                            } else if (tituloJogo[i] == "SM-2") {
-                                resgate3.innerHTML = "Indisponivel";
-                            } else if (tituloJogo[i] == "WOLV") {
-                                resgate4.innerHTML = "Indisponivel";
-                                console.log(tituloJogo[0]);
-                            }
-                        }
-
-
-                    }
-                    if (resgates.length == 2) {
-                        console.log("O usuario já resgatou o maximo de prêmios");
-
-                        var btn = document.getElementsByClassName('btn_dark2');
-                        for (var c = 0; c < btn.length; c++)
-                            btn[c].innerHTML = "Indisponivel";
-                    }
-                });
-                throw ("O usuario pode resgatar!");
-
-            } else {
-
-
-                throw ("O usuario não pode resgatar !");
+            var corpoR = {
+                id_usuario: id_usuario,
             }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
+
+            fetch("/usuarios/verificar_resgate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpoR)
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO verificar_resgate()!")
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+                        var resgates = resposta;
+
+                        // for (let i = 0; i < resposta.length; i++) {
+                        //     console.log(resgates);
+                        // }
+
+                        if (resgates.length >= 0 && resgates.length < 2) {
+                            console.log("O usuario ainda pode resgatar um premio");
+                            for (var i = 0; i < resgates.length; i++) {
+                                var tituloJogo = [];
+                                tituloJogo[i] = resgates[i].nomejogo;
+                                console.log("O usuário resgatou o " + tituloJogo);
+
+                                if (tituloJogo[i] == "SM-MM") {
+                                    resgate1.innerHTML = "Indisponivel";
+                                    console.log(tituloJogo[0]);
+                                } else if (tituloJogo[i] == "SM-PS4") {
+                                    resgate2.innerHTML = "Indisponivel";
+                                } else if (tituloJogo[i] == "SM-2") {
+                                    resgate3.innerHTML = "Indisponivel";
+                                } else if (tituloJogo[i] == "WOLV") {
+                                    resgate4.innerHTML = "Indisponivel";
+                                    console.log(tituloJogo[0]);
+                                }
+                            }
+
+
+                        }
+                        if (resgates.length == 2) {
+                            console.log("O usuario já resgatou o maximo de prêmios");
+
+                            var btn = document.getElementsByClassName('btn_dark2');
+                            for (var c = 0; c < btn.length; c++)
+                                btn[c].innerHTML = "Indisponivel";
+                        }
+                    });
+                    throw ("O usuario pode resgatar!");
+
+                } else {
+
+
+                    throw ("O usuario não pode resgatar !");
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
     }
     verificar_resgate();
 </script>

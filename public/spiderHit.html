@@ -46,7 +46,7 @@
             </div>
 
             <div class="btn_dark_mode">
-                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                <img id="src_icon" onclick="check_dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
                     alt="Modo escuro">
             </div>
 
@@ -67,8 +67,10 @@
                 </h4>
                 <h5 class="txt_dark">
                     <span>Instruções</span><br>
-                    Para <span>atacar</span> e <span>desviar</span> com o cabeça de teia, utilize as teclas <span>"A"</span> e <span>"D"</span><br>
-                    E para <span>atacar</span> e <span>desviar</span> com o monstruoso venom, utilize as teclas <span>"J"</span> e <span>"K"</span>
+                    Para <span>atacar</span> e <span>desviar</span> com o cabeça de teia, utilize as teclas
+                    <span>"A"</span> e <span>"D"</span><br>
+                    E para <span>atacar</span> e <span>desviar</span> com o monstruoso venom, utilize as teclas
+                    <span>"J"</span> e <span>"K"</span>
                 </h5>
 
                 <h5 class="txt_dark">
@@ -211,37 +213,45 @@
     var img_j2 = document.getElementById('img_j2');
 
     function atualizar_sp() {
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        } else {
 
-        sp = sp + 300;
 
-        var corpo = {
-            id_usuario: id_usuario,
-            spider_points: sp
-        }
+            sp = sp + 300;
 
-
-        fetch(`/usuarios/acumular`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                sessionStorage.SPIDERPOINTS_USUARIO = sp;
-                location.reload();
-            } else {
-                throw ("Houve um erro ao tentar adicionar os pontos!");
+            var corpo = {
+                id_usuario: id_usuario,
+                spider_points: sp
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
 
-        return false;
+
+            fetch(`/usuarios/acumular`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                    location.reload();
+                } else {
+                    throw ("Houve um erro ao tentar adicionar os pontos!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
     }
 
     function iniciar_jogo() {
@@ -538,36 +548,36 @@
                         audioJ2.src = "audio/venom/derrota.mp3";
                         audioJ2.play();
 
-                        
+
                         setTimeout(function () {
                             alert("Fim de jogo \nHomem-aranha venceu\nVocê ganhou 300 SP");
                             var vencedor = "Homem-aranha";
                             img_j1.style.filter = "drop-shadow(-20px 5px 0px #0B689E)";
                             img_j2.style.filter = "drop-shadow(-20px 5px 0px #EB1C23)";
-                            
+
                             setTimeout(function () {
                                 atualizar_sp();
                                 vitoriaSh(vencedor);
                             }, 4000)
-                        
+
                         }, 100);
-                        
+
                     } else if (Number(vidasJ1) <= 0) {
                         audioJ1.src = "audio/aranha/derrota.mp3";
                         audioJ1.play();
 
-                        
+
                         setTimeout(function () {
                             alert("Fim de jogo \nVenom venceu\nVocê ganhou 300 SP");
                             var vencedor = "Venom";
                             img_j2.style.filter = "drop-shadow(-20px 5px 0px #0B689E)";
                             img_j1.style.filter = "drop-shadow(-20px 5px 0px #EB1C23)";
-                            
+
                             setTimeout(function () {
                                 atualizar_sp();
                                 vitoriaSh(vencedor);
                             }, 4000)
-                        
+
                         }, 100);
                     }
 

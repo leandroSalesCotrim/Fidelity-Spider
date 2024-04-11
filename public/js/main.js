@@ -27,7 +27,7 @@
     // }
 
     // //FUNÇÃO QUE DEIXA O SITE NO MODO ESCURO
-    // function dark_mode(){
+    // function check_dark_mode(){
 
     // //CONDIÇÃO PARA RECONHCER SE O MODO ESCURO ESTA LIGADO OU NÃO
     //     if(mode == '0'){

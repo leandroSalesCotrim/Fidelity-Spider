@@ -13,8 +13,8 @@
     padding: 0;
     margin: 0;
     font-family: 'Inter', sans-serif;
-    color: #151515;
     text-decoration: none;
+    transition: 0.5s;
 }
 
 body::before {
@@ -247,7 +247,6 @@ video:hover {
     color: #ffffff;
     outline: 0;
     font-size: 16px;
-    font-weight: 0;
 }
 
 .div_input input::placeholder {
@@ -376,7 +375,6 @@ input:-webkit-autofill {
     color: #ffffff;
     outline: 0;
     font-size: 16px;
-    font-weight: 0;
 }
 
 .div_input input::placeholder {
@@ -427,10 +425,34 @@ input:-webkit-autofill {
     display: flex;
 }
 
+.container_btn{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: end;
+    margin-top: 2%;
+}
+
+.container_btn .div_logout {
+    height: 100%;
+    width: auto;
+    margin-right: 3%;
+}
+
+.container_btn .div_logout img {
+    height: 100%;
+    width: auto;
+}
+.container_btn .btn_dark_mode {
+    height: 100%;
+    width: auto;
+    margin-top: 0%;
+}
+
 .div_dashboardU .containerA {
     height: 100%;
     width: 45%;
-    margin-top: 2%;
+    margin-top: -2%;
     display: flex;
     flex-direction: column;
 }
@@ -456,11 +478,12 @@ input:-webkit-autofill {
     height: 7%;
     width: 100%;
     background-color: #EB1C23;
+    border-radius: 100px;
     border-style: none;
 }
 
-.div_dashboardU .containerA span {
-    color: #EB1C23;
+.div_dashboardU .containerA h5 {
+    color: #0596EB;
     font-weight: bold;
 }
 
@@ -533,34 +556,20 @@ input:-webkit-autofill {
     animation-delay: 0.4s;
 }
 
-.div_dashboardU .div_logout {
-    height: 7%;
-    width: auto;
-    margin: auto;
-    margin-left: 20%;
-
-    transform: scaleX(-1);
-    justify-content: start;
-}
-
-.div_dashboardU .div_logout img {
-    height: 100%;
-    width: auto;
-}
-
 .div_dashboardU .containerB {
-    height: 85%;
+    height: 91%;
     width: 55%;
-    margin-top: 2%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    flex-wrap:wrap-reverse;
 }
 
 .div_box_card {
-    width: 54%;
-    height: 34%;
-    flex-direction: column;
-    margin-left: 5%;
+    margin-right: 25%;
+    width: 50%;
+    height: 25%;
+    margin-top: 3%;
 }
 
 .containerB .box_card {
@@ -648,7 +657,7 @@ input:-webkit-autofill {
 
 .containerB .box_card button {
     border-radius: 10px;
-    background-color: #0B689E;
+    background-color: #EB1C23;
     color: #F5F5F5;
     border-style: none;
     width: 60%;
@@ -684,15 +693,6 @@ input:-webkit-autofill {
     font-weight: 200;
     padding-left: 10%;
     text-align: start;
-}
-
-#box_card2 {
-    margin-left: 50%;
-    margin-top: 2%;
-}
-
-#box_card3 {
-    margin-top: 1%;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/

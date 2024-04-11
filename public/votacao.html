@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +19,7 @@
     </script>
 
 </head>
+
 <body>
 
     <!-- MENU -->
@@ -32,13 +34,13 @@
     <!-- CONTEUDO -->
     <div class="div_votacao">
         <div class="container">
-            
+
             <div class="div_img_voltar">
                 <a href="dashboard.html">
                     <img src="img/icones/voltar.png" alt="">
                 </a>
             </div>
-            
+
             <div class="txt_centro">
                 <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
                 <div class="titulo">
@@ -47,21 +49,22 @@
                 </div>
                 <p id="txt_votacao" class="txt_dark">
                     <span>Marvel's Spider-Man 2</span> já está em desenvolvimento e precisamos do seu <span>poder</span>
-                    de fã para escolher o próximo vilão para importunar a vida do nosso querido amigo da 
+                    de fã para escolher o próximo vilão para importunar a vida do nosso querido amigo da
                     vizinhança e seu aprendiz Miles Morales
                 </p>
             </div>
-            <div class="btn_dark_mode" >
-                <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
+            <div class="btn_dark_mode">
+                <img id="src_icon" onclick="check_dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                    alt="Modo escuro">
             </div>
 
-        
+
         </div>
 
         <div class="containerV">
-            
-            <div class="div_viloes" >
-                <div class="card_viloes" >
+
+            <div class="div_viloes">
+                <div class="card_viloes">
                     <div class="img" id="img1">
                         <div class="conteudo_card" id="fundo">
                             <div class="nome" onclick="abrirConfirmarDuende()">
@@ -69,9 +72,11 @@
                             </div>
                             <div id="confirmar_duende" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarDuende()" id="img_confirmar" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarDuende()" id="img_cancelar" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarDuende()" id="img_confirmar" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarDuende()" id="img_cancelar" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -89,9 +94,11 @@
                             </div>
                             <div id="confirmar_carnificina" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarCarnificina()" id="img_confirmar2" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarCarnificina()" id="img_cancelar2" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarCarnificina()" id="img_confirmar2" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarCarnificina()" id="img_cancelar2" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -109,9 +116,11 @@
                             </div>
                             <div id="confirmar_chacal" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarChacal()" id="img_confirmar3" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarChacal()" id="img_cancelar3" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarChacal()" id="img_confirmar3" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarChacal()" id="img_cancelar3" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -129,9 +138,11 @@
                             </div>
                             <div id="confirmar_morbius" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarMorbius()" id="img_confirmar4" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarMorbius()" id="img_cancelar4" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarMorbius()" id="img_confirmar4" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarMorbius()" id="img_cancelar4" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -149,9 +160,11 @@
                             </div>
                             <div id="confirmar_mysterio" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarMysterio()" id="img_confirmar5" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarMysterio()" id="img_cancelar5" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarMysterio()" id="img_confirmar5" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarMysterio()" id="img_cancelar5" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -169,9 +182,11 @@
                             </div>
                             <div id="confirmar_kaine" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarKaine()" id="img_confirmar6" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarKaine()" id="img_cancelar6" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarKaine()" id="img_confirmar6" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarKaine()" id="img_cancelar6" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -189,9 +204,11 @@
                             </div>
                             <div id="confirmar_kraven" class="div_votar">
                                 <h4>votar neste vilão?</h4>
-                                <div class="div_imgs_votar" >
-                                    <img onclick="return votarKraven()" id="img_confirmar7" draggable="false" src="img/viloes/verifica.png" alt="">
-                                    <img onclick="fecharConfirmarKraven()" id="img_cancelar7" draggable="false" src="img/viloes/excluir.png"  alt="">
+                                <div class="div_imgs_votar">
+                                    <img onclick="return votarKraven()" id="img_confirmar7" draggable="false"
+                                        src="img/viloes/verifica.png" alt="">
+                                    <img onclick="fecharConfirmarKraven()" id="img_cancelar7" draggable="false"
+                                        src="img/viloes/excluir.png" alt="">
                                 </div>
                             </div>
                             <div class="qtd_votos" id="qtd_votos">
@@ -202,22 +219,23 @@
                 </div>
 
 
-                
+
             </div>
-        
+
         </div>
     </div>
 </body>
+
 </html>
 <script src="js/dark_mode.js"></script>
 <script src="js/confirmacaoVoto.js"></script>
 <script>
-    
+
 </script>
 <script>
     sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
     id_usuario = Number(sessionStorage.ID_USUARIO);
-    span_sp.innerHTML=sp;
+    span_sp.innerHTML = sp;
 
     votos_duende = document.getElementById('qtd_duende');
     votos_carnificina = document.getElementById('qtd_carnificina');
@@ -228,7 +246,7 @@
     votos_kraven = document.getElementById('qtd_kraven');
 
     card_fundo = document.getElementById('fundo');
-    
+
 
     function listar_votos_duende() {
         fetch("/usuarios/listar_votos_duende").then(function (resposta) {
@@ -237,7 +255,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
 
-                    votosD = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosD = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosD.votos);
 
                     votos_duende.innerHTML = votosD.votos;
@@ -258,7 +276,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
 
-                    votosC = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosC = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosC.votos);
 
                     votos_carnificina.innerHTML = votosC.votos;
@@ -279,7 +297,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
 
-                    votosCh = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosCh = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosCh.votos);
 
                     votos_chacal.innerHTML = votosCh.votos;
@@ -300,7 +318,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
 
-                    votosM = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosM = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosM.votos);
 
                     votos_morbius.innerHTML = votosM.votos;
@@ -321,7 +339,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
 
-                    votosMy = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosMy = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosMy.votos);
 
                     votos_mysterio.innerHTML = votosMy.votos;
@@ -342,7 +360,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
 
-                    votosK = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosK = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosK.votos);
 
                     votos_kaine.innerHTML = votosK.votos;
@@ -363,7 +381,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
 
-                    votosKr = resposta[resposta.indexOf(':')+1]//não sei pq mas isso funciona
+                    votosKr = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
                     console.log(votosKr.votos);
 
                     votos_kraven.innerHTML = votosKr.votos;
@@ -385,8 +403,8 @@
         fetch("/usuarios/verificar_voto", {
             method: "POST",
             headers: {
-                    "Content-Type": "application/json"
-                },
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(corpov)
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO verificar_voto()!")
@@ -409,17 +427,14 @@
                 confirmar_mysterio.innerHTML = "";
                 confirmar_kaine.innerHTML = "";
                 confirmar_kraven.innerHTML = "";
-               
-                
+
                 var c = 0;
 
-                while(c<7){
+                while (c < 7) {
                     fundo[c].style.backgroundColor = "#15151588"
                     qtd_votos[c].style.opacity = "1";
                     c++;
                 }
-
-                
 
                 titulo_votacao.innerHTML = 'Parece que você já votou!';
                 txt_votacao.innerHTML = `Nós agradecemos profundamente pela sua ajuda,
@@ -437,69 +452,76 @@
 
     var vilao_escolhido;
 
-    function votarDuende(){
+    function votarDuende() {
         vilao_escolhido = "Duende Macabro";
         return votar();
     }
-    function votarCarnificina(){
+    function votarCarnificina() {
         vilao_escolhido = "Carnificina";
         return votar();
     }
-    function votarChacal(){
+    function votarChacal() {
         vilao_escolhido = "Chacal";
         return votar();
     }
-    function votarMorbius(){
+    function votarMorbius() {
         vilao_escolhido = "Morbius";
         return votar();
     }
-    function votarMysterio(){
+    function votarMysterio() {
         vilao_escolhido = "Mysterio";
         return votar();
     }
-    function votarKaine(){
+    function votarKaine() {
         vilao_escolhido = "Kaine";
         return votar();
     }
-    function votarKraven(){
+    function votarKraven() {
         vilao_escolhido = "Kraven";
         return votar();
     }
 
     function votar() {
-        sp = sp + 50000;
-        
-        var corpo = {
-            id_usuario: id_usuario,
-            vilao: vilao_escolhido,
-            spider_points: sp
-        }
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        } else {
 
-        fetch(`/usuarios/votar`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-            
-        }).then(function (resposta) {
-        
-            console.log("resposta: ", resposta);
-        
-            if (resposta.ok) {
-                window.alert("Obrigado por votar no "+vilao_escolhido+",\ncomo recompensa você ganhou 50000 SpiderPoints por isto!");
-                sessionStorage.SPIDERPOINTS_USUARIO = sp;
-                location.reload();
-            } else {
-                console.log(resposta);
-                throw ("Houve um erro ao tentar votar1!");
+            sp = sp + 50000;
+
+            var corpo = {
+                id_usuario: id_usuario,
+                vilao: vilao_escolhido,
+                spider_points: sp
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
 
-        return false;
-        
+            fetch(`/usuarios/votar`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.alert("Obrigado por votar no " + vilao_escolhido + ",\ncomo recompensa você ganhou 50000 SpiderPoints por isto!");
+                    sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                    location.reload();
+                } else {
+                    console.log(resposta);
+                    throw ("Houve um erro ao tentar votar1!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
     }
 
 </script>

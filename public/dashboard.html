@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +18,8 @@
         }
     </script>
 </head>
-<body>
 
+<body>
     <!-- MENU -->
     <header>
         <div class="container">
@@ -29,24 +30,31 @@
     </header>
 
     <!-- CONTEUDO -->
+    <div class="container_btn">
+        <div onclick="sessionStorage.clear();" class="div_logout">
+            <a href="index.html">
+                <img draggable="false" src="img/icones/btn-logout.png" alt="">
+            </a>
+        </div>
+
+        <div class="btn_dark_mode">
+            <img id="src_icon" onclick="check_dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png"
+                alt="Modo escuro">
+        </div>
+    </div>
     <div class="div_dashboardU">
-        
+
         <div class="containerA">
             <div class="div_txt">
                 <h2 class="txt_dark">Bem vindo, espetacular <span id="span2" class="txt_dark">Usuário</span>!</h2>
                 <hr>
-                <h5 ><span>SpiderPoints:</span> <span id="span_sp">300</span></h5>
+                <h5>SpiderPoints: <span class="txt_dark" id="span_sp">300</span></h5>
             </div>
 
             <div class="div_img">
                 <img src="img/Miles_Morales.png" draggable="false" alt="">
             </div>
 
-            <div onclick="sessionStorage.clear();" class="div_logout">
-                <a href="index.html">
-                    <img draggable="false" src="img/icones/logout.png" alt="">
-                </a>
-            </div>
         </div>
 
         <div class="containerB">
@@ -61,17 +69,17 @@
                         <img src="img/venom.png" alt="">
                     </div>
 
-                    <button class="btn_dark"  onclick="window.location.href='votacao.html';">Votar</button>
+                    <button class="btn_dark" onclick="window.location.href='votacao.html';">Votar</button>
                 </div>
-                
+
             </div>
 
-            <div class="div_box_card"id="box_card2">
+            <div class="div_box_card" id="box_card2">
                 <div class="desc_box_card" id="desc_box_card2">
                     <h1>Jogue Spider hit</h1>
                     <p>Jogue agora spider hit com um amigo, escolha seu lado e ganhe muitos spiderPoints!</p>
                 </div>
-                <div class="box_card"  onmouseenter="mostrarDesc2()" onmouseleave="ocultarDesc2()">
+                <div class="box_card" onmouseenter="mostrarDesc2()" onmouseleave="ocultarDesc2()">
                     <div class="img_card">
                         <img src="img/aranha-branca.png" alt="">
                     </div>
@@ -80,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="div_box_card"id="box_card3">
+            <div class="div_box_card" id="box_card3">
                 <div class="desc_box_card" id="desc_box_card3">
                     <h1>Resgatar recompensas</h1>
                     <p>Conheça a nossa loja, onde você pode resgatar recompensas gastando seus spiderPoints</p>
@@ -90,52 +98,47 @@
                         <img src="img/loja_icon_white.png" alt="">
                     </div>
 
-                    <button class="btn_dark"  onclick="window.location.href='loja.html';" >Resgatar</button>
+                    <button class="btn_dark" onclick="window.location.href='loja.html';">Resgatar</button>
                 </div>
             </div>
 
         </div>
-        <div class="btn_dark_mode" >
-            <img id="src_icon" onclick="dark_mode()" draggable="false" src="img/icones/dark-mode-dark.png" alt="Modo escuro">
-        </div>
 
-
-        </div>
     </div>
-    
+
 </body>
+
 </html>
 <script src="js/dark_mode.js"></script>
 <script>
     nome = sessionStorage.NOME_USUARIO;
     sp = sessionStorage.SPIDERPOINTS_USUARIO;
-    span2.innerHTML=nome;
-    span_sp.innerHTML=sp;
+    span2.innerHTML = nome;
+    span_sp.innerHTML = sp;
 
-    function mostrarDesc1(){
+    function mostrarDesc1() {
         desc_box_card1.style.opacity = "1";
         desc_box_card1.style.transition = "0.3s";
     }
-    function mostrarDesc2(){
+    function mostrarDesc2() {
         desc_box_card2.style.opacity = "1";
         desc_box_card2.style.transition = "0.3s";
     }
-    function mostrarDesc3(){
+    function mostrarDesc3() {
         desc_box_card3.style.opacity = "1";
         desc_box_card3.style.transition = "0.3s";
     }
 
-    function ocultarDesc1(){
+    function ocultarDesc1() {
         desc_box_card1.style.opacity = "0";
         desc_box_card1.style.transition = "0.3s";
     }
-    function ocultarDesc2(){
+    function ocultarDesc2() {
         desc_box_card2.style.opacity = "0";
         desc_box_card2.style.transition = "0.3s";
     }
-    function ocultarDesc3(){
+    function ocultarDesc3() {
         desc_box_card3.style.opacity = "0";
         desc_box_card3.style.transition = "0.3s";
     }
 </script>
-
