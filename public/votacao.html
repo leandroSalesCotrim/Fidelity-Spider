@@ -37,12 +37,12 @@
 
             <div class="div_img_voltar">
                 <a href="dashboard.html">
-                    <img src="img/icones/voltar.png" alt="">
+                    <img src="img/icones/voltar.png" alt="Botão voltar para dashboard">
                 </a>
             </div>
 
             <div class="txt_centro">
-                <h5><b><span>SpiderPoints:</span><span id="span_sp"></span></b></h5>
+                <h5>SpiderPoints: <span id="span_sp" class="txt_dark"></span></h5>
                 <div class="titulo">
                     <h1 class="txt_dark" id="titulo_votacao">Escolha com sabedoria</h1>
                     <hr>
@@ -436,10 +436,10 @@
                     c++;
                 }
 
-                titulo_votacao.innerHTML = 'Parece que você já votou!';
+                titulo_votacao.innerHTML = 'Você já fez sua escolha!';
                 txt_votacao.innerHTML = `Nós agradecemos profundamente pela sua ajuda,
-                 você não poderá votar mais, mas ainda assim, você consegue acompanhar com
-                  quantos votos os vilões estão.`;
+                 você não poderá votar novamente, mas ainda assim, você consegue acompanhar com
+                  quantos votos os vilões possuem atualmente.`;
                 throw ("O usuario já votou!");
             }
         }).catch(function (erro) {
