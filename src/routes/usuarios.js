@@ -17,33 +17,37 @@ router.get("/listarResgate", function (req, res) {
     usuarioController.listarResgate(req, res);
 });
 
-router.get("/listar_votos_duende", function (req, res) {
-    votacaoController.listar_votos_duende(req, res);
+router.get("/listar_votos_vilao", function (req, res) {
+    votacaoController.listar_votos_vilao(req, res);
 });
 
-router.get("/listar_votos_carnificina", function (req, res) {
-    votacaoController.listar_votos_carnificina(req, res);
-});
+// router.get("/listar_votos_duende", function (req, res) {
+//     votacaoController.listar_votos_duende(req, res);
+// });
 
-router.get("/listar_votos_chacal", function (req, res) {
-    votacaoController.listar_votos_chacal(req, res);
-});
+// router.get("/listar_votos_carnificina", function (req, res) {
+//     votacaoController.listar_votos_carnificina(req, res);
+// });
 
-router.get("/listar_votos_morbius", function (req, res) {
-    votacaoController.listar_votos_morbius(req, res);
-});
+// router.get("/listar_votos_chacal", function (req, res) {
+//     votacaoController.listar_votos_chacal(req, res);
+// });
 
-router.get("/listar_votos_mysterio", function (req, res) {
-    votacaoController.listar_votos_mysterio(req, res);
-});
+// router.get("/listar_votos_morbius", function (req, res) {
+//     votacaoController.listar_votos_morbius(req, res);
+// });
 
-router.get("/listar_votos_kaine", function (req, res) {
-    votacaoController.listar_votos_kaine(req, res);
-});
+// router.get("/listar_votos_mysterio", function (req, res) {
+//     votacaoController.listar_votos_mysterio(req, res);
+// });
 
-router.get("/listar_votos_kraven", function (req, res) {
-    votacaoController.listar_votos_kraven(req, res);
-});
+// router.get("/listar_votos_kaine", function (req, res) {
+//     votacaoController.listar_votos_kaine(req, res);
+// });
+
+// router.get("/listar_votos_kraven", function (req, res) {
+//     votacaoController.listar_votos_kraven(req, res);
+// });
 
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);

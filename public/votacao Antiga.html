@@ -89,7 +89,7 @@
                 <div class="card_viloes">
                     <div class="img" id="img2">
                         <div class="conteudo_card" id="fundo">
-                            <div class="nome" value="canificina" onclick="abrir_modal_VI()">
+                            <div class="nome" onclick="abrirConfirmarCarnificina()">
                                 <h1>Carnificina</h1>
                             </div>
                             <div id="confirmar_carnificina" class="div_votar">
@@ -227,5 +227,301 @@
 </body>
 
 </html>
-<script src="js/confirmacaoVoto.js"></script>
 <script src="js/dark_mode.js"></script>
+<script src="js/confirmacaoVoto.js"></script>
+<script>
+
+</script>
+<script>
+    sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
+    id_usuario = Number(sessionStorage.ID_USUARIO);
+    span_sp.innerHTML = sp;
+
+    votos_duende = document.getElementById('qtd_duende');
+    votos_carnificina = document.getElementById('qtd_carnificina');
+    votos_chacal = document.getElementById('qtd_chacal');
+    votos_morbius = document.getElementById('qtd_morbius');
+    votos_mysterio = document.getElementById('qtd_mysterio');
+    votos_kaine = document.getElementById('qtd_kaine');
+    votos_kraven = document.getElementById('qtd_kraven');
+
+    card_fundo = document.getElementById('fundo');
+
+
+    function listar_votos_duende() {
+        fetch("/usuarios/listar_votos_duende").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_duende()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
+
+                    votosD = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosD.votos);
+
+                    votos_duende.innerHTML = votosD.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_carnificina() {
+        fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
+
+                    votosC = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosC.votos);
+
+                    votos_carnificina.innerHTML = votosC.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_chacal() {
+        fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_chacal()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
+
+                    votosCh = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosCh.votos);
+
+                    votos_chacal.innerHTML = votosCh.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_morbius() {
+        fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_morbius()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
+
+                    votosM = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosM.votos);
+
+                    votos_morbius.innerHTML = votosM.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_mysterio() {
+        fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
+
+                    votosMy = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosMy.votos);
+
+                    votos_mysterio.innerHTML = votosMy.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_kaine() {
+        fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_kaine()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
+
+                    votosK = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosK.votos);
+
+                    votos_kaine.innerHTML = votosK.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function listar_votos_kraven() {
+        fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_votos_kraven()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
+
+                    votosKr = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                    console.log(votosKr.votos);
+
+                    votos_kraven.innerHTML = votosKr.votos;
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    function verificar_voto() {
+        var corpov = {
+            id_usuario: id_usuario,
+        }
+
+        fetch("/usuarios/verificar_voto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpov)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO verificar_voto()!")
+
+            if (resposta.ok) {
+                throw ("O usuario pode votar!");
+            } else {
+                listar_votos_duende();
+                listar_votos_carnificina();
+                listar_votos_chacal();
+                listar_votos_morbius();
+                listar_votos_mysterio();
+                listar_votos_kaine();
+                listar_votos_kraven();
+
+                confirmar_duende.innerHTML = "";
+                confirmar_carnificina.innerHTML = "";
+                confirmar_chacal.innerHTML = "";
+                confirmar_morbius.innerHTML = "";
+                confirmar_mysterio.innerHTML = "";
+                confirmar_kaine.innerHTML = "";
+                confirmar_kraven.innerHTML = "";
+
+                var c = 0;
+
+                while (c < 7) {
+                    fundo[c].style.backgroundColor = "#15151588"
+                    qtd_votos[c].style.opacity = "1";
+                    c++;
+                }
+
+                titulo_votacao.innerHTML = 'Você já fez sua escolha!';
+                txt_votacao.innerHTML = `Nós agradecemos profundamente pela sua ajuda,
+                 você não poderá votar novamente, mas ainda assim, você consegue acompanhar com
+                  quantos votos os vilões possuem atualmente.`;
+                throw ("O usuario já votou!");
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+    verificar_voto();
+
+    var vilao_escolhido;
+
+    function votarDuende() {
+        vilao_escolhido = "Duende Macabro";
+        return votar();
+    }
+    function votarCarnificina() {
+        vilao_escolhido = "Carnificina";
+        return votar();
+    }
+    function votarChacal() {
+        vilao_escolhido = "Chacal";
+        return votar();
+    }
+    function votarMorbius() {
+        vilao_escolhido = "Morbius";
+        return votar();
+    }
+    function votarMysterio() {
+        vilao_escolhido = "Mysterio";
+        return votar();
+    }
+    function votarKaine() {
+        vilao_escolhido = "Kaine";
+        return votar();
+    }
+    function votarKraven() {
+        vilao_escolhido = "Kraven";
+        return votar();
+    }
+
+    function votar() {
+        //garantindo que o usuário não possa executar uma atualização sem estar logado
+        if (sessionStorage.TIPO_USUARIO == "adm") {
+            window.location = "./dashboard-adm.html";
+        } else if (sessionStorage.TIPO_USUARIO == undefined) {
+            window.location = "./login.html";
+        } else {
+
+            sp = sp + 50000;
+
+            var corpo = {
+                id_usuario: id_usuario,
+                vilao: vilao_escolhido,
+                spider_points: sp
+            }
+
+            fetch(`/usuarios/votar`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.alert("Obrigado por votar no " + vilao_escolhido + ",\ncomo recompensa você ganhou 50000 SpiderPoints por isto!");
+                    sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                    location.reload();
+                } else {
+                    console.log(resposta);
+                    throw ("Houve um erro ao tentar votar1!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
+    }
+
+</script>
