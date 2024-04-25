@@ -864,7 +864,8 @@ input:-webkit-autofill {
     margin: auto;
     text-align: center;
     margin-top: 0%;
-    opacity: 0;
+    visibility: hidden;
+    transition-delay:0ms;
 }
 
 .conteudo_card .div_votar h4 {
@@ -885,13 +886,14 @@ input:-webkit-autofill {
 .conteudo_card .div_imgs_votar img {
     width: auto;
     height: 100%;
+    cursor: pointer;
 }
 
 .qtd_votos {
     margin: auto;
     width: 80%;
     text-align: center;
-    opacity: 0;
+    visibility: hidden;
 }
 
 .qtd_votos h2 {

@@ -1,6 +1,50 @@
-var confirmar_modal = document.getElementsByClassName("div_votar");
+sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
+id_usuario = Number(sessionStorage.ID_USUARIO);
+span_sp.innerHTML = sp;
 
-confirmar = document.getElementById('confirmar_duende');
+const viloes = [
+    { nome: "Duende macabro", id: "duende" },
+    { nome: "Carnificina", id: "carnificina" },
+    { nome: "Chacal", id: "chacal" },
+    { nome: "Morbius", id: "morbius" },
+    { nome: "Mysterio", id: "mysterio" },
+    { nome: "Kaine", id: "kaine" },
+    { nome: "Kraven", id: "kraven" },
+];
+
+const divViloes = document.getElementById("div_viloes");
+
+viloes.forEach((vilao, index) => {
+    const cardHtml = `
+        <div class="card_viloes">
+            <div class="img" id="img${index + 1}">
+                <div class="conteudo_card" id="fundo">
+                    <div class="nome" onclick="abrir_modal('${vilao.id}')">
+                        <h1>${vilao.nome}</h1>
+                    </div>
+                    <div id="confirmar_${vilao.id}" class="div_votar">
+                        <h4>votar neste vilão?</h4>
+                        <div class="div_imgs_votar">
+                            <img onclick="return votar('${vilao.id}')" id="img_confirmar${index + 1}" draggable="false"
+                                src="img/viloes/verifica.png" alt="">
+                            <img onclick="fechar_modal()" id="img_cancelar${index + 1}" draggable="false"
+                                src="img/viloes/excluir.png" alt="">
+                        </div>
+                    </div>
+                    <div class="qtd_votos" id="qtd_votos_${vilao.id}">
+                        <h2>votos:<span id="qtd_${vilao.id}">${vilao.votos}</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    divViloes.insertAdjacentHTML("beforeend", cardHtml);
+});
+
+var confirmar_modal = document.getElementsByClassName("div_votar");
+var qtd_votos = document.getElementsByClassName("qtd_votos");
+
+confirmar1 = document.getElementById('confirmar_duende');
 confirmar2 = document.getElementById('confirmar_carnificina');
 confirmar3 = document.getElementById('confirmar_chacal');
 confirmar4 = document.getElementById('confirmar_morbius');
@@ -24,107 +68,152 @@ img_cancelar5 = document.getElementById('img_cancelar5');
 img_cancelar6 = document.getElementById('img_cancelar6');
 img_cancelar7 = document.getElementById('img_cancelar7');
 
-function abrir_modal_confirmar(vilao) {
+function listar_votos() {
+    viloes.forEach((vilao, index) => {
+        var nomeVariavelVoto = "qtd_" + vilao.id;
+        var nomeVariavelDiv = "confirmar_" + vilao.id;
+
+        fetch("/usuarios/listar_votos_vilao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ vilao: vilao.nome })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    window[nomeVariavelDiv].innerHTML = "";
+                    window[nomeVariavelVoto].innerHTML = JSON.stringify(resposta[0].votos);
+                });
+            } else {
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    });
+
+    return false;
+}
+
+function verificar_voto() {
+    var corpov = {
+        id_usuario: id_usuario,
+    }
+
+    fetch("/usuarios/verificar_voto", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(corpov)
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            throw ("O usuario pode votar!");
+        } else {
+            listar_votos();
+
+            var i = 0;
+
+            while (i < confirmar_modal.length) {
+                confirmar_modal[i].style.visibility = "hidden";
+                i++;
+            }
+
+            var c = 0;
+
+            while (c < confirmar_modal.length) {
+                fundo[c].style.backgroundColor = "#15151588"
+                qtd_votos[c].style.visibility = "visible";
+                c++;
+            }
+
+            titulo_votacao.innerHTML = 'Você já fez sua escolha!';
+            txt_votacao.innerHTML = `Nós agradecemos profundamente pela sua ajuda,
+             você não poderá votar novamente, mas ainda assim, você consegue acompanhar com
+              quantos votos os vilões possuem atualmente.`;
+            throw ("O usuario já votou!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+    return false;
+}
+
+verificar_voto();
+
+function abrir_modal(vilao_selecionado) {
     var i = 0;
-    console.log(vilao)
     while (i < confirmar_modal.length) {
         confirmar_modal[i].style.opacity = "0";
+        confirmar_modal[i].style.visibility = "hidden";
+        i++;
+    }
+    console.log(vilao_selecionado)
+    viloes.forEach((vilao, index) => {
+        var nomeVariavel = "confirmar_" + vilao.id;
+        console.log(vilao_selecionado)
+        console.log(vilao)
+
+        if (vilao.id == vilao_selecionado) {
+            console.log("teste " + window[nomeVariavel]);
+            window[nomeVariavel].style.visibility = "visible";
+            window[nomeVariavel].style.opacity = "1";
+        }
+
+
+    });
+}
+
+function fechar_modal() {
+    var i = 0;
+    while (i < confirmar_modal.length) {
+        confirmar_modal[i].style.opacity = "0";
+        confirmar_modal[i].style.visibility = "hidden";
         i++;
     }
 
-    if (vilao == "duende") {
-        confirmar.style.opacity = "1";
-        img_confirmar.style.cursor = "pointer";
-        img_cancelar.style.cursor = "pointer";
-
-    }else if (vilao == "carnificina") {
-        confirmar2.style.opacity = "1";
-        img_confirmar2.style.cursor = "pointer";
-        img_cancelar2.style.cursor = "pointer";
-
-    } else if (vilao == "chacal") {
-        confirmar3.style.opacity = "1";
-        img_confirmar3.style.cursor = "pointer";
-        img_cancelar3.style.cursor = "pointer";
-
-    } else if (vilao == "morbius") {
-        confirmar4.style.opacity = "1";
-        img_confirmar4.style.cursor = "pointer";
-        img_cancelar4.style.cursor = "pointer";
-
-    } else if (vilao == "mysterio") {
-        confirmar5.style.opacity = "1";
-        img_confirmar5.style.cursor = "pointer";
-        img_cancelar5.style.cursor = "pointer";
-
-    }else if (vilao == "kaine") {
-        confirmar6.style.opacity = "1";
-        img_confirmar6.style.cursor = "pointer";
-        img_cancelar6.style.cursor = "pointer";
-
-    }else if (vilao == "kraven") {
-        confirmar7.style.opacity = "1";
-        img_confirmar7.style.cursor = "pointer";
-        img_cancelar7.style.cursor = "pointer";
-
-    }  
 }
 
-function fechar_modal_confirmar(vilao) {
-    var i = 0;
-    while (i < confirmar_modal.length) {
-        confirmar_modal[i].style.opacity = "0";
-        i++;
+function votar(vilao) {
+    //garantindo que o usuário não possa executar uma atualização sem estar logado
+    if (sessionStorage.TIPO_USUARIO == "adm") {
+        window.location = "./dashboard-adm.html";
+    } else if (sessionStorage.TIPO_USUARIO == undefined) {
+        window.location = "./login.html";
+    } else {
+
+        sp = sp + 50000;
+
+        var corpo = {
+            id_usuario: id_usuario,
+            vilao: vilao,
+            spider_points: sp
+        }
+
+        fetch(`/usuarios/votar`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+            if (resposta.ok) {
+                window.alert("Obrigado por votar no " + vilao + ",\ncomo recompensa você ganhou 50.000 SpiderPoints por isto!");
+                sessionStorage.SPIDERPOINTS_USUARIO = sp;
+                location.reload();
+            } else {
+                console.log(resposta);
+                throw ("Houve um erro ao tentar votar1!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
     }
-
 }
 
-function fecharConfirmarDuende() {
-    confirmar.style.transition = "0.6s";
-    confirmar.style.opacity = "0";
-    img_confirmar.style.cursor = "default";
-    img_cancelar.style.cursor = "default";
-}
-
-function fecharConfirmarCarnificina() {
-    confirmar2.style.transition = "0.6s";
-    confirmar2.style.opacity = "0";
-
-    img_confirmar2.style.cursor = "default";
-    img_cancelar2.style.cursor = "default";
-}
-
-function fecharConfirmarChacal() {
-    confirmar3.style.transition = "0.6s";
-    confirmar3.style.opacity = "0";
-    img_confirmar3.style.cursor = "default";
-    img_cancelar3.style.cursor = "default";
-}
-
-function fecharConfirmarMorbius() {
-    confirmar4.style.transition = "0.6s";
-    confirmar4.style.opacity = "0";
-    img_confirmar4.style.cursor = "default";
-    img_cancelar4.style.cursor = "default";
-}
-
-function fecharConfirmarMysterio() {
-    confirmar5.style.transition = "0.6s";
-    confirmar5.style.opacity = "0";
-    img_confirmar5.style.cursor = "default";
-    img_cancelar5.style.cursor = "default";
-}
-
-function fecharConfirmarKaine() {
-    confirmar6.style.transition = "0.6s";
-    confirmar6.style.opacity = "0";
-    img_confirmar6.style.cursor = "default";
-    img_cancelar6.style.cursor = "default";
-}
-
-function fecharConfirmarKraven() {
-    confirmar7.style.transition = "0.6s";
-    confirmar7.style.opacity = "0";
-    img_confirmar7.style.cursor = "default";
-    img_cancelar7.style.cursor = "default";
-}
