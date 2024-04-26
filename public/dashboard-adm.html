@@ -12,211 +12,211 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
-        if (sessionStorage.TIPO_USUARIO == "adm") {
-            // window.location = "./dashboard-adm.html";
-        } else if (sessionStorage.TIPO_USUARIO == undefined) {
-            window.location = "./login.html";
-        }else if(sessionStorage.TIPO_USUARIO == "usuario"){
-            window.location = "./dashboard.html";
-        }
+        // if (sessionStorage.TIPO_USUARIO == "adm") {
+        //     // window.location = "./dashboard-adm.html";
+        // } else if (sessionStorage.TIPO_USUARIO == undefined) {
+        //     window.location = "./login.html";
+        // }else if(sessionStorage.TIPO_USUARIO == "usuario"){
+        //     window.location = "./dashboard.html";
+        // }
 
-        function listar_votos_duende() {
-            fetch("/usuarios/listar_votos_duende").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_duende()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
+        // function listar_votos_duende() {
+        //     fetch("/usuarios/listar_votos_duende").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_duende()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do duende: ", JSON.stringify(resposta));
 
-                        votosD = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosD.votos);
-                        sessionStorage.VOTOSD = votosD.votos;
+        //                 votosD = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosD.votos);
+        //                 sessionStorage.VOTOSD = votosD.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_votos_carnificina() {
-            fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
-                        votosC = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosC.votos);
+        // function listar_votos_carnificina() {
+        //     fetch("/usuarios/listar_votos_carnificina").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_carnificina()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do carnificina: ", JSON.stringify(resposta));
+        //                 votosC = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosC.votos);
 
-                        sessionStorage.VOTOSC = votosC.votos;
+        //                 sessionStorage.VOTOSC = votosC.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
-        function listar_votos_chacal() {
-            fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_chacal()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
+        // function listar_votos_chacal() {
+        //     fetch("/usuarios/listar_votos_chacal").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_chacal()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do chacal: ", JSON.stringify(resposta));
 
-                        votosCh = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosCh.votos);
-                        sessionStorage.VOTOSCH = votosCh.votos;
+        //                 votosCh = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosCh.votos);
+        //                 sessionStorage.VOTOSCH = votosCh.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_votos_morbius() {
-            fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_morbius()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
+        // function listar_votos_morbius() {
+        //     fetch("/usuarios/listar_votos_morbius").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_morbius()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do morbius: ", JSON.stringify(resposta));
 
-                        votosM = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosM.votos);
-                        sessionStorage.VOTOSM = votosM.votos;
+        //                 votosM = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosM.votos);
+        //                 sessionStorage.VOTOSM = votosM.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_votos_mysterio() {
-            fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
+        // function listar_votos_mysterio() {
+        //     fetch("/usuarios/listar_votos_mysterio").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_mysterio()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do mysterio: ", JSON.stringify(resposta));
 
-                        votosMy = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosMy.votos);
-                        sessionStorage.VOTOSMY = votosMy.votos;
+        //                 votosMy = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosMy.votos);
+        //                 sessionStorage.VOTOSMY = votosMy.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_votos_kaine() {
-            fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_kaine()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
+        // function listar_votos_kaine() {
+        //     fetch("/usuarios/listar_votos_kaine").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_kaine()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do kaine: ", JSON.stringify(resposta));
 
-                        votosK = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosK.votos);
-                        sessionStorage.VOTOSK = votosK.votos;
+        //                 votosK = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosK.votos);
+        //                 sessionStorage.VOTOSK = votosK.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_votos_kraven() {
-            fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_votos_kraven()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
+        // function listar_votos_kraven() {
+        //     fetch("/usuarios/listar_votos_kraven").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_votos_kraven()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos do kraven: ", JSON.stringify(resposta));
 
-                        votosKr = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(votosKr.votos);
-                        sessionStorage.VOTOSKR = votosKr.votos;
+        //                 votosKr = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(votosKr.votos);
+        //                 sessionStorage.VOTOSKR = votosKr.votos;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_vitorias_aranha() {
-            fetch("/usuarios/listar_vitorias_aranha").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_vitorias_aranha()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
+        // function listar_vitorias_aranha() {
+        //     fetch("/usuarios/listar_vitorias_aranha").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_vitorias_aranha()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
 
-                        vitoriasA = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(vitoriasA.vitorias);
-                        sessionStorage.VITORIAS_A = vitoriasA.vitorias;
+        //                 vitoriasA = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(vitoriasA.vitorias);
+        //                 sessionStorage.VITORIAS_A = vitoriasA.vitorias;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        function listar_vitorias_venom() {
-            fetch("/usuarios/listar_vitorias_venom").then(function (resposta) {
-                console.log("ESTOU NO THEN DO listar_vitorias_venom()!")
-                if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
+        // function listar_vitorias_venom() {
+        //     fetch("/usuarios/listar_vitorias_venom").then(function (resposta) {
+        //         console.log("ESTOU NO THEN DO listar_vitorias_venom()!")
+        //         if (resposta.ok) {
+        //             resposta.json().then(function (resposta) {
+        //                 console.log("Dados recebidos da consulta de vitorias: ", JSON.stringify(resposta));
 
-                        vitoriasV = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                        console.log(vitoriasV.vitorias);
-                        sessionStorage.VITORIAS_V = vitoriasV.vitorias;
+        //                 vitoriasV = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+        //                 console.log(vitoriasV.vitorias);
+        //                 sessionStorage.VITORIAS_V = vitoriasV.vitorias;
 
-                    });
-                } else {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                }
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-            return false;
-        }
+        //             });
+        //         } else {
+        //             console.log("Dados recebidos: ", JSON.stringify(resposta));
+        //         }
+        //     }).catch(function (erro) {
+        //         console.log(erro);
+        //     })
+        //     return false;
+        // }
 
-        listar_votos_duende();
-        listar_votos_carnificina();
-        listar_votos_chacal();
-        listar_votos_morbius();
-        listar_votos_mysterio();
-        listar_votos_kaine();
-        listar_votos_kraven();
-        listar_vitorias_aranha();
-        listar_vitorias_venom();
+        // listar_votos_duende();
+        // listar_votos_carnificina();
+        // listar_votos_chacal();
+        // listar_votos_morbius();
+        // listar_votos_mysterio();
+        // listar_votos_kaine();
+        // listar_votos_kraven();
+        // listar_vitorias_aranha();
+        // listar_vitorias_venom();
     </script>
 
 

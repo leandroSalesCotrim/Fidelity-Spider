@@ -1,3 +1,4 @@
+//TRECHO DO CÓDIGO RESERVADO PARA RENDERIZAR CONTEÚDO DOS CARDS DE VILÕES NA TELA DE VOTAÇÃO
 sp = Number(sessionStorage.SPIDERPOINTS_USUARIO);
 id_usuario = Number(sessionStorage.ID_USUARIO);
 span_sp.innerHTML = sp;
@@ -41,9 +42,13 @@ viloes.forEach((vilao, index) => {
     divViloes.insertAdjacentHTML("beforeend", cardHtml);
 });
 
+//----------------------------------------------------------------------------------------------------------------------------------
+
+//VARIAVEIS QUE POSSUEM O CONTEUDO HTML QUE SERÁ MANIPULADO NA VOTAÇÃO
 var confirmar_modal = document.getElementsByClassName("div_votar");
 var qtd_votos = document.getElementsByClassName("qtd_votos");
 
+//CADA VARIAVEL CONTÉM UMA DIV DO BOTÃO DE CONFIRMAÇÃO DOS CARDS 
 confirmar1 = document.getElementById('confirmar_duende');
 confirmar2 = document.getElementById('confirmar_carnificina');
 confirmar3 = document.getElementById('confirmar_chacal');
@@ -52,6 +57,8 @@ confirmar5 = document.getElementById('confirmar_mysterio');
 confirmar6 = document.getElementById('confirmar_kaine');
 confirmar7 = document.getElementById('confirmar_kraven');
 
+
+//CADA VARIAVEL CONTÉM A IMAGEM DOS BOTÕES DE CONFIRMAR E CANCELAR
 img_confirmar = document.getElementById('img_confirmar');
 img_confirmar2 = document.getElementById('img_confirmar2');
 img_confirmar3 = document.getElementById('img_confirmar3');
@@ -59,7 +66,6 @@ img_confirmar4 = document.getElementById('img_confirmar4');
 img_confirmar5 = document.getElementById('img_confirmar5');
 img_confirmar6 = document.getElementById('img_confirmar6');
 img_confirmar7 = document.getElementById('img_confirmar7');
-
 img_cancelar = document.getElementById('img_cancelar');
 img_cancelar2 = document.getElementById('img_cancelar2');
 img_cancelar3 = document.getElementById('img_cancelar3');
@@ -68,6 +74,7 @@ img_cancelar5 = document.getElementById('img_cancelar5');
 img_cancelar6 = document.getElementById('img_cancelar6');
 img_cancelar7 = document.getElementById('img_cancelar7');
 
+//LISTA TODOS OS VOTOS DE TODOS OS VILÕES BASEADO NA LISTA  viloes CONSTRUIDA ACIMA
 function listar_votos() {
     viloes.forEach((vilao, index) => {
         var nomeVariavelVoto = "qtd_" + vilao.id;
@@ -95,6 +102,8 @@ function listar_votos() {
     return false;
 }
 
+//VERIFICA SE O USUÁRIO JA VOTOU, SE SIM, RETORNA 403 E EXIBE OS VOTOS
+//(ISSO PODE RETORNAR UM ERRO NO CONSOLE MAS NÃO SIGNIFICA QUE ESTEJA ERRADO)
 function verificar_voto() {
     var corpov = {
         id_usuario: id_usuario,
@@ -139,9 +148,11 @@ function verificar_voto() {
     })
     return false;
 }
-
+//CHAMADA DA FUNÇÃO PARA QUE A VERIFICAÇÃO SEJA FEITO TODA VEZ QUE A PAGINA FOR RENDERIZADA
 verificar_voto();
 
+
+//ABRE A MODAL DO VILÃO QUE FOR SELECIONADO
 function abrir_modal(vilao_selecionado) {
     var i = 0;
     while (i < confirmar_modal.length) {
@@ -164,7 +175,7 @@ function abrir_modal(vilao_selecionado) {
 
     });
 }
-
+//FECHA TODAS A MODALS
 function fechar_modal() {
     var i = 0;
     while (i < confirmar_modal.length) {
@@ -175,6 +186,7 @@ function fechar_modal() {
 
 }
 
+//EXECUTA A REQUEST DE VOTAÇÃO
 function votar(vilao) {
     //garantindo que o usuário não possa executar uma atualização sem estar logado
     if (sessionStorage.TIPO_USUARIO == "adm") {
@@ -216,4 +228,3 @@ function votar(vilao) {
         return false;
     }
 }
-

@@ -2,8 +2,6 @@ var express = require("express");
 var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
-var votacaoController = require("../controllers/votacaoController");
-var votacaoController = require("../controllers/votacaoController");
 
 router.get("/", function (req, res) {
     usuarioController.testar(req, res);
@@ -18,7 +16,7 @@ router.get("/listarResgate", function (req, res) {
 });
 
 router.post("/listar_votos_vilao", function (req, res) {
-    votacaoController.listar_votos_vilao(req, res);
+    usuarioController.listar_votos_vilao(req, res);
 });
 
 router.post("/cadastrar", function (req, res) {
@@ -38,7 +36,7 @@ router.post("/acumular", function (req, res) {
 });
 
 router.post("/verificar_voto", function (req, res) {
-    votacaoController.verificar_voto(req, res);
+    usuarioController.verificar_voto(req, res);
 });
 
 router.post("/verificar_resgate", function (req, res) {
