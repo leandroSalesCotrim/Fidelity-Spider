@@ -16,32 +16,48 @@
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     transition: 0.5s;
+    color: #151515;
 }
+
 /* ANIMAÇÕES UTILIZADAS */
 @keyframes circulate {
     0% {
-      border-image: linear-gradient(to right, #eb1c23a6, #0596EB) 1;
-      border-image-slice: 1;
+        border-image: linear-gradient(to right, #eb1c23a6, #0596EB) 1;
+        border-image-slice: 1;
     }
+
     25% {
-      border-image: linear-gradient(to bottom, #eb1c23a6, #0596EB) 1;
-      border-image-slice: 1;
+        border-image: linear-gradient(to bottom, #eb1c23a6, #0596EB) 1;
+        border-image-slice: 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to left, #eb1c23a6, #0596EB) 1;
+        border-image-slice: 1;
+    }
+
+    75% {
+        border-image: linear-gradient(to top, #eb1c23a6, #0596EB) 1;
+        border-image-slice: 1;
+    }
+
+    100% {
+        border-image: linear-gradient(to right, #eb1c23a6, #0596EB) 1;
+        border-image-slice: 1;
+    }
+}
+
+@keyframes animacao_spiderhit {
+
+    0%, 100% {
+        background-color: #0597eb70; /* Cor inicial */
     }
     50% {
-      border-image: linear-gradient(to left, #eb1c23a6, #0596EB) 1;
-      border-image-slice: 1;
+        background-color: #EB1C2370; /* Cor pulsante */
     }
-    75% {
-      border-image: linear-gradient(to top, #eb1c23a6, #0596EB) 1;
-      border-image-slice: 1;
-    }
-    100% {
-      border-image: linear-gradient(to right, #eb1c23a6, #0596EB) 1;
-      border-image-slice: 1;
-    }
-  }
+}
 
-  @keyframes animacao_entrada {
+@keyframes animacao_entrada {
     0% {
         margin-left: -100%;
         filter: blur(20px);
@@ -85,6 +101,7 @@
         filter: drop-shadow(3px 3px 50px #eb1c2300);
     }
 }
+
 /*----------------------------------------------------------------------------------------------------------------*/
 
 body::before {
@@ -98,12 +115,16 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.1; /* Opacidade da imagem de fundo */
-    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+    opacity: 0.1;
+    /* Opacidade da imagem de fundo */
+    z-index: -1;
+    /* Coloca o pseudo-elemento atrás do conteúdo */
 }
-body.index::before{
+
+body.index::before {
     background-image: none;
 }
+
 button {
     background-color: #F5F5F5;
     border-style: solid;
@@ -395,20 +416,23 @@ input:-webkit-autofill {
     flex-direction: column;
     justify-content: center;
 }
-.cadastro_box .div_btn_sair{
+
+.cadastro_box .div_btn_sair {
     width: auto;
     height: 4%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
-.cadastro_box .div_btn_sair a{
+
+.cadastro_box .div_btn_sair a {
     height: 100%;
     width: auto;
     margin-right: 10%;
     cursor: pointer;
 }
-.cadastro_box .div_btn_sair a img{
+
+.cadastro_box .div_btn_sair a img {
     height: 100%;
 }
 
@@ -495,7 +519,7 @@ input:-webkit-autofill {
     display: flex;
 }
 
-.container_btn{
+.container_btn {
     width: 100%;
     height: 5%;
     display: flex;
@@ -513,6 +537,7 @@ input:-webkit-autofill {
     height: 100%;
     width: auto;
 }
+
 .container_btn .btn_dark_mode {
     height: 100%;
     width: auto;
@@ -589,7 +614,7 @@ input:-webkit-autofill {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    flex-wrap:wrap-reverse;
+    flex-wrap: wrap-reverse;
 }
 
 .div_box_card {
@@ -755,14 +780,16 @@ input:-webkit-autofill {
     justify-content: center;
 }
 
-.div_votacao .container .txt_centro span{
+.div_votacao .container .txt_centro span {
     font-size: 18px;
     font-weight: 600;
     color: #0596EB;
 }
-.div_votacao .container .txt_centro #span_sp{
+
+.div_votacao .container .txt_centro #span_sp {
     color: #151515;
 }
+
 .div_votacao .container.txt_centro .titulo hr {
     width: 100%;
     height: 10%;
@@ -830,7 +857,7 @@ input:-webkit-autofill {
 .conteudo_card:hover {
     background-color: #15151588;
 }
-  
+
 .card_viloes .img:hover {
     animation: circulate 2s linear infinite;
     border-color: #EB1C23;
@@ -865,7 +892,7 @@ input:-webkit-autofill {
     text-align: center;
     margin-top: 0%;
     visibility: hidden;
-    transition-delay:0ms;
+    transition-delay: 0ms;
 }
 
 .conteudo_card .div_votar h4 {
@@ -966,7 +993,6 @@ input:-webkit-autofill {
 
 .div_spider_Hit .container .div_img_voltar img {
     height: 100%;
-    transform: scaleX(-1);
     margin: auto;
 }
 
@@ -979,12 +1005,8 @@ input:-webkit-autofill {
 
 }
 
-.SpiderPoints span {
-    color: #EB1C23;
-
-}
-
 .SpiderPoints h5 {
+    color: #0596EB;
     font-size: 18px;
     font-weight: bold;
 }
@@ -1013,7 +1035,7 @@ input:-webkit-autofill {
     border-style: none;
     background-color: #EB1C23;
     width: 100%;
-    height: 10%;
+    height: 8%;
 
 }
 
@@ -1029,17 +1051,21 @@ input:-webkit-autofill {
 }
 
 .desc_minigame h4 span {
-    color: #0B689E;
+    color: #0596EB;
     font-weight: bold;
 }
 
 .desc_minigame h5 {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 5%;
 }
 
-.desc_minigame span {
+.desc_minigame .destaque {
+    color: #0596EB;
+}
+
+.tecla_desc {
     color: #EB1C23;
 }
 
@@ -1047,7 +1073,9 @@ input:-webkit-autofill {
     width: 55%;
     height: 50%;
     border-radius: 10px;
-    background-color: #eb1c239c;
+    background: #eb1c2370;
+    background-size: 100% 200%;
+    animation: animacao_spiderhit 1.5s infinite;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -1077,7 +1105,7 @@ input:-webkit-autofill {
     width: 55%;
     height: 100%;
     background-color: #151515;
-    box-shadow: 15px 10px 0px #EB1C23;
+    /* box-shadow: 15px 10px 0px #EB1C23; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -1427,7 +1455,6 @@ input:-webkit-autofill {
 
 .div_loja .container .div_img_voltar img {
     height: 100%;
-    transform: scaleX(-1);
     margin: auto;
 }
 
@@ -1437,12 +1464,6 @@ input:-webkit-autofill {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-}
-
-.SpiderPoints span {
-    color: #EB1C23;
-
 }
 
 .SpiderPoints h5 {
@@ -1455,12 +1476,14 @@ input:-webkit-autofill {
     height: 20%;
     display: flex;
     flex-direction: column;
-    text-align: center;
 }
 
 .div_loja .containerTxt h4 {
     font-size: 18px;
+    width: 60%;
     font-weight: 500;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .div_loja .containerTxt .titulo {
@@ -1556,7 +1579,7 @@ input:-webkit-autofill {
 }
 
 .cardItem #img3 {
-    background-image: url(../img/loja/Spider-Man2-capa.jpg);
+    background-image: url(../img/loja/Spider-Man2-capa.jpeg);
 }
 
 .cardItem #img4 {
