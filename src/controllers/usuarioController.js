@@ -284,25 +284,9 @@ function vitoriaSh(req, res) {
     }
 }
 
-function listar_vitorias_aranha(req, res) {
-    usuarioModel.listar_vitorias_aranha()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function listar_vitorias_venom(req, res) {
-    usuarioModel.listar_vitorias_venom()
+function listar_vitorias_spiderhit(req, res) {
+    personagem = req.body.personagem;
+    usuarioModel.listar_vitorias_spiderhit(personagem)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -320,7 +304,6 @@ function listar_vitorias_venom(req, res) {
 
 function listar_votos_vilao(req, res) {
     var vilao = req.body.vilao;
-    console.log("o vilão recebido na controller é : "+vilao)
 
     usuarioModel.listar_votos_vilao(vilao)
         .then(function (resultado) {
@@ -381,8 +364,7 @@ module.exports = {
     resgatar,
     votar,
     vitoriaSh,
-    listar_vitorias_aranha,
-    listar_vitorias_venom,
+    listar_vitorias_spiderhit,
     listar_votos_vilao,
     verificar_voto
 }

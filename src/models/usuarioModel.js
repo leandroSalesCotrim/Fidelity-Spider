@@ -99,19 +99,10 @@ function vitoriaSh(vencedor, idUsuario) {
     return database.executar(instrucao);
 }
 
-function listar_vitorias_aranha() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_aranha()");
+function listar_vitorias_spiderhit(personagem) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_spiderhit()");
     var instrucao = `
-        SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Homem-aranha";
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
-function listar_vitorias_venom() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar_vitorias_venom()");
-    var instrucao = `
-        SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = "Venom";
+        SELECT COUNT(vencedor) as vitorias FROM spiderhit where vencedor = '${personagem}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -146,8 +137,7 @@ module.exports = {
     resgatar,
     votar,
     vitoriaSh,
-    listar_vitorias_aranha,
-    listar_vitorias_venom,
+    listar_vitorias_spiderhit,
     listar_votos_vilao,
     verificar_voto
 };
