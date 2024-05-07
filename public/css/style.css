@@ -129,7 +129,7 @@ body.index::before {
     background-image: none;
 }
 
-button {
+ button {
     background-color: #F5F5F5;
     border-style: solid;
     border-color: #EB1C23;
@@ -138,6 +138,8 @@ button {
     border-width: 3px;
     font-weight: 700;
     outline: none;
+    cursor: pointer;
+    border-radius: 100px;
 }
 
 body {
@@ -161,8 +163,7 @@ header .container {
 }
 
 .div_logo_sony {
-    height: auto;
-    width: 5%;
+    height: 50%;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 2%;
@@ -197,7 +198,6 @@ input[type=number]::-webkit-inner-spin-button {
     width: 55%;
     height: 50%;
     margin: auto;
-    margin-top: 12%;
 }
 
 .div_slogan h1 {
@@ -213,9 +213,6 @@ input[type=number]::-webkit-inner-spin-button {
 
 .destaque {
     color: #EB1C23;
-}
-
-h4 .destaque {
     font-weight: 600;
 }
 
@@ -226,15 +223,11 @@ h4 .destaque {
 }
 
 .div_btn_inicio button {
-    border-radius: 100px;
     width: 15%;
     height: 70%;
-    font-size: 25px;
-    box-shadow: 0px 0px 0px #1D1E22;
     margin: auto;
     margin-top: 5%;
-    transition: 0.2s;
-    cursor: pointer;
+    border-style: solid;
     background-color: #EB1C2300;
 }
 
@@ -287,6 +280,7 @@ video:hover {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
+    background-size: cover;
 }
 
 .div_login .container {
@@ -376,8 +370,7 @@ input:-webkit-autofill {
     height: 6%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 100px;
-    cursor: pointer;
+    border-style: none;
 }
 
 #form_login button p {
@@ -401,6 +394,7 @@ input:-webkit-autofill {
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .div_cadastro .container {
@@ -504,8 +498,7 @@ input:-webkit-autofill {
     margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 100px;
-    cursor: pointer;
+    border-style: none;
 }
 
 #form_cadastro button p {
@@ -706,7 +699,6 @@ input:-webkit-autofill {
 }
 
 .containerB .box_card button {
-    border-radius: 10px;
     background-color: #EB1C23;
     color: #F5F5F5;
     border-style: none;
@@ -716,7 +708,6 @@ input:-webkit-autofill {
     margin-top: 0;
     font-size: 15px;
     font-weight: 500;
-    cursor: pointer;
 }
 
 .desc_box_card {
@@ -794,14 +785,15 @@ input:-webkit-autofill {
     color: #151515;
 }
 
-.div_votacao .container.txt_centro .titulo hr {
+.div_votacao .container .txt_centro .titulo hr {
     width: 100%;
-    height: 10%;
+    height: 7%;
     border-style: none;
     background-color: #EB1C23;
+    margin-bottom: 1%;
 }
 
-.div_votacao .container.txt_centro .titulo h1 {
+.div_votacao .container .txt_centro .titulo h1 {
     font-size: 45px;
 }
 
@@ -1088,15 +1080,14 @@ input:-webkit-autofill {
 
 .iniciar_card button {
     margin: auto;
-    width: 20%;
+    width: 15%;
     height: 15%;
     background-color: #15151500;
     border-color: #151515;
     border-width: 4px;
     color: #151515;
-    border-radius: 20px;
-    cursor: pointer;
     transition: 0.2s;
+    border-radius: 10px;
 }
 
 .iniciar_card button:hover {
@@ -1109,7 +1100,6 @@ input:-webkit-autofill {
     width: 55%;
     height: 100%;
     background-color: #151515;
-    /* box-shadow: 15px 10px 0px #EB1C23; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -1118,8 +1108,8 @@ input:-webkit-autofill {
 .card_minigame_tela {
     width: 100%;
     height: 70%;
-    margin-top: -4%;
     background-image: url(../img/spiderhit/fundo.gif);
+    background-size: cover;
     background-position-y: bottom;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -1131,12 +1121,16 @@ input:-webkit-autofill {
     background-color: #0B689E;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 20%;
+    width: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 0.2%;
     margin-left: auto;
     margin-right: auto;
     z-index: 0;
     font-size: 12px;
     text-align: center;
+    position: absolute;
 }
 
 .div_rodada h1 {
@@ -1729,8 +1723,10 @@ input:-webkit-autofill {
     color: #e9e9e9;
     padding-bottom: 10px;
     border-spacing: 10px;
-    position: sticky; /* Fixa a linha */
-    top: 0; /* Fixa no topo */
+    position: sticky;
+    /* Fixa a linha */
+    top: 0;
+    /* Fixa no topo */
     background-color: #1D1E22;
 }
 
@@ -1746,7 +1742,7 @@ input:-webkit-autofill {
     text-align: center;
 }
 
-.containerR table td.conteudo_nome_table{
+.containerR table td.conteudo_nome_table {
     color: #0596EB;
 }
 
@@ -1755,16 +1751,31 @@ td {
     border-top: solid 10px #1D1E22;
     border-bottom: solid 10px #1D1E22;
     border-style: none solid solid none;
-  }
-  
-  tr:first-child td:first-child { border-top-left-radius: 100px; }
-  tr:first-child td:last-child { border-top-right-radius: 100px; }
-  
-  tr:last-child td:first-child { border-bottom-left-radius: 100px; }
-  tr:last-child td:last-child { border-bottom-right-radius: 100px; }
-  
-  tr:first-child td { border-top-style: solid; }
-  tr td:first-child { border-left-style: solid; }
+}
+
+tr:first-child td:first-child {
+    border-top-left-radius: 100px;
+}
+
+tr:first-child td:last-child {
+    border-top-right-radius: 100px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 100px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 100px;
+}
+
+tr:first-child td {
+    border-top-style: solid;
+}
+
+tr td:first-child {
+    border-left-style: solid;
+}
 
 /* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
 e 10px de altura para a barra horizontal */

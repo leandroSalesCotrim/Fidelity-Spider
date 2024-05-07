@@ -24,7 +24,6 @@ function atualizar_sp() {
         window.location = "./login.html";
     } else {
 
-
         sp = sp + 300;
 
         var corpo = {
@@ -252,11 +251,7 @@ function iniciar_jogo() {
 
                 }, 200);
 
-            } else
-                //Se a animação de desvio do J2 e a animação de ataque do j1 forem ativadas ao mesmo tempo
-                //Não faça nada
-                if (anim_desvio_j1 == 1 && anim_soco_j2 == 1) {
-                }
+            } 
 
             //Se um dos jogadores tiver a vida menor ou igual a 0, a partida se
             //encerra e o eventListener para reconhecer as teclas é removido
@@ -344,7 +339,7 @@ function iniciar_jogo() {
                     audioJ1.play();
                 }
                 rodada++;
-                rodada_atual.innerHTML = "Round" + rodada;
+                rodada_atual.innerHTML = "Round " + rodada;
             }
 
             if (vidasJ1 == 0 || vidasJ2 == 0) {
@@ -415,6 +410,5 @@ function iniciar_jogo() {
         }
         //adicionando evento que chama função ao pressionar a tecla especificada em "keycode"
         document.addEventListener('keydown', gameplay);
-    } else {
-    }
+    } 
 }
