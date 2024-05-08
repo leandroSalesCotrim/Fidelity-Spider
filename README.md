@@ -1,21 +1,37 @@
-# Projeto Individual desenvolvido no primeiro semestre da faculdade Bandtec
+# Projeto Individual inicialmente desenvolvido no primeiro semestre da faculdade Bandtec (Sptech School)
 
-<b><h1>Telas prototipo</h1></b>
-![p1](https://user-images.githubusercontent.com/56699403/139929573-b228666e-79f2-4edf-b0cb-b7e7344cea56.png)
-![p2](https://user-images.githubusercontent.com/56699403/139929576-9ae8b997-263e-4ce1-8d42-906e6b1d7564.png)
-![p3](https://user-images.githubusercontent.com/56699403/139929577-9b257be3-ba3f-4168-b2db-b4331b37eff6.png)
-![p4](https://user-images.githubusercontent.com/56699403/139929579-b690dde2-66e2-49ea-abf2-7888e0ef7550.png)
-![p5](https://user-images.githubusercontent.com/56699403/139929580-28ba7856-03c7-4c0c-a406-403d27b2ebf1.png)
-![p6](https://user-images.githubusercontent.com/56699403/139929582-41afc377-06a1-417e-8ed1-1befa3ccb901.png)
-![p7](https://user-images.githubusercontent.com/56699403/139929585-12788f77-9a5f-46e0-a47c-3ec67d621926.png)
-![p8](https://user-images.githubusercontent.com/56699403/139929586-dfc275ba-45c9-4590-ba18-ea56a68ceaa5.png)
-![p9](https://user-images.githubusercontent.com/56699403/139929589-0bbc5c06-e7e7-47c8-a44c-34c2461c2331.png)
-![p10](https://user-images.githubusercontent.com/56699403/139929592-f0be9020-ab60-4c29-8be8-83ebaeadde8e.png)
-![p11](https://user-images.githubusercontent.com/56699403/139929598-c8dc2203-d71b-4874-93cf-0419ce7c6ff6.png)
-![p12](https://user-images.githubusercontent.com/56699403/139929611-54c0a0af-2a6c-4db0-a545-d72fad28de4a.png)
-![p13](https://user-images.githubusercontent.com/56699403/139929617-5dd410a1-65ef-48a8-8b2e-7d4e42c35180.png)
-![p14](https://user-images.githubusercontent.com/56699403/139929619-20231146-2fcb-4c95-b06a-ceeadbe09ba2.png)
-![p15](https://user-images.githubusercontent.com/56699403/139929556-7b7bda7b-bd97-4ba4-8c93-fcb087e2e1f4.png)
-![p16](https://user-images.githubusercontent.com/56699403/139929562-9af4a738-7ea4-415f-9292-9b164b014efd.png)
-![p17](https://user-images.githubusercontent.com/56699403/139929566-24034818-6c26-4d1c-992f-ce57087e684a.png)
-![p18](https://user-images.githubusercontent.com/56699403/139929569-64ccffaf-2df4-420d-8b9d-9554328edf3e.png)
+<h1>Qual o proposito do projeto?</h1>
+<h4>A ideia do projeto era aplicar os conhecimentos adquiridos no primeiro semestre da faculdade e desenvolver um site com uma tematica que estivesse relacionada com a sua personalidade, algo que fosse importante para sua trajetória até aqui. E então escolhi o homem-aranha para ser o tema do meu projeto pois além de ser meu herói favorito, desde sempre ele esteve presente na minha vida me inspirando!</h4>
+<h>
+
+<h1>Tecnologias utilizadas</h1>
+<div align="center">
+	<img width="50" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML"/>
+	<img width="50" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/>
+	<img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/>
+	<img width="50" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
+	<img width="50" src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" title="MySQL"/>
+</div>
+
+<h1>O que ele faz?</h1>
+<h4>Este é um site simples feito por alguém que é muito fã do homem aranha, então tentei pensar em atividades no site que recompensassem os usuários que navegarem pelo mesmo, com pequenas tarefas como, por exemplo, votar em qual vilão você desejaria ver num próximo jogo e até mesmo um minigame para disputar com um amigo, o jogo funciona de forma simples onde ambos jogadores utilizam o mesmo teclado para jogar e ambos também podem atacar e desviar dos ataques como nas instruções da página.</h4>
+<h4>No final, cada atividade que você realizar no site irá gerar uma pontuação para o usuário logado (Spider-points) que podem ser trocadas na loja por voucher de descontos fictícios, e não, o voucher não é funcional, é somente um código de 16 dígitos que é gerado aleatoriamente a cada vez que um usuário faz um resgate. Por fim todas essas atividades são registradas no banco de dados e podem ser visualizadas na tela de adm, podendo visualizar quantas vitórias ocorreram com x personagem, qual vilão foi o mais votado e quem realizou um resgate junto com todas as informações do resgate.</h4>
+<h1>Telas do projeto</h1>
+
+
+
+![p1 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/41c83505-0b68-4e02-bad9-ac09dd0cade7)
+![p1](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/c923ff68-a339-4a99-bb40-273a6248129f)
+![p2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/19d95ecd-1f4c-4b93-92e2-ed4188455dd0)
+![p3](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/68fde139-e7f7-4cd4-8e43-b3229fa6adc2)
+![p4 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/04f890b2-84da-401f-961e-50281051a029)
+![p4](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/ce38f28f-f34d-4759-ab88-3e25a2942452)
+![p5 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/baa8b0e2-215d-4266-9bef-138183f688ca)
+![p5](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/f1b1650e-0c9a-4103-9113-02ba33d7b4dd)
+![p6 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/44992d71-810e-41be-b91e-0f53791a9315)
+![p6](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/686c2814-1dde-4053-bfa4-6b028cc88b70)
+![p7 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/f90c23bf-8867-4c5a-b500-90c160c0a1d0)
+![p7](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/f021955d-e845-46d3-afa4-0c25db720222)
+![p8 2](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/aa9b864b-4d28-4831-8c47-8825b2fe7901)
+![p8](https://github.com/leandroSalesCotrim/Fidelity-Spider/assets/56699403/7c31d19f-c362-473d-808d-1a171042bc33)
+
