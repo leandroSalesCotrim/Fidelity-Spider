@@ -1,28 +1,13 @@
 var mysql = require("mysql2");
 var sql = require('mssql');
-
-// CONEXÃO DO SQL SERVER - AZURE (NUVEM)
-var sqlServerConfig = {
-    user: "XXXXX",
-    password: "XXXXX",
-    database: "XXXXX",
-    server: "XXXXX",
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 30000
-    },
-    options: {
-        encrypt: true, // for azure
-    }
-}
+require('dotenv').config();
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
-    host: "localhost",
-    user: "root",
-    database: "fidelity_spider",
-    password: "admin",
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    database: process.env.MYSQL_DB,
+    password: process.env.MYSQL_PASSWORD,
 };
 
 function executar(instrucao) {

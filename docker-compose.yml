@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ${MYSQL_HOST}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_ADMIN}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./src/database/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./src/database/data.sql:/docker-entrypoint-initdb.d/2.sql"
+
+  nodejs:
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/app
+    # environment:
+    #   DATABASE_HOST: mysql
+    #   DATABASE_USER: user_comum
+    #   DATABASE_PASSWORD: senha123
+    #   DATABASE_NAME: fidelity_spider
