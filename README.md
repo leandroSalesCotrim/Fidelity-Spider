@@ -1,21 +1,61 @@
 # Projeto Individual inicialmente desenvolvido no primeiro semestre da faculdade Bandtec (Sptech School)
 
-<h1>Qual o proposito do projeto?</h1>
-<h4>A ideia do projeto era aplicar os conhecimentos adquiridos no primeiro semestre da faculdade e desenvolver um site com uma tematica que estivesse relacionada com a sua personalidade, algo que fosse importante para sua trajetória até aqui. E então escolhi o homem-aranha para ser o tema do meu projeto pois além de ser meu herói favorito, desde sempre ele esteve presente na minha vida me inspirando!</h4>
-<h>
+<summary><h3>Qual o proposito do projeto?</h3></summary>
+A ideia do projeto era aplicar os conhecimentos adquiridos no primeiro semestre da faculdade e desenvolver um site com uma tematica que estivesse relacionada com a sua personalidade, algo que fosse importante para sua trajetória até aqui. E então escolhi o homem-aranha para ser o tema do meu projeto pois além de ser meu herói favorito, desde sempre ele esteve presente na minha vida me inspirando!
 
-<h1>Tecnologias utilizadas</h1>
+<h3><summary>Tecnologias utilizadas</h3></summary>
 <div align="center">
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML"/>
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/>
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/>
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" title="MySQL"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" title="MySQL"/>
+	<img width="60" src="https://user-images.githubusercontent.com/25181517/117207330-263ba280-adf4-11eb-9b97-0ac5b40bc3be.png" alt="Docker" title="Docker"/>
 </div>
 
-<h1>O que ele faz?</h1>
-<h4>Este é um site simples feito por alguém que é muito fã do homem aranha, então tentei pensar em atividades no site que recompensassem os usuários que navegarem pelo mesmo, com pequenas tarefas como, por exemplo, votar em qual vilão você desejaria ver num próximo jogo e até mesmo um minigame para disputar com um amigo, o jogo funciona de forma simples onde ambos jogadores utilizam o mesmo teclado para jogar e ambos também podem atacar e desviar dos ataques como nas instruções da página.</h4>
-<h4>No final, cada atividade que você realizar no site irá gerar uma pontuação para o usuário logado (Spider-points) que podem ser trocadas na loja por voucher de descontos fictícios, e não, o voucher não é funcional, é somente um código de 16 dígitos que é gerado aleatoriamente a cada vez que um usuário faz um resgate. Por fim todas essas atividades são registradas no banco de dados e podem ser visualizadas na tela de adm, podendo visualizar quantas vitórias ocorreram com x personagem, qual vilão foi o mais votado e quem realizou um resgate junto com todas as informações do resgate.</h4>
+<h3><summary>O que ele faz?</summary></h3>
+Este é um site simples feito por alguém que é muito fã do homem aranha, então tentei pensar em atividades no site que recompensassem os usuários que navegarem pelo mesmo, com pequenas tarefas como, por exemplo, votar em qual vilão você desejaria ver num próximo jogo e até mesmo um minigame para disputar com um amigo, o jogo funciona de forma simples onde ambos jogadores utilizam o mesmo teclado para jogar e ambos também podem atacar e desviar dos ataques como nas instruções da página.<br><br>
+No final, cada atividade que você realizar no site irá gerar uma pontuação para o usuário logado (Spider-points) que podem ser trocadas na loja por voucher de descontos fictícios, e não, o voucher não é funcional, é somente um código de 16 dígitos que é gerado aleatoriamente a cada vez que um usuário faz um resgate. Por fim todas essas atividades são registradas no banco de dados e podem ser visualizadas na tela de adm, podendo visualizar quantas vitórias ocorreram com x personagem, qual vilão foi o mais votado e quem realizou um resgate junto com todas as informações do resgate.
+
+<summary><h3>Como rodar localmente 👨‍💻</h3></summary></br>
+  
+  ⚠️ Necessário Docker e Docker-Compose ⚠️
+
+1) Clone o repositório
+
+```bash
+$ git clone https://github.com/leandroSalesCotrim/Fidelity-Spider.git
+```
+
+2) Entre na pasta raíz do projeto
+
+```bash
+$ cd Fidelity-Spider
+```
+
+3) Instale as dependencias
+
+```bash
+$ npm install
+```
+
+4) Crie um arquivo `.env` na pasta raiz do projeto contendo o conteudo abaixo
+```bash
+MYSQL_DB=fidelity_spider
+MYSQL_USER=user_comum
+MYSQL_PASSWORD=senha123
+MYSQL_PASSWORD_ADMIN=admin
+
+MYSQL_HOST=node_mysql
+```
+
+5) Suba os containers já configurado com a aplicação e bancos
+
+```bash
+$ docker-compose up
+```
+
+
 <h1>Telas do projeto</h1>
 
 
